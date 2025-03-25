@@ -1,0 +1,12 @@
+import { RxHamburgerMenu } from "react-icons/rx";
+
+const Header = () => {
+  return (
+    <header className="flex justify-between items-center px-[50px] pt-[12px] ">
+      <img src="/assets/gtf-logo.png" className="h-[60px]" alt="logo" />
+      <RxHamburgerMenu className="text-[30px]" />
+    </header>
+  );
+};
+
+export default Header;
