@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
+// import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(SplitText);
+// gsap.registerPlugin(SplitText);
 
 const WhoWeAre = () => {
   const words = [
@@ -85,43 +85,43 @@ const WhoWeAre = () => {
   const textRef = useRef([]);
   const sectionRef = useRef(null);
 
-  useEffect(() => {
-    // Register the SplitText plugin
-    gsap.registerPlugin(SplitText);
+  //   useEffect(() => {
+  //     // Register the SplitText plugin
+  //     gsap.registerPlugin(SplitText);
 
-    // Create an array to hold the split text instances
-    const splitInstances = textRef.current.map(
-      (ref) => ref && new SplitText(ref, { type: "chars" })
-    );
+  //     // Create an array to hold the split text instances
+  //     const splitInstances = textRef.current.map(
+  //       (ref) => ref && new SplitText(ref, { type: "chars" })
+  //     );
 
-    // Flatten the array of all characters
-    const allChars = splitInstances.flatMap((split) => split?.chars || []);
+  //     // Flatten the array of all characters
+  //     const allChars = splitInstances.flatMap((split) => split?.chars || []);
 
-    // Fix reflow issue by animating opacity & scale instead of direct font change
-    gsap.fromTo(
-      allChars,
-      {
-        opacity: 0.3,
+  //     // Fix reflow issue by animating opacity & scale instead of direct font change
+  //     gsap.fromTo(
+  //       allChars,
+  //       {
+  //         opacity: 0.3,
 
-        fontSize: "38px",
-        fontWeight: "500",
-        position: "relative", // Fixes shifting
-      },
-      {
-        fontWeight: 500,
-        fontSize: "38px",
-        duration: 1,
-        opacity: 1,
-        stagger: 0.05,
-        ease: "power2.out",
-      }
-    );
+  //         fontSize: "38px",
+  //         fontWeight: "500",
+  //         position: "relative", // Fixes shifting
+  //       },
+  //       {
+  //         fontWeight: 500,
+  //         fontSize: "38px",
+  //         duration: 1,
+  //         opacity: 1,
+  //         stagger: 0.05,
+  //         ease: "power2.out",
+  //       }
+  //     );
 
-    // Cleanup function to revert changes on unmount
-    return () => {
-      splitInstances.forEach((split) => split?.revert());
-    };
-  }, []);
+  //     // Cleanup function to revert changes on unmount
+  //     return () => {
+  //       splitInstances.forEach((split) => split?.revert());
+  //     };
+  //   }, []);
 
   //   useLayoutEffect(() => {
   //     // if (!data.length || !valuesRef.current) return;
