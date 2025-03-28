@@ -5,6 +5,7 @@ import { Mousewheel, Pagination } from "swiper/modules";
 import gsap from "gsap";
 import "swiper/css";
 import "swiper/css/pagination";
+import { createPortal } from "react-dom";
 
 const data = [
   { name: "Brand Strategy", img: "1.jpg", id: "brand_strategy" },
@@ -18,6 +19,7 @@ const HeroSection = () => {
   const [showLines, setShowLines] = useState(false);
   const [swiperReady, setSwiperReady] = useState(false);
   const [videoCompleted, setVideoCompleted] = useState(false);
+  const [expandedSlide, setExpandedSlide] = useState(null);
   const swiperInstance = useRef(null);
   const videoRef = useRef(null);
   const imageRef = useRef(null);
@@ -26,6 +28,8 @@ const HeroSection = () => {
   const line1Ref = useRef(null);
   const line2Ref = useRef(null);
   const line3Ref = useRef(null);
+  const expandedMediaRef = useRef(null); // Ref for the expanded media
+  const mediaRefs = useRef([]); // Refs for each slide’s media
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -33,40 +37,18 @@ const HeroSection = () => {
       gsap.fromTo(
         line1Ref.current,
         { width: "0%", opacity: 0, left: "17%" },
-        {
-          width: "25%",
-          opacity: 1,
-          left: "17%",
-          duration: 1.5,
-          ease: "power2.in",
-        }
+        { width: "25%", opacity: 1, left: "17%", duration: 1.5, ease: "power2.in" }
       );
-
       gsap.fromTo(
         line2Ref.current,
         { width: "0%", opacity: 0, right: "25%" },
-        {
-          width: "24%",
-          opacity: 1,
-          right: "25%",
-          duration: 1.5,
-          ease: "power2.in",
-          delay: 0.2,
-        }
+        { width: "24%", opacity: 1, right: "25%", duration: 1.5, ease: "power2.in", delay: 0.2 }
       );
-
       gsap.fromTo(
         line3Ref.current,
         { height: "0%", opacity: 0 },
-        {
-          height: "30px",
-          opacity: 1,
-          duration: 1.6,
-          ease: "power2.in",
-          delay: 0.2,
-        }
+        { height: "30px", opacity: 1, duration: 1.6, ease: "power2.in", delay: 0.2 }
       );
-
       setShowLines(true);
     }
   }, [swiperReady, videoCompleted]);
@@ -76,28 +58,97 @@ const HeroSection = () => {
       onComplete: () => {
         setVideoCompleted(true);
         videoRef.current.style.display = "none";
-      }
-    });
-
-    tl.to(videoRef.current, {
-      opacity: 0,
-      duration: 1,
-      ease: "power2.out"
-    })
-    .to(imageRef.current, {
-      opacity: 1,
-      duration: 0
-    }, "-=1")
-    .fromTo(imageRef.current, 
-      {
-        scale: 10,
-        opacity: 1
       },
-      {
-        scale: 1,
-        duration: 1.5,
-        ease: "power2.out"
+    });
+    tl.to(videoRef.current, { opacity: 0, duration: 1, ease: "power2.out" })
+      .to(imageRef.current, { opacity: 1, duration: 0 }, "-=1")
+      .fromTo(
+        imageRef.current,
+        { scale: 10, opacity: 1 },
+        { scale: 1, duration: 1.5, ease: "power2.out" }
+      );
+  };
+
+  // Toggle expanded state and animate
+  const handleSlideClick = (index) => {
+    if (index === activeIndex) {
+      if (expandedSlide === index) {
+        // Collapse animation
+        const media = mediaRefs.current[index];
+        const rect = media.getBoundingClientRect();
+        gsap.to(expandedMediaRef.current, {
+          width: rect.width,
+          height: rect.height,
+          top: rect.top,
+          left: rect.left,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+          onComplete: () => setExpandedSlide(null),
+        });
+      } else {
+        // Expand animation
+        setExpandedSlide(index);
       }
+    }
+  };
+
+  // Animate the expanded media when it mounts
+  useEffect(() => {
+    if (expandedSlide !== null && expandedMediaRef.current && mediaRefs.current[expandedSlide]) {
+      const media = mediaRefs.current[expandedSlide];
+      const rect = media.getBoundingClientRect();
+      gsap.fromTo(
+        expandedMediaRef.current,
+        {
+          width: rect.width,
+          height: rect.height,
+          top: rect.top,
+          left: rect.left,
+          opacity: 1,
+        },
+        {
+          width: "100vw",
+          height: "100vh",
+          top: 0,
+          left: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.inOut",
+        }
+      );
+    }
+  }, [expandedSlide]);
+
+  // Render expanded media as a portal
+  const renderExpandedMedia = () => {
+    if (expandedSlide === null) return null;
+
+    const info = data[expandedSlide];
+    return createPortal(
+      <div
+        className="fixed top-0 left-0 w-[100vw] h-[100vh] z-[10000] flex items-center justify-center"
+        onClick={() => handleSlideClick(expandedSlide)}
+      >
+        {info.img.endsWith(".mp4") || info.img.endsWith(".webm") ? (
+          <video
+            ref={expandedMediaRef}
+            src={`/assets/home/hero/${info.img}`}
+            className="object-cover"
+            autoPlay
+            loop
+            muted
+          />
+        ) : (
+          <img
+            ref={expandedMediaRef}
+            src={`/assets/home/hero/${info.img}`}
+            className="object-cover"
+            alt={info.name}
+          />
+        )}
+      </div>,
+      document.body
     );
   };
 
@@ -113,7 +164,6 @@ const HeroSection = () => {
         onEnded={handleVideoEnd}
       />
 
-  
       <div className="custom_container" style={{ opacity: videoCompleted ? 1 : 0 }}>
         <div className="flex justify-center mb-10 heading-container" ref={headingRef}>
           <h1 className="uppercase text-center text-5xl font-bold font-[Oswald] text-global-color tracking-[1px]">
@@ -205,14 +255,9 @@ const HeroSection = () => {
             >
               {data.map((info, index) => (
                 <SwiperSlide
-                  onMouseEnter={(e) => {
-                    document.querySelectorAll(".swiper-slide").forEach((slide) => {
-                      slide.classList.remove("swiper-slide-active");
-                    });
-                    e.currentTarget.classList.add("swiper-slide-active");
-                  }}
                   key={index + info.name}
                   className={activeIndex === index ? "swiper-slide-active" : ""}
+                  onClick={() => handleSlideClick(index)}
                 >
                   <figure className="h-[100%] relative img_container">
                     <div className="overlay_container"></div>
@@ -228,18 +273,18 @@ const HeroSection = () => {
                     </div>
                     {info.img.endsWith(".mp4") || info.img.endsWith(".webm") ? (
                       <video
+                        ref={(el) => (mediaRefs.current[index] = el)} // Store ref for this slide
                         src={`/assets/home/hero/${info.img}`}
-                        className="w-full h-[100%] z-[9999] object-cover transition-transform duration-500"
+                        className="w-full h-[100%] z-[9999] object-cover transition-all duration-500"
                         autoPlay
                         loop
                         muted
                       />
                     ) : (
                       <img
-                      ref={index === 0 ? imageRef : null}
-
+                        ref={(el) => (mediaRefs.current[index] = el)} // Store ref for this slide
                         src={`/assets/home/hero/${info.img}`}
-                        className="w-full h-[100%] z-[9999] object-cover transition-transform duration-500"
+                        className="w-full h-[100%] z-[9999] object-cover transition-all duration-500"
                         alt={info.name}
                       />
                     )}
@@ -267,8 +312,7 @@ const HeroSection = () => {
 
           <div className="flex absolute bottom-[30px] right-0 w-[280px] items-center text-[14px]">
             <p className="font-[Oswald] font-[400] text-end text-[14px] mr-[12px]">
-              <span className="font-medium">GTF Technologies</span> is
-              conceptualized from
+              <span className="font-medium">GTF Technologies</span> is conceptualized from
               <span className="font-medium"> Gurukul The Foundation</span>
             </p>
             <img
@@ -279,6 +323,9 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Render the expanded media */}
+      {renderExpandedMedia()}
     </section>
   );
 };
