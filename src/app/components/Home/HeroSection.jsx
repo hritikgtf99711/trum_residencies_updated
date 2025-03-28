@@ -17,16 +17,17 @@ const data = [
 const HeroSection = () => {
   const [showLines, setShowLines] = useState(false);
   const [swiperReady, setSwiperReady] = useState(false);
+  const [centerSlides, setCenterSlides] = useState(false);
   const [videoCompleted, setVideoCompleted] = useState(false);
   const swiperInstance = useRef(null);
-  const videoRef = useRef(null);
-  const imageRef = useRef(null);
+  const containRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const headingRef = useRef(null);
   const containerRef = useRef(null);
+  const videoRef = useRef(null);
   const line1Ref = useRef(null);
   const line2Ref = useRef(null);
   const line3Ref = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     if (swiperReady && videoCompleted) {
@@ -76,29 +77,15 @@ const HeroSection = () => {
       onComplete: () => {
         setVideoCompleted(true);
         videoRef.current.style.display = "none";
-      }
+      },
     });
 
     tl.to(videoRef.current, {
       opacity: 0,
-      duration: 1,
-      ease: "power2.out"
-    })
-    .to(imageRef.current, {
-      opacity: 1,
-      duration: 0
-    }, "-=1")
-    .fromTo(imageRef.current, 
-      {
-        scale: 10,
-        opacity: 1
-      },
-      {
-        scale: 1,
-        duration: 1.5,
-        ease: "power2.out"
-      }
-    );
+      scale: 1.3, // Zoom in effect
+      duration: 1.5,
+      ease: "power2.out",
+    });
   };
 
   return (
@@ -106,14 +93,13 @@ const HeroSection = () => {
       <video
         ref={videoRef}
         src={`/assets/home/hero/branding.mp4`}
-        className="w-full h-screen z-[9999] object-cover fixed top-0 left-0"
+        className="w-full h-screen z-[9999] object-cover fixed top-0 left-0 transition-transform duration-500"
         autoPlay
-        muted
         loop={false}
+        muted
         onEnded={handleVideoEnd}
       />
 
-  
       <div className="custom_container" style={{ opacity: videoCompleted ? 1 : 0 }}>
         <div className="flex justify-center mb-10 heading-container" ref={headingRef}>
           <h1 className="uppercase text-center text-5xl font-bold font-[Oswald] text-global-color tracking-[1px]">
@@ -158,13 +144,14 @@ const HeroSection = () => {
           )}
 
           <div
-            className="basis-[40%] h-[calc(100vh-60px)] translate-y-[-10%] relative swiper_container"
+            className="basis-[40%] h-[calc(100vh-60px)] translate-y-[-26%] relative swiper_container"
             ref={containerRef}
           >
             <Swiper
               direction="vertical"
               centeredSlides={true}
               slidesPerView={3.8}
+              spaceBetween={40}
               onSwiper={(swiper) => {
                 swiperInstance.current = swiper;
                 swiper.slideTo(0);
@@ -185,7 +172,7 @@ const HeroSection = () => {
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
               onProgress={(swiper, progress) => {
                 if (!containerRef.current || !headingRef.current) return;
-                let yOffset = -2000 * progress;
+                let yOffset = -2200 * progress;
                 let containerOffset = Math.max(0, -100 * (progress - 0.2));
                 if (progress >= 0.8 && progress <= 0.9) {
                   containerOffset = 156;
@@ -198,7 +185,7 @@ const HeroSection = () => {
                   if (progress > 0.2) {
                     containerRef.current.style.transform = `translate3d(0px, ${containerOffset}px, 0px)`;
                   } else {
-                    containerRef.current.style.transform = `translateY(-10%)`;
+                    containerRef.current.style.transform = `translateY(-26%)`;
                   }
                 }
               }}
@@ -236,8 +223,6 @@ const HeroSection = () => {
                       />
                     ) : (
                       <img
-                      ref={index === 0 ? imageRef : null}
-
                         src={`/assets/home/hero/${info.img}`}
                         className="w-full h-[100%] z-[9999] object-cover transition-transform duration-500"
                         alt={info.name}
