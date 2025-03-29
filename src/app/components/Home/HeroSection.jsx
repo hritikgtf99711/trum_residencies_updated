@@ -7,11 +7,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const data = [
-  { name: "Search Engine Optimization", id: "seo", img: "performance.mp4" },
+  { name: "Brand Strategy", id: "seo", img: "performance.mp4" },
 
-  { name: "Brand Strategy", img: "1.jpg", id: "brand_strategy" },
-  { name: "Website Design & Development", id: "website_development", img: "5.jpg" },
-  { name: "Paid Ads", id: "paid_ads", img: "3.jpg", video: "video_2.mp4" },
+  { name: "Website Design & Development", img: "1.jpg", id: "brand_strategy" },
+  { name: "Paid Ads", id: "website_development", img: "5.jpg" },
+  { name: "Search Engine Optimization", id: "paid_ads", img: "3.jpg", video: "video_2.mp4" },
   { name: "Social Media Marketing", id: "social", img: "2.jpg" },
 ];
 
@@ -28,8 +28,6 @@ const HeroSection = () => {
   const line2Ref = useRef(null);
   const line3Ref = useRef(null);
   const mediaRefs = useRef([]); 
-  const numPaths = 5;
-  const [currentIndex, setCurrentIndex] = useState(0);
     const classes = [".prefix__s1", ".prefix__s2", ".prefix__s3", ".prefix__s4", ".prefix__s5"];
   const colors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A8", "#F3FF33", "#08dd5d", "#000", "#ff0088", "#ffe600", "#00adf2"];
 
@@ -146,7 +144,7 @@ const HeroSection = () => {
           width: "25%",
           opacity: 1,
           left: "17%",
-          duration: 1.2,
+          duration: 0.8,
           ease: "power2.in",
         }
       )
@@ -157,7 +155,7 @@ const HeroSection = () => {
           width: "24%",
           opacity: 1,
           right: "25%",
-          duration: 1.2,
+          duration: 0.8,
           ease: "power2.in",
         },
         "-=0.6"
@@ -168,7 +166,7 @@ const HeroSection = () => {
         {
           height: "30px",
           opacity: 1,
-          duration: 1.2,
+          duration: 0.8,
           ease: "power2.in",
         },
         "-=0.6"
@@ -176,7 +174,7 @@ const HeroSection = () => {
   };
   
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative">
       <video
         ref={videoRef}
         src={`/assets/home/hero/performance.mp4`}
@@ -187,7 +185,7 @@ const HeroSection = () => {
         onEnded={handleVideoEnd}
       />
       <div
-        className="custom_container relative z-[4]"
+        className="custom_container h-[calc(100vh-10px)]  pt-[80px] overflow-hidden relative z-[4]"
       
       >
         <div className="flex justify-center  mb-10 heading-container" ref={headingRef}   style={{
@@ -199,48 +197,47 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        <div className="flex justify-between relative flex-wrap items-stretch">
+        <div className="flex justify-between   relative flex-wrap items-stretch">
           <img
             src="/assets/home/hero/circle.svg" 
-            className="h-[450px] rotate-plus absolute  rotation_circle top-[20%] opacity-[0] left-[10%]"
+            className="h-[450px] rotate-plus absolute  rotation_circle top-[10%] opacity-[0] left-[10%]"
             alt="plus"
           />
 
-          <div className="flex-[1] mt-[220px] translate-x-[-200%] right_line mb-[auto]">
+          <div className="flex-[1] mt-[80px] translate-x-[-200%] right_line mb-[auto]">
             {data.map((_, index) => (
               <span
                 key={index}
-                className={`block border-b-[1px] border-black transition-all duration-500 ${
-                  index === activeIndex ? "w-[20%]" : "w-[15%]"
+                className={`block border-b-[2px] border-[#1E251F] transition-all duration-500 mb-[8px] ${
+                  index === activeIndex ? "w-[15%]" : "w-[10%]"
                 } mb-[3px]`}
               />
             ))}
           </div>
-
             <>
               <div
                 ref={line1Ref}
-                className="h-[30px] w-[80%] absolute top-[290px]  bg-gtf-pink opacity-0"
+                className="h-[30px] w-[80%] absolute top-[220px]  bg-gtf-pink opacity-0"
               ></div>
               <div
                 ref={line2Ref}
-                className="h-[30px] w-[80%] absolute bottom-[270px] right-[-196px] bg-gtf-yellow opacity-0"
+                className="h-[30px] w-[80%] absolute bottom-[300px] right-[-196px] bg-gtf-yellow opacity-0"
               ></div>
               <div
                 ref={line3Ref}
-                className="w-[41.56%] h-[30px] left-[28.6%] bottom-[190px]  absolute bg-gtf-blue opacity-0"
+                className="w-[41.56%] h-[30px] left-[28.6%] z-[1] bottom-[198px]  absolute bg-gtf-blue opacity-0"
               ></div>
             </>
         
           <div
-            className="basis-[40%] h-[calc(100vh-60px)] translate-y-[-26%] relative swiper_container"
+            className="basis-[40%]  h-[calc(100vh-68px)] translate-y-[-40%] relative swiper_container"
             ref={containerRef}
           >
             <Swiper
               direction="vertical"
               centeredSlides={true}
-              slidesPerView={3.8}
-              spaceBetween={40}
+              slidesPerView={4}
+              spaceBetween={30}
               onInit={(swiper) => {
                 swiperInstance.current = swiper;
                 swiper.slideTo(0);
@@ -279,7 +276,7 @@ const HeroSection = () => {
                   if (progress > 0.2) {
                     containerRef.current.style.transform = `translate3d(0px, ${containerOffset}px, 0px)`;
                   } else {
-                    containerRef.current.style.transform = `translateY(-26%)`;
+                    containerRef.current.style.transform = `translateY(-35%)`;
                   }
                 }
               }}
@@ -287,15 +284,15 @@ const HeroSection = () => {
               {data.map((info, index) => (
                 <SwiperSlide
                   onMouseEnter={(e) => {
-
                     document.querySelectorAll(".swiper-slide").forEach((slide) => {
-                      // slide.classList.remove("is-selected");
                       slide.classList.remove("swiper-slide-active");
                     });
                     e.currentTarget.classList.add("swiper-slide-active");
-                    // e.currentTarget.classList.add("is-selected");
                   }}
-                  style={{opacity:index!=0?0:1,transition:"opacity 0.4s all"}}
+                  style={{
+                    opacity: index !== 0 ? 0 : 1,
+                    transition: "opacity 0.4s ease-in-out"
+                  }}
                   key={index + info.name}
                   className={activeIndex === index ? "swiper-slide-active" : ""}
                 >
@@ -333,7 +330,7 @@ const HeroSection = () => {
             </Swiper>
           </div>
 
-          <div className="flex-[1]  flex flex-col translate-x-[200%] relative justify-between option_listing mb-[auto] mt-[200px] ">
+          <div className="flex-[1]  flex flex-col translate-x-[200%] relative justify-between option_listing mb-[auto] mt-[80px] ">
             <ul>
               {data.map((info, index) => (
                 <li
@@ -344,10 +341,10 @@ const HeroSection = () => {
                   }`}
                 >
                   {info.name}
-                </li>
+                </li> 
               ))}
             </ul>
-            <div className="flex  right-0 w-[320px] items-center text-[14px] mt-[110px] ml-[auto]">
+            <div className="flex  right-0 w-[320px] items-center text-[14px] mt-[200px] mb-[40px] ml-[auto]">
             <p className="font-[Oswald] font-[400] text-end text-[14px] mr-[12px]">
               <span className="font-medium">GTF Technologies</span> is
               conceptualized from
