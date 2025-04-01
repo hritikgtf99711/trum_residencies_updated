@@ -185,7 +185,7 @@ const HeroSection = () => {
         onEnded={handleVideoEnd}
       />
       <div
-        className="custom_container h-[calc(100vh-10px)]  pt-[80px] overflow-hidden relative z-[4]"
+        className="custom_container h-[calc(100vh-10px)] relative  pt-[80px] overflow-hidden relative z-[4]"
       
       >
         <div className="flex justify-center  mb-10 heading-container" ref={headingRef}   style={{
@@ -197,35 +197,35 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        <div className="flex justify-between   relative flex-wrap items-stretch">
+        <div className="flex justify-between    flex-wrap items-stretch">
           <img
             src="/assets/home/hero/circle.svg" 
-            className="h-[450px] rotate-plus absolute  rotation_circle top-[10%] opacity-[0] left-[10%]"
+            className="h-[450px] rotate-plus absolute  rotation_circle top-[40%] opacity-[0] left-[10%]"
             alt="plus"
           />
 
-          <div className="flex-[1] mt-[80px] translate-x-[-200%] right_line mb-[auto]">
+          <div className="flex-[1] mt-[80px] leading-[1px] translate-x-[-200%] right_line mb-[auto]">
             {data.map((_, index) => (
               <span
                 key={index}
-                className={`block border-b-[2px] border-[#1E251F] transition-all duration-500 mb-[8px] ${
+                className={`block border-b-[2px] border-[#1E251F] transition-all duration-500 mb-[6px] ${
                   index === activeIndex ? "w-[15%]" : "w-[10%]"
-                } mb-[3px]`}
+                }`}
               />
             ))}
           </div>
             <>
               <div
                 ref={line1Ref}
-                className="h-[30px] w-[80%] absolute top-[220px]  bg-gtf-pink opacity-0"
+                className="h-[25px] w-[80%] absolute top-[54%]  bg-gtf-pink opacity-0"
               ></div>
               <div
                 ref={line2Ref}
-                className="h-[30px] w-[80%] absolute bottom-[300px] right-[-196px] bg-gtf-yellow opacity-0"
+                className="h-[25px] w-[80%] absolute bottom-[130px] right-[-196px] bg-gtf-yellow opacity-0"
               ></div>
               <div
                 ref={line3Ref}
-                className="w-[41.56%] h-[30px] left-[28.6%] z-[1] bottom-[198px]  absolute bg-gtf-blue opacity-0"
+                className="w-[38%] h-[25px] left-[28.6%] z-[1] bottom-[198px] bottom-blob absolute bg-gtf-blue opacity-0"
               ></div>
             </>
         

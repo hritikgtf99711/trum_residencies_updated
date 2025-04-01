@@ -56,7 +56,12 @@ canvas {  position: absolute;  top: 0;  left: 0;  width: 100%;  height: 100%;  p
 .swiper-slide.swiper-slide-active .br_line {display: block;}
 .img_container{transform: transform 1s cubic-bezier(.25,1,.5,1), opacity .5s ease;}
 .swiper-pagination {display: none !important;}
-.bg_container{background-color: ;}
+.bottom-blob{    opacity: 1;
+    height: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: -15px;
+    width: calc(40% - 70px);}
 @keyframes rotation {
 0% {
 transform: rotate(0deg);
