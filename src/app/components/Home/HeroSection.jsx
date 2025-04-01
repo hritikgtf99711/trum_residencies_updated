@@ -174,7 +174,7 @@ const HeroSection = () => {
   };
   
   return (
-    <section className="relative">
+    <section className="relative hero_section">
       <video
         ref={videoRef}
         src={`/assets/home/hero/performance.mp4`}
@@ -200,7 +200,7 @@ const HeroSection = () => {
         <div className="flex justify-between    flex-wrap items-stretch">
           <img
             src="/assets/home/hero/circle.svg" 
-            className="h-[450px] rotate-plus absolute  rotation_circle top-[40%] opacity-[0] left-[10%]"
+            className="h-[450px] rotate-plus absolute  rotation_circle top-[46%] opacity-[0] left-[10%]"
             alt="plus"
           />
 
@@ -208,7 +208,7 @@ const HeroSection = () => {
             {data.map((_, index) => (
               <span
                 key={index}
-                className={`block border-b-[2px] border-[#1E251F] transition-all duration-500 mb-[6px] ${
+                className={`block border-b-[1px] border-[#1E251F] transition-all duration-500 mb-[6px] ${
                   index === activeIndex ? "w-[15%]" : "w-[10%]"
                 }`}
               />
@@ -225,7 +225,7 @@ const HeroSection = () => {
               ></div>
               <div
                 ref={line3Ref}
-                className="w-[38%] h-[25px] left-[28.6%] z-[1] bottom-[198px] bottom-blob absolute bg-gtf-blue opacity-0"
+                className="w-[38%] h-[18px] left-[28.6%] z-[1] bottom-[198px] bottom-blob absolute bg-gtf-blue opacity-0"
               ></div>
             </>
         
