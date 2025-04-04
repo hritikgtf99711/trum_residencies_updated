@@ -8,23 +8,36 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        montserrat: "var(--font-montserrat), sans-serif",
+        cinzel: "var(--font-cinzel), serif",
+      },
+      spacing: {
+        'section': '7rem',
+      },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(268.61deg, #D8C7AD 27.18%, #E8C183 76.63%)',
+        'text-gradient': 'linear-gradient(269.21deg, #FFFFFF -4.57%, #8D8D8D -4.56%, #FFFFFF 100.56%, #999999 100.57%)',
+
+      },
       colors: {
-        "gtf-pink": "#d93f92",
-        "gtf-yellow": "#FDE93D",
-        "gtf-blue": "#2AAEE4",
-        "global-color": "#1E251F"
+        "primary-color": "#E8C18399",
+        "btn-color":"#E8C183",
+        "global-color": "#1E251F",
+        "comment-button-bg": "#FDE93D", // Add button background color
+        "comment-button-text": "#1E251F", // Add text color
       },
       fontSize: {
-        'xs': ['0.75rem', '1rem'],      // 12px / 16px
-        'sm': ['0.875rem', '1.25rem'],  // 14px / 20px
-        'base': ['1rem', '1.5rem'],     // 16px / 24px
-        'lg': ['1.125rem', '1.75rem'],  // 18px / 28px
-        'xl': ['1.25rem', '2rem'],      // 20px / 32px
-        '2xl': ['1.5rem', '2.25rem'],   // 24px / 36px
-        '3xl': ['1.875rem', '2.5rem'],  // 30px / 40px
-        '4xl': ['2.25rem', '2.75rem'],  // 36px / 44px
-        '5xl': ['3.5rem', '4rem'],      // 56px / 64px
-        '6xl': ['3.75rem', '4.25rem'],  // 60px / 68px
+        'xs': ['0.75rem', '1rem'],
+        'sm': ['0.875rem', '1.25rem'],
+        'base': ['1rem', '1.5rem'],
+        'lg': ['1.125rem', '1.75rem'],
+        'xl': ['1.25rem', '2rem'],
+        '2xl': ['1.5rem', '2.25rem'],
+        '3xl': ['1.875rem', '2.5rem'],
+        '4xl': ['2.25rem', '2.75rem'],
+        '5xl': ['3.5rem', '4rem'],
+        '6xl': ['3.75rem', '4.25rem'],
       },
       fontWeight: {
         'thin': 100,
@@ -37,13 +50,12 @@ module.exports = {
         'extrabold': 800,
         'black': 900,
       },
-      // Define custom container screens
       screens: {
-        'sm': '640px',
-        'md': '768px',
-        'lg': '1024px',
-        'xl': '1280px',
-        '2xl': '1536px',
+        'sm': '540px',
+        'md': '720px',
+        'lg': '960px',
+        'xl': '1140px',
+        '2xl': '1320px',
       },
     },
   },
@@ -53,8 +65,8 @@ module.exports = {
         '.custom_container': {
           marginLeft: 'auto',
           marginRight: 'auto',
-          paddingLeft: theme('spacing.4'),  // 1rem = 16px
-          paddingRight: theme('spacing.4'), // 1rem = 16px
+          paddingLeft: theme('spacing.4'),
+          paddingRight: theme('spacing.4'),
           maxWidth: '100%',
           '@screen sm': {
             maxWidth: theme('screens.sm'),
@@ -72,7 +84,58 @@ module.exports = {
             maxWidth: theme('screens.2xl'),
           },
         },
+        // Custom button styles for comment button
+        '.comment-button': {
+          backgroundColor: theme('colors.btn-color'),
+          color: theme('colors.global-color'),
+          fontWeight: theme('fontWeight.thin'),
+          padding: '0.5rem 1rem',
+          border: '2px solid transparent',
+          textAlign: 'center',
+          transition: 'background-color 0.3s ease, transform 0.2s ease',
+          '&:hover': {
+            backgroundColor: theme('colors.btn-color'),
+            transform: 'scale(1.05)',
+          },
+          '&:focus': {
+            outline: 'none',
+            boxShadow: '0 0 0 2px rgba(47, 174, 228, 0.8)', // Adding focus styles
+          },
+        },
+      '.heading_container span':{
+          textTransform:'uppercase',
+          color:'#D6D6D6'
+      },
+        'h2': {
+          fontSize: theme('fontSize.4xl'),
+          textTransform:'upperCase',
+          // letterSpacing:'5px',
+          color:theme('colors.btn-color'),
+        },
+        'h3': {
+          fontSize: theme('fontSize.3xl'),
+        },
+        '.custom-text-gradient': {
+          'background-image': 'linear-gradient(269.21deg, #FFFFFF -4.57%, #8D8D8D -4.56%, #FFFFFF 100.56%, #999999 100.57%)',
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+        },
+        '.black_texture_one':{
+          'background-image': "url('/assets/images/amenities_texture.jpg')", 
+          'background-size': 'cover',
+          'background-position': 'center',
+        },
+        '.black_texture_two': {
+          'background-image': "url('/assets/images/tribeca_bg.jpg')", 
+          'background-size': 'cover',
+          'background-position': 'center',
+        },
+        '.black_texture_three':{
+          'background-image': "url('/assets/images/smart_world_bg.jpg')", // Corrected syntax
+          'background-size': 'cover',
+          'background-position': 'center',
+        }
       });
-    }),
+    }), 
   ],
 };
