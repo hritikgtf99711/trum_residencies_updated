@@ -26,6 +26,6 @@ const SmoothScroll = ({ children }) => {
   }, []); // Empty dependency array ensures this runs once on mount
 
   return <>{children}</>;
-};
+}; 
 
 export default SmoothScroll;
