@@ -90,7 +90,7 @@ export default function Amenities() {
         gsap.to(slide, {
           scale: 1,
           opacity: 1,
-          flex:'0 0 26%',
+          // flex:'0 0 26%',
           y: 0,
           duration: 0.8,
           ease: "slow",
@@ -192,7 +192,7 @@ export default function Amenities() {
               onClick={() => handleSlideClick(index)}
             >
               <Image
-                className="object-cover h-[480px] rounded-[6px] shadow-xl transition-all duration-700 ease-out"
+                className="object-cover lg:`h-[480px] rounded-[6px] shadow-xl transition-all duration-700 ease-out"
                 src={amenity.src}
                 alt={amenity.alt}
                 width={752}

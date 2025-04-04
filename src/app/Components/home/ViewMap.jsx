@@ -7,7 +7,7 @@
 
   export default function ViewMap() {
     return (
-      <section className="relative">
+      <section className="relative lg-py-0 py-section">
              <Image src={'/assets/images/ring_blob.svg'} alt=""  className='absolute  lg:hidden block left-[-30px] z-[-1] top-[-228px]' height={'200'} width={'200'}/>
         <div className='custom_container relative' >
           <div className='grid lg:grid-cols-6 grid-cols-1  gap-x-[50px] gap-y-4'>
