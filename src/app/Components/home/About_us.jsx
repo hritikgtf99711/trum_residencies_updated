@@ -22,7 +22,7 @@ export default function AboutUs() {
        },
        onComplete: () => {
           
-         tl.kill(); // Kills the timeline and its ScrollTrigger
+         tl.kill(); 
        },
      });
    
@@ -39,7 +39,7 @@ export default function AboutUs() {
 
         <div className="grid lg:grid-cols-9 gap-x-12 gap-y-6 items-center">
           <div className="col-span-3 left_content opacity-0 translate-x-[-100px]">
-          <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='absolute z-[-1]  lg:hidden block  bottom-[40px] right-[-52px] opacity-[0.4]' /> 
+          <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='absolute z-[-1]  lg:hidden block  bottom-[40px] right-[-52px] opacity-[0.3]' /> 
 
             <div className="heading_container text-start">
               <Heading heading="ABOUT US" classNames="lg:text-start text-center" />

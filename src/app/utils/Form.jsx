@@ -23,7 +23,7 @@ export default function Form() {
                     <input type="checkbox"  className="peer cursor-pointer transition-all accent-primary-color  mt-2   shadow hover:shadow-md border  border-primary-color checked:primary-color checked:primary-color" id="check" />
                 </div>
                     
-                <p className='montserrat text-[10px] font-[300] leading-[14px]'>I authorize company representatives to Call, SMS, Email or WhatsApp me about its products and offers. This consent overrides any registration for DNC/NDNC.</p>
+                <p className='montserrat lg:text-[10px] text-[8px] font-[300] leading-[14px]'>I authorize company representatives to Call, SMS, Email or WhatsApp me about its products and offers. This consent overrides any registration for DNC/NDNC.</p>
                 </label>
                 </div> 
             <div className='text-center'>

@@ -34,8 +34,7 @@
                     <source src="/assets/video/about_us_banner.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                     </video>
-                  <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1] w-full  lg:block  w-full circle_blob bottom_blob  lg:top-[-100px] top-[-240px] lg:opacity-[1] opacity-[.4]' />
-                <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1] w-full   lg:block  circle_blob bottom_blob  bottom-[-220px] lg:opacity-[1] opacity-[.4]' />
+                  <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1] w-full  lg:block  w-full circle_blob bottom_blob  lg:top-[-155px] top-[-220px] lg:opacity-[1] opacity-[.2]' />
                 </div>
           </div>
       </section>

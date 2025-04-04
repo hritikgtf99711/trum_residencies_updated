@@ -15,7 +15,7 @@ export default function Amenities() {
   const sliderRef = useRef(null);
   const sectionRef = useRef(null);
   const slidesRef = useRef([]);
-  const totalSlides = 10;
+  const totalSlides = 8;
   const isMounted = useRef(false);
   const scrollDirection = useRef(0);
   const lastScrollY = useRef(0);
@@ -35,8 +35,7 @@ export default function Amenities() {
     { title: "Cinema", src: "/assets/images/amenities_6.jpg", alt: "Amenity 6" },
     { title: "Lounge", src: "/assets/images/amenities_7.jpg", alt: "Amenity 7" },
     { title: "Garden", src: "/assets/images/amenities_8.jpg", alt: "Amenity 8" },
-    { title: "Lounge", src: "/assets/images/amenities_9.jpg", alt: "Amenity 9" },
-    { title: "Cinema", src: "/assets/images/amenities_10.jpg", alt: "Amenity 10" },
+
   ];
 
   useEffect(() => {
@@ -91,15 +90,16 @@ export default function Amenities() {
         gsap.to(slide, {
           scale: 1,
           opacity: 1,
+          flex:'0 0 26%',
           y: 0,
           duration: 0.8,
           ease: "slow",
         });
       } else {
         gsap.to(slide, {
-          scale: 0.6,
+          scale: 0.7,
           opacity: 0.7,
-          y: slideModIndex < currentModIndex ? -waveOffset - 20 : waveOffset,
+          y: slideModIndex < currentModIndex ?waveOffset: -waveOffset + 20  ,
           duration: 0.8,
           ease: "slow",
         });
@@ -188,11 +188,11 @@ export default function Amenities() {
             <div
               key={`slide-${index}`}
               ref={(el) => (slidesRef.current[index] = el)}
-              className="relative wave-slide cursor-pointer flex-shrink-0 flex-grow-0 lg:basis-[calc(25%)] basis-[calc(60%)]"
+              className="relative wave-slide cursor-pointer flex-shrink-0 mx-4 flex-grow-0 lg:basis-[calc(25%)] basis-[calc(60%)]"
               onClick={() => handleSlideClick(index)}
             >
               <Image
-                className="object-cover lg:h-[520px] rounded-[5px] shadow-xl transition-all duration-700 ease-out"
+                className="object-cover h-[480px] rounded-[6px] shadow-xl transition-all duration-700 ease-out"
                 src={amenity.src}
                 alt={amenity.alt}
                 width={752}

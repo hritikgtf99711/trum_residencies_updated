@@ -50,7 +50,7 @@ export default function Sidemenu({openmenuVia,setOpenMenuVia}) {
             </ul>
             <Image className='absolute right-[0] rotate-180 bottom-[-138px]' src={"/assets/images/menu_blob.svg"} alt="menu blob"  height={'2'} width={'400'}/>
 
-            <h6  className='text-primary-color z-[1] relative tracking-[normal] font-[500] text-center pt-[100px]'>Rera no. RC/REP/HARERA/GGM/925/657/2025/28</h6>
+            <h6  className='text-primary-color z-[1] relative tracking-[normal] font-[500] text-center pt-[100px] p-[2px]'>Rera no. RC/REP/HARERA/GGM/925/657/2025/28</h6>
     </div>
   )
 }
