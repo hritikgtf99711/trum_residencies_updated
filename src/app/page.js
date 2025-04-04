@@ -11,6 +11,7 @@ import Amenities from "./Components/home/Amenities";
 export default function Home() {
   return (
     <>
+      <div className="overflow-x-hidden">
       <Header />
       <Banner />
       <About/>
@@ -21,6 +22,7 @@ export default function Home() {
       <Tribeca_sec/>
       <Smart_world/>
       <Form/>
+      </div>
     </>
   );
 }

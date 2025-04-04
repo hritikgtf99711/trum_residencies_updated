@@ -21,21 +21,21 @@
   },{ scope: container }); 
 
     return (
-      <section className="relative frame_sec  py-section">
+      <section className="relative frame_sec   py-section">
           <div className='custom_container relative'  ref={container} >
               <div className='heading_container text-center'>
                 <Small_title small_title="About Project"/>
                 <Heading heading={'The World of Trump'}/>
               </div>
-                <div className='video_sec w-[60%] m-auto mt-10'>
+                <div className='video_sec lg:w-[70%] w-full m-auto mt-10'>
                 <Image src="/assets/images/bg-stick-left.png" alt="background blob" height={800} width={800} className='afterBeforeImage before' />
                   <Image src="/assets/images/bg-stick-right.png" alt="background blob" height={800} width={800} className='afterBeforeImage after ' />
-                    <video className="mt-[50px] " autoPlay loop muted>
+                    <video className="mt-[50px] " autoPlay loop controls muted>
                     <source src="/assets/video/about_us_banner.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                     </video>
-                  <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1]  w-full circle_blob bottom_blob  top-[-100px]' />
-                <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1] w-full circle_blob bottom_blob  bottom-[-220px]' />
+                  <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1] w-full  lg:block  w-full circle_blob bottom_blob  lg:top-[-100px] top-[-240px] lg:opacity-[1] opacity-[.4]' />
+                <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1] w-full   lg:block  circle_blob bottom_blob  bottom-[-220px] lg:opacity-[1] opacity-[.4]' />
                 </div>
           </div>
       </section>
