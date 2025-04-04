@@ -32,7 +32,7 @@ export default function Interiors() {
           ease: "none",
           scrollTrigger: {
             trigger: container.current,
-            pin: true,
+            pin: true,  
             scrub: 1,
             snap: {
               snapTo: 1 / slides,

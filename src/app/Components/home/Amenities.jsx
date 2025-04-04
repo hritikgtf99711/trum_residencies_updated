@@ -202,20 +202,16 @@ export default function Amenities() {
             </div>
           ))}
         </div>
-      </div>
-      {/* <div className="text-center w-full lg:text-2xl text-md font-bold relative lg:mt-0 lg:hidden  mt-4   block">
-          <div className="custom-text-gradient">{amenities[getSlideModuloIndex(currentIndex)].title}</div>
-        </div> */}
-       
+      </div>       
       <div className="flex items-center justify-center mt-8">
         <button 
           className={` ${isAtStart ? 'cursor-not-allowed' : ''} text-white rounded-lg transition-colors`}
           onClick={() => !isAtStart && setCurrentIndex(prev => prev - 1)}
           disabled={isAtStart}
         >
-          <Image src={"/assets/images/right-arrow.png"} className="rotate-180 lg:w-[100px] w-[50px]" alt="left arrow" height={"50"} width={"100"}/>
+          <Image src={"/assets/images/right-arrow.png"} className="rotate-180 opacity-[.4] w-[50px]" alt="left arrow" height={"50"} width={"100"}/>
         </button>
-        <div className="text-center w-full lg:text-2xl text-md font-bold relative">
+        <div className="text-center w-full lg:text-2xl text-md  relative">
           <div className="custom-text-gradient">{amenities[getSlideModuloIndex(currentIndex)].title}</div>
         </div>
         <button 
@@ -223,10 +219,10 @@ export default function Amenities() {
           onClick={() => !isAtEnd && setCurrentIndex(prev => prev + 1)}
           disabled={isAtEnd}
         >
-          <Image src={"/assets/images/right-arrow.png"} alt="right arrow" className="lg:w-[100px] w-[50px]" height={"50"} width={"100"}/>
+          <Image src={"/assets/images/right-arrow.png"} alt="right arrow" className="opacity-[.4] w-[50px]" height={"50"} width={"100"}/>
         </button>
       </div>
-        <div className='text-center lg:hidden block mt-[40px]'  >
+        <div className='text-center lg:hidden block mt-[40px]' >
         <Bordered_button >
           View More
         </Bordered_button>  

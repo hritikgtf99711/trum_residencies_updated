@@ -51,7 +51,7 @@ export default function Form_sec() {
                   Read Less
                 </button>
               }
-        <p className='text-center font-[400] tracking-[0] text-[12px]'>© Copyright 2025 - Trump Tower Gurugram | Design by GTF Technologies</p>
+        <p className='text-center font-[400] tracking-[0] text-[12px]'>© Copyright 2025 - Trump Tower Gurgaon | Design by GTF Technologies</p>
         </div>
       </div>
       </div>

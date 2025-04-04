@@ -19,7 +19,6 @@ export default function AboutUs() {
          start: "top center",
          end: "bottom center",
          toggleActions: "play none none none",
-         markers:true
        },
        onComplete: () => {
           
@@ -57,8 +56,8 @@ export default function AboutUs() {
               src="/assets/images/center_building.png"
               alt="Building"
               className="w-full h-full relative building_create opacity-100"
-              height={900}
-              width={1200}
+              height={1800}
+              width={2200}
             />
           </div>
 
