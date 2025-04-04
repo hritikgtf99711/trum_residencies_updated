@@ -5,7 +5,7 @@ html{  scroll-behavior: smooth;
 }
 body{font-family: var(--font-cinzel), serif;letter-spacing:5px;color:#fff;}
 h1{ font-family: var(--font-cinzel), serif;}
-p{ font-family: var(--font-montserrat), sans-serif;letter-spacing: normal;line-height: 2;font-weight: 300;letter-spacing: 2px;line-height: 2.3!important;}
+p{ font-family: var(--font-montserrat), sans-serif;letter-spacing: normal;line-height: 2;font-weight: 300;letter-spacing: 1px;}
 .video_sec{position: relative;}
 .video_sec .afterBeforeImage{       content: "";position: absolute;top: 0;height: 100%;width: 100%;background-size: cover;background-repeat: no-repeat;}
 .video_sec .before{ left: 50%;background-color: #000;transform: translateX(0%);}

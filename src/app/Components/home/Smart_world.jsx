@@ -14,12 +14,14 @@ export default function Smart_world() {
                     
                 </div>
                 <div className='col-span-4  lg:order-[1] order-[-2]'>
-                    <div className='flex flex-col justify-between h-full relative'>
+                    <div className='flex flex-col justify-between h-full relative lg:place-items-end'>
                           <Image src="/assets/images/circle_blob.png"  alt="building blob" height={800} width={800} className='lg:hidden block absolute  left-[-80px] top-[-140px] opacity-[.4] w-full  w-[38%]' /> 
-                        <Image src={'/assets/images/logo_smart_world.png'}  className='lg:w-[auto] w-[200px] lg:mx-[0] mx-auto'  alt='smart world' height={'589'} width={'682'}/>
+             
+                        <Image src={'/assets/images/logo_smart_world.png'}  className='lg:w-[300px] w-[200px] lg:mx-[0] mx-auto'  alt='smart world' height={'589'} width={'300'}/>
+                      
                
-                <div className='custom-text-gradient lg:text-right text-center lg:mt-o mt-[30px] tracking-[2] text-[18px] lg:text-[24px] font-[300]'>
-                    One of the Fastest-Growing Real Estate Developers in the Country
+                <div className='custom-text-gradient lg:text-right text-center lg:mt-o mt-[30px] tracking-[2] text-[18px] lg:text-[20px] font-[300]'>
+                    One of the Fastest-<span className='lg:block'></span>Growing Real Estate<span className='lg:block'></span> Developers in the <span className='lg:block'></span>Country
                     </div>
                     </div>
                 </div>

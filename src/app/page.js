@@ -16,7 +16,7 @@ export default function Home() {
       <Banner />
       <About/>
       <ViewMap/>
-      <AboutUs/>
+      <AboutUs/>  
       <Interiors/>
       <Amenities/>
       <Tribeca_sec/>

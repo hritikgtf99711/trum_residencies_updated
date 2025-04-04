@@ -11,7 +11,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
 export default function Interiors() {
   const container = useRef();
-
   useGSAP(() => {
     let animation;
     const figures = document.querySelectorAll("figure");
@@ -24,10 +23,10 @@ export default function Interiors() {
       }
   
       const isMobile = window.matchMedia("(max-width: 991px)").matches;
-      
-      if (!isMobile) {
+  
+      if (!isMobile && container.current) {
         const totalWidth = container.current.offsetWidth;
-        
+  
         animation = gsap.to(figures, {
           xPercent: -50 * slides,
           ease: "none",
@@ -38,10 +37,9 @@ export default function Interiors() {
             snap: {
               snapTo: 1 / slides,
               duration: { min: 0.1, max: 0.3 },
-              ease: "ease.in",
-            },
-            start: "top 0",
-            end: () => `+=${(totalWidth * slides) - 400}`,
+              ease: "easeIn",
+            },        
+           end: () => `+=${(totalWidth * slides) - 400}`,
           },
         });
       }
@@ -60,12 +58,12 @@ export default function Interiors() {
   }, { scope: container });
 
   return (
-    <section className="my-[100px]  lg:px-0 lg:px-[30px] "  ref={container}  >
+    <section className="py-[100px] relative lg:px-0 h-[100vh] flex flex-col justify-center"   ref={container}  >
         <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1]  circle_blob bottom_blob left-[-50%]  w-[100%] top-[-60%] opacity-[0.3]' /> 
         <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob right-[-48%]  w-[90%] top-[-60%] opacity-[0.3]' /> 
         <Image src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob left-[0] bottom-[-80px] w-[38%]' /> 
 
-        <div className='lg:py-section'>
+        <div className=''>
             <div className='heading_container col-span-2 text-center' >
             <Heading heading={'Stunning interiors'}/> 
             <h6 className='font-[cinzel] tracking-[2] lg:my-[30px]  mt-[30px] lg:px-0 px-5'>Stunning interiors that redefine elegance, luxury, comfort, <span className='lg:block none'></span> and timeless beauty</h6>
@@ -74,7 +72,7 @@ export default function Interiors() {
                 <div className='lg:col-span-4 col-span-12  lg:text-center m-auto  px-[30px]'>
                 <Image src="/assets/images/circle_blob.png"  alt="building blob" height={800} width={800} className='lg:hidden block absolute  left-[0] top-[-297px] opacity-[.4] w-full  w-[38%]' /> 
                   <p className='mb-10 font-[400]'>Step into the world of Trump where every detail speaks of powerful design and timeless sophistication. At Trump Residences Gurgaon, the interiors are not just crafted—they are curated for the elite, blending legendary craftsmanship with priceless artistry.</p>
-                    <Bordered_button classNames={"lg:block hidden"}>
+                    <Bordered_button classNames={"lg:inline-block hidden"}>
                         View More
                     </Bordered_button>
                 </div>

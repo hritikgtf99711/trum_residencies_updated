@@ -53,7 +53,7 @@ export default function Amenities() {
   const animateSlider = (index) => {
     if (!slidesRef.current[0] || !sliderRef.current || infiniteAmenities.length === 0) return;
 
-    const slideWidth = window.innerWidth < 767?(slidesRef.current[0].offsetWidth) :(slidesRef.current[0].offsetWidth + 100);
+    const slideWidth = window.innerWidth < 767?(slidesRef.current[0].offsetWidth) :(slidesRef.current[0].offsetWidth);
     const centerOffset = window.innerWidth / 2 - slideWidth / 2;
     
     setIsAtStart(index <= 0);
@@ -207,7 +207,7 @@ export default function Amenities() {
           <div className="custom-text-gradient">{amenities[getSlideModuloIndex(currentIndex)].title}</div>
         </div> */}
        
-      <div className="flex items-center justify-center mt-8 lg:mr-[110px]">
+      <div className="flex items-center justify-center mt-8">
         <button 
           className={` ${isAtStart ? 'cursor-not-allowed' : ''} text-white rounded-lg transition-colors`}
           onClick={() => !isAtStart && setCurrentIndex(prev => prev - 1)}
@@ -228,8 +228,8 @@ export default function Amenities() {
       </div>
         <div className='text-center lg:hidden block mt-[40px]'  >
         <Bordered_button >
-                View More
-            </Bordered_button>  
+          View More
+        </Bordered_button>  
             </div>
     </section>
   );

@@ -113,7 +113,7 @@ module.exports = {
           color: theme("colors.btn-color"),
         },
         p: {
-          fontSize: "14px",
+          fontSize: "12px",
         },
         h3: {
           fontSize: theme("fontSize.3xl"),
