@@ -58,7 +58,7 @@ export default function Interiors() {
   }, { scope: container });
 
   return (
-    <section className="py-[100px] relative lg:px-0 lg:h-[100vh] flex flex-col justify-center"   ref={container}  >
+    <section className="py-section relative lg:px-0 lg:h-[100vh] flex flex-col justify-center"   ref={container}  >
         <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1]  circle_blob bottom_blob left-[-50%]  w-[100%] top-[-60%] opacity-[0.3]' /> 
         <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob right-[-48%]  w-[90%] top-[-60%] opacity-[0.3]' /> 
         <Image src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob left-[0] bottom-[-80px] w-[38%]' /> 
