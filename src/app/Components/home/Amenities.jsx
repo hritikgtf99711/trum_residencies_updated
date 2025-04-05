@@ -39,7 +39,7 @@ export default function Amenities() {
   ];
 
   useEffect(() => {
-    const paddedAmenities = [...amenities, ...amenities, ...amenities];
+    const paddedAmenities = [...amenities];
     setInfiniteAmenities(paddedAmenities);
     
     setCurrentIndex(totalSlides);
@@ -82,7 +82,6 @@ export default function Amenities() {
       const waveAmplitude = 50;
       let waveOffset = 0;
 
-      // Only apply waveOffset if screen is larger than 991px
       if (window.innerWidth > 991) {
         waveOffset = Math.sin(distance * Math.PI * 0.5) * waveAmplitude;
       }
@@ -97,7 +96,7 @@ export default function Amenities() {
         });
       } else {
         gsap.to(slide, {
-          scale: 0.7,
+          scale: 0.8,
           opacity: 0.7,
           y: slideModIndex < currentModIndex ?waveOffset: -waveOffset + 20  ,
           duration: 0.8,

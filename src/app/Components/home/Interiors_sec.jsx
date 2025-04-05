@@ -39,7 +39,7 @@ export default function Interiors() {
               duration: { min: 0.1, max: 0.3 },
               ease: "easeIn",
             },        
-           end: () => `+=${(totalWidth * slides) - 400}`,
+           end: () => `+=${(totalWidth * slides * 0.8)}`, 
           },
         });
       }
