@@ -15,7 +15,7 @@ export default function Amenities() {
   const sliderRef = useRef(null);
   const sectionRef = useRef(null);
   const slidesRef = useRef([]);
-  const totalSlides = 7;
+  const totalSlides = 6;
   const isMounted = useRef(false);
   const scrollDirection = useRef(0);
   const lastScrollY = useRef(0);
