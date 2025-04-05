@@ -184,7 +184,7 @@ export default function Amenities() {
   return (
     <section 
       ref={sectionRef}
-      className="relative black_texture_one  py-section flex flex-col items-center justify-center"
+      className="relative black_texture_one  py-section relative flex flex-col items-center justify-center"
     >
       <div className="heading_container text-center">
         <Small_title small_title="world class" />
@@ -214,6 +214,7 @@ export default function Amenities() {
             </div>
           ))}
         </div>
+        
       </div>       
       <div className="flex items-center justify-center mt-8">
         <button 
@@ -239,6 +240,8 @@ export default function Amenities() {
           View More
         </Bordered_button>  
       </div>
+                <Image src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='  absolute md:hidden block  circle_blob bottom_blob right-[0] bottom-[0] w-[38%]' /> 
+      
     </section>
   );
 } 

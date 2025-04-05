@@ -1,6 +1,5 @@
 'use client';
 
-// Custom Hooks File (e.g., useAnimations.js)
 import { useState, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -39,12 +38,10 @@ export const useBannerAnimation = (videoRef, textRef) => {
       const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
   
       if (isMobile) {
-        // Trigger immediately on mobile
         setShowText(true);
         animateBannerText();
       } else {
-        // Wait for video end on desktop
-        const video = videoRef.current;
+                 const video = videoRef.current;
         const handleVideoEnd = () => {
           setShowText(true);
           animateBannerText();
@@ -105,7 +102,7 @@ export const useInteriorAnimation = (containerRef) => {
           xPercent: -50 * slides,
           ease: "none",
           scrollTrigger: {
-            trigger: containerRef.current,
+            trigger: ".amenities_container",
             pin: true,
             scrub: 1,
             snap: {
@@ -113,8 +110,9 @@ export const useInteriorAnimation = (containerRef) => {
               duration: { min: 0.1, max: 0.3 },
               ease: "ease.in",
             },
-            end: `+=${totalWidth * slides * 0.1}`,
-            // markers: process.env.NODE_ENV === 'development',
+            start:"bottom center",
+            end: `+=${(totalWidth * slides * 0.1)}`,
+            // markers:true,
           },
         });
       }

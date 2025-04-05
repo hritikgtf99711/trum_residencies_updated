@@ -13,7 +13,7 @@ return (
   <>
   {/* <div className="spacer" style={{height: "100vh"}}></div> */}
 
-    <section className="relative lg:px-0 py-section  flex flex-col lg:h-[100vh] justify-center"   ref={interiorRef}  >
+    <section className="relative lg:px-0 flex flex-col  my-section amenities_container justify-center"   ref={interiorRef}  >
           <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1]  circle_blob bottom_blob left-[-50%]  w-[100%] top-[-60%] opacity-[0.3]' /> 
           <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob right-[-48%]  w-[90%] top-[-60%] opacity-[0.3]' /> 
           <Image src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob left-[0] bottom-[-80px] w-[38%]' /> 
@@ -66,6 +66,7 @@ return (
               </div>
         </div>
     </section>
+    <div className='md:pb-[100px]'></div>
     </>
   );
 }

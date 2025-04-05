@@ -9,7 +9,7 @@ export default function AboutUs() {
   useAboutAnimation(aboutRef);
   return (
     <>
-    <section className="relative building_blob lg:bg-[transparent] lg:py-[0] py-section   lg:h-[80vh] bg-[#181615]"  ref={aboutRef}>
+    <section className="relative building_blob lg:bg-[transparent] lg:py-[0] py-section  bg-[#181615]"  ref={aboutRef}>
       <div className="custom_container relative">
      <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='absolute z-[-1]   circle_blob bottom_blob left-[48%]  w-[90%] translate-x-[-50%] top-[-100%] opacity-[0.4]' /> 
 
