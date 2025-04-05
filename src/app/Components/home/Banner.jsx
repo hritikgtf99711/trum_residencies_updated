@@ -32,7 +32,7 @@ export default function Banner() {
           </div>
           <a href="" className="comment-button lg:mt-10 inline-block lg:tracking-[2px] tracking-[normal] lg:font-[200] font-[500]">
             Reserve Your Trump Home
-          </a>
+          </a> 
         </div>
       </div>
       <Image src={"/assets/images/building_banner.svg"} alt="buildding"  className="md:hidden  absolute bottom-[-56px] block  opacity-[.5]  lg:mb-0 mb-[40px] w-full" width={"800"} height={"800"}/>
