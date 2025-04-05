@@ -54,8 +54,8 @@ export default function Banner() {
 
       >
         <Image src={"/assets/images/blob_cicle_banner.svg"} alt="building banner" className="absolute  top-[-122px] lg:hidden"  height={"500"} width={"500"} />
-        <h1 className="bg-custom-gradient inline-block tracking-[10px] text-transparent bg-clip-text lg:text-[80px] text-[60px] lg:m-auto lg:mb-auto lg:pb-0 pb-10 lg:font-[normal] font-[500]">
-          <span>TRUMP</span>
+        <h1 className="bg-custom-gradient inline-block  tracking-[10px] text-transparent bg-clip-text lg:text-[80px] text-[60px] lg:m-auto lg:mb-auto lg:pb-0 pb-10 lg:font-[normal] font-[500]">
+          <span className="font-[cinzel]">TRUMP</span>
           <span className="block lg:text-[30px] text-[24px] lg:w-[100px] m-auto text-center lg:font-[normal] font-[500]">
             <span className="mb-3 inline-block">IS</span> BACK
           </span>
