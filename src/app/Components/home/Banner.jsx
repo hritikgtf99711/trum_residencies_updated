@@ -51,7 +51,6 @@ export default function Banner() {
         className={`z-[2] relative h-[calc(100%)] custom_container text-center flex flex-col  lg:pb-0 pb-[200px]  lg:justify-between  justify-center lg:pb-10 place-items-center ${
           showText ? "opacity-100" : "opacity-0"
         }`}
-
       >
         <Image src={"/assets/images/blob_cicle_banner.svg"} alt="building banner" className="absolute  top-[-122px] lg:hidden"  height={"500"} width={"500"} />
         <h1 className="bg-custom-gradient inline-block  tracking-[10px] text-transparent bg-clip-text lg:text-[80px] text-[60px] lg:m-auto lg:mb-auto lg:pb-0 pb-10 lg:font-[normal] font-[500]">
@@ -71,15 +70,13 @@ export default function Banner() {
           </a>
         </div>
       </div>
-
       <Image src={"/assets/images/building_banner.svg"} alt="buildding"  className="lg:hidden absolute bottom-[-56px] block lg:mb-0 mb-[40px] w-full" width={"800"} height={"800"}/>
       <video
         ref={videoRef}
         className="mt-[50px] lg:w-full lg:block hidden w-[800px] absolute lg:h-full bottom-[0] left-[0] w-full"
         autoPlay
         muted
-        onEnded={handleVideoEnd}
-      >
+        onEnded={handleVideoEnd}>
         <source src="/assets/video/building_video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
