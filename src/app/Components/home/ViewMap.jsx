@@ -16,7 +16,7 @@
                 <div className='heading_container lg:w-[60%]  text-start'>
                    <Heading heading={'THE CENTER OF THE WORLD'} classNames="lg:text-start text-center"/>
                 </div>
-                  <p className='lg:my-10  my-5 lg:pe-[100px]'>Trump Residences Gurgaon is a striking testament to contemporary grandeur. An icon sculpted in glass and steel. With soaring double-height ceilings and uninterrupted glass façades, the skyline becomes an extension of your home. Step into a world of tailored perfection, where private elevators lead to impeccably crafted sanctuaries adorned with the finest materials. Beyond these doors lies an exclusive realm, dedicated concierge service  s, unparalleled privacy and the promise of an extraordinary life reserved for a rare few.</p>
+                  <p className='lg:my-10  my-5 lg:pe-[100px]'>Trump Residences Gurgaon is a striking testament to contemporary grandeur. An icon sculpted in glass and steel. With soaring double-height ceilings and uninterrupted glass façades, the skyline becomes an extension of your home. Step into a world of tailored perfection, where private elevators lead to impeccably crafted sanctuaries adorned with the finest materials. Beyond these doors lies an exclusive realm, dedicated concierge services, unparalleled privacy and the promise of an extraordinary life reserved for a rare few.</p>
               <Bordered_button classNames={"lg:inline-flex hidden"}> 
                 View Map
               </Bordered_button>

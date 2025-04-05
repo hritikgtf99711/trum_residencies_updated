@@ -13,13 +13,10 @@ if (typeof window !== "undefined") {
 }
 
 export default function Amenities() {
-  // Define a constant for spacing to ensure consistency throughout the component
-  const SLIDE_GAP = 20;
-  
   const sliderRef = useRef(null);
   const sectionRef = useRef(null);
   const slidesRef = useRef([]);
-  const totalSlides = 6;
+  const totalSlides = 8;
   const isMounted = useRef(false);
   const scrollDirection = useRef(0);
   const lastScrollY = useRef(0);
@@ -31,20 +28,19 @@ export default function Amenities() {
   const [isAtEnd, setIsAtEnd] = useState(false);
 
   const amenities = [
-    { title: "Club", src: "/assets/images/amenities_1.jpg", alt: "Amenity 1" },
-    { title: "Vault Library", src: "/assets/images/amenities_2.jpg", alt: "Amenity 2" },
-    { title: "Pool", src: "/assets/images/amenities_4.jpg", alt: "Amenity 4" },
-    { title: "Spa", src: "/assets/images/amenities_5.jpg", alt: "Amenity 5" },
-    { title: "Lounge", src: "/assets/images/amenities_7.jpg", alt: "Amenity 7" },
-    { title: "Garden", src: "/assets/images/amenities_8.jpg", alt: "Amenity 8" },
+    { title: "Meeting Room", src: "/assets/images/meeting_room.jpg", alt: "Meeting Room" },
+    { title: "Gym", src: "/assets/images/gym.jpg", alt: "Gym" },
+    { title: "Cigar Room", src: "/assets/images/cigar_room.jpg", alt: "Cigar Room" },
+    { title: "Billiards Room", src: "/assets/images/billiard_room.jpg", alt: "Billiards Room" },
+    { title: "Theatre", src: "/assets/images/theatre.jpg", alt: "Theatre" },
+    { title: "Club", src: "/assets/images/club.jpg", alt: "Club" },
+    { title: "Vault Library", src: "/assets/images/vault_library.jpg", alt: "Vault Library" },
+    { title: "Business Launge", src: "/assets/images/business_launge.jpg", alt: "Business Launge" },
   ];
 
   useEffect(() => {
-    // Create a triple set of amenities for infinite scrolling effect
     const paddedAmenities = [...amenities, ...amenities, ...amenities];
     setInfiniteAmenities(paddedAmenities);
-    
-    // Set initial slide to middle set
     setCurrentIndex(totalSlides);
   }, []);
 
@@ -56,17 +52,14 @@ export default function Amenities() {
     if (!slidesRef.current[0] || !sliderRef.current || infiniteAmenities.length === 0) return;
 
     const slideWidth = slidesRef.current[0].offsetWidth;
-    
-    // Use the constant SLIDE_GAP for consistent spacing
+    const slideGap = 20;
     const centerOffset = window.innerWidth / 2 - slideWidth / 2;
     
     setIsAtStart(index <= 0);
     setIsAtEnd(index >= infiniteAmenities.length - 1);
     
     const safeIndex = Math.max(0, Math.min(index, infiniteAmenities.length - 1));
-    
-    // Calculate target position with consistent spacing using SLIDE_GAP
-    const targetX = -(safeIndex * (slideWidth + SLIDE_GAP)) + centerOffset;
+    const targetX = -(safeIndex * (slideWidth + slideGap)) + centerOffset;
 
     gsap.to(sliderRef.current, {
       x: targetX,
@@ -74,7 +67,6 @@ export default function Amenities() {
       ease: "slow"
     });
 
-    // Create wave effect on initial view
     const initialWaveSetup = !isMounted.current;
 
     slidesRef.current.forEach((slide, i) => {
@@ -88,32 +80,40 @@ export default function Amenities() {
         totalSlides - Math.abs(slideModIndex - currentModIndex)
       );
       
-      // Wave effect parameters
-      const waveAmplitude = initialWaveSetup ? 50 : 25; // More pronounced on initial load
+      const waveAmplitude = initialWaveSetup ? 50 : 25;
       let waveOffset = 0;
 
       if (window.innerWidth > 991) {
-        // Sine wave pattern for vertical offset
         waveOffset = Math.sin(distance * Math.PI * 0.25) * waveAmplitude;
       }
 
+      // Remove existing position classes
+      slide.classList.remove('center-slide', 'prev-slide', 'next-slide');
+
+      // Add position classes
+      if (i === safeIndex) {
+        slide.classList.add('center-slide');
+      } else if (i === safeIndex - 1) {
+        slide.classList.add('prev-slide');
+      } else if (i === safeIndex + 1) {
+        slide.classList.add('next-slide');
+      }
+
       if (getSlideModuloIndex(i) === getSlideModuloIndex(safeIndex)) {
-        // Current slide
         gsap.to(slide, {
           scale: 1,
           opacity: 1,
-          y: initialWaveSetup ? 0 : waveOffset * 0.2, // Subtle wave for current slide
+          y: initialWaveSetup ? 0 : waveOffset * 0.2,
           duration: 0.8,
           ease: "slow",
         });
       } else {
-        // Other slides - apply wave pattern
         gsap.to(slide, {
           scale: 0.7,
           opacity: 0.6,
           y: initialWaveSetup ? 
             (slideModIndex < currentModIndex ? waveOffset : -waveOffset) : 
-            (slideModIndex < currentModIndex ? waveOffset : -waveOffset + 20),
+            (slideModIndex < currentModIndex ? waveOffset : -waveOffset + 10),
           duration: 0.8,
           ease: "slow",
         });
@@ -196,14 +196,13 @@ export default function Amenities() {
         <div 
           ref={sliderRef} 
           className="flex"
-          style={{ gap: `${SLIDE_GAP}px` }} // Use the constant for consistent spacing
+          style={{ gap: '20px' }}
         >
           {infiniteAmenities.map((amenity, index) => (
             <div
               key={`slide-${index}`}
               ref={(el) => (slidesRef.current[index] = el)}
               className="relative wave-slide cursor-pointer flex-shrink-0 flex-grow-0 lg:basis-[calc(25%-15px)] basis-[calc(80%-15px)]"
-              style={{ marginRight: `${SLIDE_GAP}px` }} // Additional spacing to ensure consistency
               onClick={() => handleSlideClick(index)}
             >
               <Image
@@ -244,4 +243,4 @@ export default function Amenities() {
       </div>
     </section>
   );
-}
+} 

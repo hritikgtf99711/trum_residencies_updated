@@ -53,10 +53,10 @@ export default function Banner() {
         }`}
       >
         <Image src={"/assets/images/blob_cicle_banner.svg"} alt="building banner" className="absolute  top-[-122px] lg:hidden"  height={"500"} width={"500"} />
-        <h1 className="bg-custom-gradient inline-block  tracking-[10px] text-transparent bg-clip-text lg:text-[80px] text-[60px] lg:m-auto lg:mb-auto lg:pb-0 pb-10 lg:font-[normal] font-[500]">
+        <h1 className="bg-custom-gradient inline-block mb-[40px]  tracking-[10px] text-transparent bg-clip-text lg:text-[80px] text-[60px] lg:m-auto lg:mb-auto lg:pb-0 pb-10 lg:font-[normal] font-[500]">
           <span className="font-[cinzel]">TRUMP</span>
-          <span className="block lg:text-[30px] text-[24px] lg:w-[100px] m-auto text-center lg:font-[normal] font-[500]">
-            <span className="mb-3 inline-block">IS</span> BACK
+          <span className="block lg:text-[30px] text-[24px] uppercase font-[cinzel] m-auto text-center lg:font-[normal] font-[500]">
+          Back  <span className="mb-3 inline-block">In</span> Gurgaon
           </span>
         </h1>
         <div className="mb-10">
@@ -73,7 +73,7 @@ export default function Banner() {
       <Image src={"/assets/images/building_banner.svg"} alt="buildding"  className="lg:hidden absolute bottom-[-56px] block lg:mb-0 mb-[40px] w-full" width={"800"} height={"800"}/>
       <video
         ref={videoRef}
-        className="mt-[50px] lg:w-full lg:block hidden w-[800px] absolute lg:h-full bottom-[0] left-[0] w-full"
+        className="mt-[50px] lg:w-full lg:block hidden w-[800px] absolute lg:h-full opacity-[.5] bottom-[0] left-[0] w-full"
         autoPlay
         muted
         onEnded={handleVideoEnd}>
