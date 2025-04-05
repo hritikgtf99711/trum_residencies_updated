@@ -32,7 +32,7 @@ export default function Amenities() {
     // { title: "Gym", src: "/assets/images/amenities_3.jpg", alt: "Amenity 3" },
     { title: "Pool", src: "/assets/images/amenities_4.jpg", alt: "Amenity 4" },
     { title: "Spa", src: "/assets/images/amenities_5.jpg", alt: "Amenity 5" },
-    { title: "Cinema", src: "/assets/images/amenities_6.jpg", alt: "Amenity 6" },
+    // { title: "Cinema", src: "/assets/images/amenities_6.jpg", alt: "Amenity 6" },
     { title: "Lounge", src: "/assets/images/amenities_7.jpg", alt: "Amenity 7" },
     { title: "Garden", src: "/assets/images/amenities_8.jpg", alt: "Amenity 8" },
 
