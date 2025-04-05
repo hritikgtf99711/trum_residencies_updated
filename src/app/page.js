@@ -9,6 +9,7 @@ import Smart_world from "./Components/home/Smart_world";
 import Tribeca_sec from "./Components/home/Tribeca_sec";
 import Amenities from "./Components/home/Amenities";
 export default function Home() {
+  
   return (
     <>
       <div className="overflow-x-hidden">

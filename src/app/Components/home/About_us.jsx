@@ -2,38 +2,14 @@
 import React, { useRef } from "react";
 import Heading from "@/app/utils/Heading";
 import Image from "next/image";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+import { useAboutAnimation } from "@/app/utils/SharedTimeline";
 
 export default function AboutUs() {
-  const container = useRef(null);
-
-  useGSAP(() => {
-     const tl = gsap.timeline({
-       defaults: { ease: "power2.out", duration: 2 },
-       scrollTrigger: {
-         trigger: container.current,
-         start: "top center",
-         end: "bottom center",
-         toggleActions: "play none none none",
-       },
-       onComplete: () => {
-          
-         tl.kill(); 
-       },
-     });
-   
-     tl.to(".left_content", { x: "0", opacity: 1 })
-       .to(".right_content", { x: "0", opacity: 1 }, "<")
-       .to(".building_create", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", duration: 3 }, "<");
-   
-   }, { scope: container });
-
+  const aboutRef = useRef(null);
+  useAboutAnimation(aboutRef);
   return (
-    <section className="relative building_blob lg:bg-[transparent] bg-[#181615] lg-[py-0] lg:py-0 py-section lg:h-[80vh]"  ref={container}>
+    <>
+    <section className="relative building_blob lg:bg-[transparent] lg:py-[0] py-section   lg:h-[80vh] bg-[#181615]"  ref={aboutRef}>
       <div className="custom_container relative">
      <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='absolute z-[-1]   circle_blob bottom_blob left-[48%]  w-[90%] translate-x-[-50%] top-[-100%] opacity-[0.4]' /> 
 
@@ -61,7 +37,7 @@ export default function AboutUs() {
             />
           </div>
 
-          <div className="col-span-3 right_content lg:pr-[30px] opacity-0 translate-x-[100px] mt-auto lg:mb-[80px]">
+          <div className="col-span-3 right_content lg:pr-[30px] opacity-0 translate-x-[100px] mt-auto lg:pb-[80px]">
             <p className="lg:my-10">
               An exclusive sanctuary where elegance, innovation, and meticulous attention to detail 
               converge for those who demand nothing less than the extraordinary.
@@ -70,5 +46,6 @@ export default function AboutUs() {
         </div>
       </div>
     </section>
+   </>
   );
 }

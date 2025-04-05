@@ -1,8 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html{  scroll-behavior: smooth;
-}
+html{scroll-behavior: smooth;}
 body{font-family: var(--font-cinzel), serif;letter-spacing:5px;color:#fff;}
 h1{ font-family: var(--font-cinzel), serif;}
 p{ font-family: var(--font-montserrat), sans-serif;letter-spacing: normal;line-height: 2;font-weight: 300;letter-spacing: 1px;}
@@ -10,26 +9,14 @@ p{ font-family: var(--font-montserrat), sans-serif;letter-spacing: normal;line-h
 .video_sec .afterBeforeImage{       content: "";position: absolute;top: 0;height: 100%;width: 100%;background-size: cover;background-repeat: no-repeat;}
 .video_sec .before{ left: 50%;background-color: #000;transform: translateX(0%);}
 .video_sec .after{right:50%;background-color: #000;transform: translateX(0%);}
-.bg-gradient-box{
-bottom: 0;
-left: 0;
-height: 100%;
-width: 100%;
-background: linear-gradient(1deg, black 100%, #2b231600);
-mix-blend-mode: darken  ;
-}
-
-.building_create {
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-}
-
+.bg-gradient-box{bottom: 0;left: 0;height: 100%;width: 100%;background: linear-gradient(1deg, black 100%, #2b231600);mix-blend-mode: darken  ;}
+.building_create {clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);}
 .mySwiper{margin-top: 80px;}
 input::placeholder, 
-textarea::placeholder {
-  letter-spacing: 2px; /* Adjust spacing */}
+textarea::placeholder {letter-spacing: 2px;}
 
-  @media (max-width: 767px) {
-    
-    .video_sec .before{ left: calc(48% - 30px);background-color: #000;transform: translateX(0%);}
+
+@media (max-width: 767px) {.video_sec .before{ left: calc(48% - 30px);background-color: #000;transform: translateX(0%);}
 .video_sec .after{right:calc(48% - 30px);background-color: #000;transform: translateX(0%);}
-  }
+.image_container {scroll-snap-type: x proximity;}
+.image_container figure{scroll-snap-align:center;}}

@@ -4,64 +4,19 @@ import { useRef } from 'react';
 import Heading from '@/app/utils/Heading';
 import Image from 'next/image';
 import Bordered_button from '@/app/utils/Bordered_button';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(useGSAP); 
-  gsap.registerPlugin(ScrollTrigger);
-export default function Interiors() {
-  const container = useRef();
-  useGSAP(() => {
-    let animation;
-    const figures = document.querySelectorAll("figure");
-    const slides = figures.length - 1;
-    if (!slides) return;
-  
-    const setupAnimation = () => {
-      if (animation) {
-        animation.kill();
-      }
-  
-      const isMobile = window.matchMedia("(max-width: 991px)").matches;
-  
-      if (!isMobile && container.current) {
-        const totalWidth = container.current.offsetWidth;
-  
-        animation = gsap.to(figures, {
-          xPercent: -50 * slides,
-          ease: "none",
-          scrollTrigger: {
-            trigger: container.current,
-            pin: true,  
-            scrub: 1,
-            snap: {
-              snapTo: 1 / slides,
-              duration: { min: 0.1, max: 0.3 },
-              ease: "easeIn",
-            },        
-           end: () => `+=${(totalWidth * slides * 0.1)}`, 
-          },
-        });
-      }
-    };
-  
-    setupAnimation();
-  
-    window.addEventListener("resize", setupAnimation);
-  
-    return () => {
-      window.removeEventListener("resize", setupAnimation);
-      if (animation) {
-        animation.kill();
-      }
-    };
-  }, { scope: container });
+import { useInteriorAnimation } from '@/app/utils/SharedTimeline';
 
-  return (
-    <section className="py-section relative lg:px-0 lg:h-[100vh] flex flex-col justify-center"   ref={container}  >
-        <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1]  circle_blob bottom_blob left-[-50%]  w-[100%] top-[-60%] opacity-[0.3]' /> 
-        <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob right-[-48%]  w-[90%] top-[-60%] opacity-[0.3]' /> 
-        <Image src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob left-[0] bottom-[-80px] w-[38%]' /> 
+export default function Interiors() {
+  const interiorRef = useRef(null);
+  useInteriorAnimation(interiorRef);  
+return (
+  <>
+  {/* <div className="spacer" style={{height: "100vh"}}></div> */}
+
+    <section className="relative lg:px-0 py-section  flex flex-col lg:h-[100vh] justify-center"   ref={interiorRef}  >
+          <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1]  circle_blob bottom_blob left-[-50%]  w-[100%] top-[-60%] opacity-[0.3]' /> 
+          <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob right-[-48%]  w-[90%] top-[-60%] opacity-[0.3]' /> 
+          <Image src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob left-[0] bottom-[-80px] w-[38%]' /> 
 
         <div className=''>
             <div className='heading_container col-span-2 text-center' >
@@ -76,27 +31,27 @@ export default function Interiors() {
                         View More
                     </Bordered_button>
                 </div>
-                    <div className='lg:col-span-8 col-span-12 text-center relative lg:overflow-hidden overflow-x-scroll'>
-                      <div className='flex gap-5 ps-10'>
-                        <figure className='grow-0 shrink-0 basis-[90%] md:basis-[50%] lg:basis-[40%]'>
+                    <div className='lg:col-span-8 col-span-12 text-center  relative'>
+                      <div className='flex lg:overflow-hidden img_container overflow-x-scroll gap-5 ps-10'>
+                        <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[50%]'>
                           <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_one.jpg" alt="Elevator entry" width={"487"} height={"460"} />
                           <figcaption className='mt-5 text-[24px] tracking-[1px] custom-text-gradient'>Elevator entry</figcaption>
                         </figure>
-                        <figure className='grow-0 shrink-0 basis-[90%] md:basis-[50%] lg:basis-[40%]'>
+                        <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[50%]'>
                            <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_two.jpg" alt="Living Area" width={"487"} height={"460"}/>
                            <figcaption className='mt-5 text-[24px] tracking-[1px] custom-text-gradient'>living area</figcaption>
                         </figure>
-                        <figure className='grow-0 shrink-0 basis-[90%] md:basis-[50%] lg:basis-[40%]'>
+                        <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[50%]'>
                           <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_three.jpg" alt="Master Bedroom" width={"487"} height={"460"}/>
                           <figcaption className='mt-5 text-[24px] tracking-[1px] custom-text-gradient'>Master Bedroom</figcaption>
 
                         </figure>
-                        <figure className='grow-0 shrink-0 basis-[90%] md:basis-[50%] lg:basis-[40%] ms-5'>
+                        <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[50%] ms-5'>
                            <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_four.jpg" alt="Hall" width={"487"} height={"460"}/>
                            <figcaption className='mt-5 text-[24px] tracking-[1px] custom-text-gradient'>Hall</figcaption>
 
                         </figure>
-                        <figure className='grow-0 shrink-0 basis-[90%] md:basis-[50%] lg:basis-[40%] ms-5'>
+                        <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[50%] ms-5'>
                            <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_five.jpg" alt="Lobby" width={"487"} height={"460"}/>
                            <figcaption className='mt-5 text-[24px] tracking-[1px] custom-text-gradient'>Lobby</figcaption>
 
@@ -111,5 +66,6 @@ export default function Interiors() {
               </div>
         </div>
     </section>
+    </>
   );
 }

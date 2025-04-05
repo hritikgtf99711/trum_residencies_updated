@@ -8,7 +8,7 @@ export default function Tribeca_sec() {
             <div className='grid lg:grid-cols-12 gap-[50px]'>
             <div className='col-span-4'>
                     <div className='flex flex-col lg:justify-between  relative  h-full lg:text-start text-center'>
-                        <Image src={'/assets/images/logo-tribeca.png'} alt='smart world'  className='lg:mb-0 lg:mx-none   w-[200px]  inline-block mb-8' height={'54'} width={'276'}/>
+                        <Image src={'/assets/images/logo-tribeca.png'} alt='smart world'  className='lg:mb-0 md:mx-none mx-auto   w-[200px]  inline-block mb-8' height={'54'} width={'276'}/>
                         <div className='custom-text-gradient lg:text-left text-center tracking-[2] lg:text-[20px]'>
                         India’s Leading <span className='lg:block'></span>  Trophy Property <span className='lg:block'></span>Developer
                         </div>

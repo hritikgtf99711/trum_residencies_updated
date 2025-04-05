@@ -7,22 +7,16 @@
   import gsap from 'gsap';
   import { useGSAP } from '@gsap/react';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useAboutProject } from '@/app/utils/SharedTimeline';
 
-
-  gsap.registerPlugin(useGSAP); 
-  gsap.registerPlugin(ScrollTrigger);
 
   export default function About() {
-  const container = useRef();
+  const aboutProjectRef = useRef();
 
-  useGSAP(() => {
-  const tl = gsap.timeline({ defaults: { ease: "ease-in", duration: 2 },scrollTrigger: {trigger: container.current, start: "top center", end: "bottom top",duration:2} })
-  tl.to(".after", { x: "-50%" }).to(".before", { x: "50%" }, "<"); 
-  },{ scope: container }); 
-
+  useAboutProject(aboutProjectRef);
     return (
       <section className="relative frame_sec   py-section">
-          <div className='custom_container relative'  ref={container} >
+          <div className='custom_container relative'  ref={aboutProjectRef} >
               <div className='heading_container text-center'>
                 <Small_title small_title="About Project"/>
                 <Heading heading={'The World of Trump'}/>
