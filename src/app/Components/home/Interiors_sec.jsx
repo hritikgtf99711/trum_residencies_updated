@@ -10,18 +10,15 @@ export default function Interiors() {
   const interiorRef = useRef(null);
   useInteriorAnimation(interiorRef);  
 return (
-  <div className='relative'>
-  {/* <div className="spacer" style={{height: "100vh"}}></div> */}
-  
+  <div className='relative'>  
           <Image src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob left-[0] bottom-[-80px] w-[38%]' /> 
-
     <section className="relative lg:px-0 flex flex-col  my-section  justify-center"   ref={interiorRef}  >
     <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1]  circle_blob bottom_blob left-[-50%]  w-[100%] top-[-60%] opacity-[0.3]' /> 
     <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob right-[-48%]  w-[90%] top-[-60%] opacity-[0.3]' />  
         <div className=''>
             <div className='heading_container col-span-2 text-center' >
             <Heading heading={'Stunning interiors'}/> 
-            <h6 className='font-[cinzel] tracking-[2] lg:my-[30px]  mt-[30px] lg:px-0 px-5'>Stunning interiors that redefine elegance, luxury, comfort, <span className='lg:block none'></span> and timeless beauty</h6>
+            <h6 className='font-[cinzel] md:tracking-[2] tracking-[1px] lg:my-[30px]  mt-[30px] lg:px-0 px-5'>Stunning interiors that redefine elegance, luxury, comfort, <span className='lg:block none'></span> and timeless beauty</h6>
             </div>
               <div className='lg:grid  lg:grid-cols-12   gap-10  lg:mt-[60px] mt-[30px] lg:w-[90%] lg:ml-auto  relative'>
                 <div className='lg:col-span-4 col-span-12  lg:text-center m-auto  px-[30px]'>

@@ -9,7 +9,7 @@ export default function Tribeca_sec() {
             <div className='col-span-4'>
                     <div className='flex flex-col lg:justify-between  relative  h-full lg:text-start text-center'>
                         <Image src={'/assets/images/logo-tribeca.png'} alt='smart world'  className='lg:mb-0 md:mx-none mx-auto   w-[200px]  inline-block mb-8' height={'54'} width={'276'}/>
-                        <div className='custom-text-gradient lg:text-left text-center tracking-[2] lg:text-[20px]'>
+                        <div className='custom-text-gradient lg:text-left text-center md:tracking-[2] tracking-[1px] lg:text-[20px]'>
                         India’s Leading <span className='lg:block'></span>  Trophy Property <span className='lg:block'></span>Developer
                         </div>
                               <Image src="/assets/images/circle_blob.png"  alt="building blob" height={800} width={800} className='lg:hidden block absolute  right-[-80px] top-[-140px] opacity-[.4] w-full  w-[38%]' /> 
