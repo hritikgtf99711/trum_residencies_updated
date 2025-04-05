@@ -18,6 +18,7 @@ html, body {
   overflow: hidden;
 }
 
+.sidemenu-portal{z-index: 9999;}
 #smooth-content {
   will-change: transform;
 }
