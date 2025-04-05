@@ -34,7 +34,10 @@
                     <source src="/assets/video/about_us_banner.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                     </video>
-                  <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1] w-full  lg:block  w-full circle_blob bottom_blob  lg:top-[-155px] top-[-220px] lg:opacity-[1] opacity-[.2]' />
+                    <div className='bg-[#E8C183] absolute h-[500px] z-[-1] w-full  rounded-[50%] opacity-[.2] blur-[50px] top-[-5]'></div>
+                  {/* <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolutez-[-1] w-full  lg:block  w-full circle_blob bottom_blob  lg:top-[-155px] top-[-220px] lg:opacity-[1] opacity-[.2]' /> */}
+                  {/* <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1] w-[300px]  lg:block  w-full circle_blob bottom_blob  lg:top-[-155px] top-[60px] lg:opacity-[1] opacity-[.2]' /> */}
+
                 </div>
           </div>
       </section>

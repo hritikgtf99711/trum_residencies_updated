@@ -20,7 +20,7 @@ export default function Form() {
             <div className="inline-flex items-start">
                 <label className="flex items-start cursor-pointer relative gap-3">
                     <div className='relative'>
-                    <input type="checkbox"  className="peer cursor-pointer transition-all accent-primary-color  mt-2   shadow hover:shadow-md border  border-primary-color checked:primary-color checked:primary-color" id="check" />
+                    <input type="checkbox"  className="peer cursor-pointer transition-all accent-primary-color shadow hover:shadow-md border  border-primary-color checked:primary-color checked:primary-color" id="check" />
                 </div>
                     
                 <p className='montserrat lg:text-[10px] text-[8px] font-[300] leading-[14px]'>I authorize company representatives to Call, SMS, Email or WhatsApp me about its products and offers. This consent overrides any registration for DNC/NDNC.</p>

@@ -145,13 +145,6 @@ export default function Amenities() {
         trigger: sectionRef.current,
         start: "top 20%",
         end: "bottom 80%",
-        // onToggle: (self) => {
-        //   if (self.isActive) {
-        //     window.addEventListener("wheel", handleScroll, { passive: true });
-        //   } else {
-        //     window.removeEventListener("wheel", handleScroll);
-        //   }
-        // },
         markers: false 
       });
 
