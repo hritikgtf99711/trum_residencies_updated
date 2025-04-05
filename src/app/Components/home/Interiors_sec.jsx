@@ -24,7 +24,7 @@ return (
             <h6 className='font-[cinzel] tracking-[2] lg:my-[30px]  mt-[30px] lg:px-0 px-5'>Stunning interiors that redefine elegance, luxury, comfort, <span className='lg:block none'></span> and timeless beauty</h6>
             </div>
               <div className='lg:grid  lg:grid-cols-12   gap-10  lg:mt-[60px] mt-[30px] lg:w-[90%] lg:ml-auto  relative'>
-                <div className='lg:col-span-4 col-span-12  lg:text-center m-auto  px-[30px]'>c 
+                <div className='lg:col-span-4 col-span-12  lg:text-center m-auto  px-[30px]'>
                 <Image src="/assets/images/circle_blob.png"  alt="building blob" height={800} width={800} className='lg:hidden block absolute  left-[0] top-[-297px] opacity-[.4] w-full  w-[38%]' /> 
                   <p className='mb-10 '>Step into the world of Trump where every detail speaks of powerful design and timeless sophistication. At Trump Residences Gurgaon, the interiors are not just crafted—they are curated for the elite, blending legendary craftsmanship with priceless artistry.</p>
                     <Bordered_button classNames={"lg:inline-block hidden"}>

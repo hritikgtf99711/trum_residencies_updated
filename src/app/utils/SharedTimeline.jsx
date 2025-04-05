@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
 const MOBILE_BREAKPOINT = 991;
@@ -156,35 +156,35 @@ export const useAboutProject = (containerRef) => {
 
 
   
-//   export const useBodySmoothScroll = () => {
-//     useGSAP(() => {
-//       const smoother = ScrollSmoother.create({
-//         wrapper: '#smooth-wrapper',
-//         content: '#smooth-content',
-//         smooth: 1,
-//         effects: true,
-//         normalizeScroll: true,
-//         smoothTouch: 0.1,
-//       });
+  export const useBodySmoothScroll = () => {
+    useGSAP(() => {
+      const smoother = ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content',
+        smooth: 1,
+        effects: true,
+        normalizeScroll: true,
+        smoothTouch: 0.1,
+      });
   
-//       const handleResize = () => {
-//         ScrollTrigger.refresh();
-//       };
-//       window.addEventListener('resize', handleResize);
+      const handleResize = () => {
+        ScrollTrigger.refresh();
+      };
+      window.addEventListener('resize', handleResize);
   
-//       const handleAnchorClick = (e) => {
-//         e.preventDefault();
-//         const target = e.currentTarget.getAttribute('href');
-//         smoother.scrollTo(target, true, 'top top');
-//       };
+      const handleAnchorClick = (e) => {
+        e.preventDefault();
+        const target = e.currentTarget.getAttribute('href');
+        smoother.scrollTo(target, true, 'top top');
+      };
   
-//       const links = document.querySelectorAll('a[href^="#"]');
-//       links.forEach(link => link.addEventListener('click', handleAnchorClick));
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(link => link.addEventListener('click', handleAnchorClick));
   
-//       return () => {
-//         window.removeEventListener('resize', handleResize);
-//         links.forEach(link => link.removeEventListener('click', handleAnchorClick));
-//         smoother.kill();
-//       };
-//     }, []);
-//   };
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        links.forEach(link => link.removeEventListener('click', handleAnchorClick));
+        smoother.kill();
+      };
+    }, []);
+  };

@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body className={`${montserrat.variable} ${cinzel.variable} bg-[#000]`}>
       <div id="smooth-wrapper">
       <div id="smooth-content">
-    {children}
+     {children}
     </div>
     </div>
       </body>
