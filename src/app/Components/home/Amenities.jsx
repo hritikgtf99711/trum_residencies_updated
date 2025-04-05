@@ -39,7 +39,7 @@ export default function Amenities() {
   ];
 
   useEffect(() => {
-    const paddedAmenities = [...amenities];
+    const paddedAmenities = [...amenities,...amenities];
     setInfiniteAmenities(paddedAmenities);
     
     setCurrentIndex(totalSlides);
@@ -180,7 +180,7 @@ export default function Amenities() {
             <div
               key={`slide-${index}`}
               ref={(el) => (slidesRef.current[index] = el)}
-              className="relative wave-slide cursor-pointer flex-shrink-0 mx-4 flex-grow-0 lg:basis-[calc(25%)] basis-[calc(80%)]"
+              className="relative wave-slide cursor-pointer flex-shrink-0 flex-grow-0 lg:basis-[calc(25%)] basis-[calc(80%)]"
               onClick={() => handleSlideClick(index)}
             >
               <Image
