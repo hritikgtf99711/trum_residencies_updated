@@ -15,7 +15,7 @@ export default function Amenities() {
   const sliderRef = useRef(null);
   const sectionRef = useRef(null);
   const slidesRef = useRef([]);
-  const totalSlides = 8;
+  const totalSlides = 7;
   const isMounted = useRef(false);
   const scrollDirection = useRef(0);
   const lastScrollY = useRef(0);
@@ -29,7 +29,7 @@ export default function Amenities() {
   const amenities = [
     { title: "Club", src: "/assets/images/amenities_1.jpg", alt: "Amenity 1" },
     { title: "Vault Library", src: "/assets/images/amenities_2.jpg", alt: "Amenity 2" },
-    { title: "Gym", src: "/assets/images/amenities_3.jpg", alt: "Amenity 3" },
+    // { title: "Gym", src: "/assets/images/amenities_3.jpg", alt: "Amenity 3" },
     { title: "Pool", src: "/assets/images/amenities_4.jpg", alt: "Amenity 4" },
     { title: "Spa", src: "/assets/images/amenities_5.jpg", alt: "Amenity 5" },
     { title: "Cinema", src: "/assets/images/amenities_6.jpg", alt: "Amenity 6" },
@@ -39,7 +39,7 @@ export default function Amenities() {
   ];
 
   useEffect(() => {
-    const paddedAmenities = [...amenities,...amenities];
+    const paddedAmenities = [...amenities,...amenities,...amenities];
     setInfiniteAmenities(paddedAmenities);
     
     setCurrentIndex(totalSlides);
@@ -96,8 +96,8 @@ export default function Amenities() {
         });
       } else {
         gsap.to(slide, {
-          scale: 0.8,
-          opacity: 0.7,
+          scale: 0.7,
+          opacity: 0.6,
           y: slideModIndex < currentModIndex ?waveOffset: -waveOffset + 20  ,
           duration: 0.8,
           ease: "slow",
