@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import ScrollSmoother from '@/ScrollSmoother';
+
 gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
 const MOBILE_BREAKPOINT = 991;
