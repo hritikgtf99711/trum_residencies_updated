@@ -152,23 +152,23 @@ export default function Amenities() {
       }
     };
 
-    if (sectionRef.current) {
-      const scrollTrigger = ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top 20%",
-        end: "bottom 80%",
-        markers: false,
-        onEnter: () => {
-          isMounted.current = false;
-          animateSlider(currentIndex);
-        }
-      });
+    // if (sectionRef.current) {
+    //   const scrollTrigger = ScrollTrigger.create({
+    //     trigger: sectionRef.current,
+    //     start: "top 20%",
+    //     end: "bottom 80%",
+    //     markers: false,
+    //     onEnter: () => {
+    //       isMounted.current = false;
+    //       animateSlider(currentIndex);
+    //     }
+    //   });
 
-      return () => {
-        window.removeEventListener("wheel", handleScroll);
-        scrollTrigger.kill();
-      };
-    }
+    //   return () => {
+    //     window.removeEventListener("wheel", handleScroll);
+    //     scrollTrigger.kill();
+    //   };
+    // }
   }, [infiniteAmenities, isAtStart, isAtEnd]);
 
   useEffect(() => {
@@ -223,7 +223,7 @@ export default function Amenities() {
         >
           <Image src={"/assets/images/right-arrow.png"} className="rotate-180 opacity-[.4] w-[50px]" alt="left arrow" height={50} width={100}/>
         </button>
-        <div className="text-center w-full lg:text-2xl text-md relative">
+        <div className="text-center w-full   text-md relative">
           <div className="custom-text-gradient">{amenities[getSlideModuloIndex(currentIndex)].title}</div>
         </div>
         <button 
