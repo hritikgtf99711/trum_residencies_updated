@@ -60,7 +60,6 @@ export default function Interiors() {
                   spaceBetween={20}
                   pagination={{ clickable: true }}
                   modules={[Pagination]}
-                  pagination={{ clickable: true }}
                   className="mySwiper pl-[31px!important]"
                 >
                   <SwiperSlide>
