@@ -3,10 +3,15 @@ import React, { useRef, useState,useEffect } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import { useBannerAnimation } from "@/app/utils/SharedTimeline";
+import Modal from "@/app/utils/Modal";
+import Form from "@/app/utils/Form";
 export default function Banner() {
   const videoRef = useRef(null);
   const textRef = useRef(null);
   const { showText } = useBannerAnimation(videoRef, textRef);
+
+  const [isOpen, setIsOpen] = useState(false);
+
 
   return (
     <section className="relative h-[calc(100vh-137px)] relative">
@@ -14,13 +19,13 @@ export default function Banner() {
 
       <div
         ref={textRef}
-        className={`z-[2] relative h-[calc(100%)] custom_container text-center flex flex-col  lg:pb-0 pb-[200px]  lg:justify-between  justify-center lg:pb-10 place-items-center ${
+        className={`z-[2] relative h-[calc(100%)] custom_container text-center flex flex-col  lg:pb-0 pb-[200px] md:pt-0 pt-[60px]  lg:justify-between  justify-center lg:pb-10 place-items-center ${
           showText ? "opacity-100" : "opacity-0"
         }`}
       >
-        <h1 className="bg-custom-gradient inline-block mb-[40px] md:pt-[0px] pt-[20px]  tracking-[10px] text-transparent bg-clip-text lg:text-[80px] text-[60px] lg:m-auto lg:mb-auto lg:pb-0 pb-10 lg:font-[normal] font-[500]">
+        <h1 className="bg-custom-gradient inline-block mb-[40px] md:pt-[0px] pt-[20px]  tracking-[10px] text-transparent bg-clip-text lg:text-[120px] text-[60px] lg:m-auto lg:mb-auto lg:pb-0 pb-10 lg:font-[normal] font-[500]">
           <span className="font-[cinzel]">TRUMP</span>
-          <span className="block lg:text-[30px] text-[24px] uppercase font-[cinzel] m-auto text-center lg:font-[normal] font-[500]">
+          <span className="block text-[24px] uppercase font-[cinzel] m-auto text-center lg:font-[normal] font-[500]">
           Back  <span className="mb-3 inline-block">In</span> Gurgaon
           </span>
         </h1>
@@ -30,7 +35,7 @@ export default function Banner() {
               Join the Elite – Experience the Trump Legacy
             </p>
           </div>
-          <a href="" className="comment-button lg:mt-10 inline-block lg:tracking-[2px] tracking-[normal] lg:font-[200] font-[500]">
+          <a href="#" onClick={() => setIsOpen(true)} className="comment-button banner_btn lg:mt-10 inline-block lg:tracking-[2px] tracking-[normal] lg:font-[200] font-[500]">
             Reserve Your Trump Home
           </a> 
         </div>
@@ -43,7 +48,10 @@ export default function Banner() {
         muted>
         <source src="/assets/video/building_video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+    </video>
+       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <Form/>
+        </Modal>
     </section>
   );
 }

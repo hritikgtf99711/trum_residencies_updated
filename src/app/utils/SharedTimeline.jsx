@@ -10,57 +10,77 @@ gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
 const MOBILE_BREAKPOINT = 991;
 
+
+// const handleTimeUpdate = () => {
+//       if (video.currentTime >= stopTime) {
+//         video.pause();
+//         video.currentTime = stopTime; // ensure it doesn't go past
+//       }
+//     };
+
+//     video.addEventListener("timeupdate", handleTimeUpdate);
+
+//     return () => {
+//       video.removeEventListener("timeupdate", handleTimeUpdate);
+//     };
 export const useBannerAnimation = (videoRef, textRef) => {
   const [showText, setShowText] = useState(false);
+  const stopTime = 3; // <-- Custom stop time in seconds
 
-  if (typeof window !== "undefined") {
-  
-    const animateBannerText = () => {
-      const tl = gsap.timeline();
-      tl.fromTo(
-        textRef.current,
-        { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 0.4, ease: "ease.in" }
+  const animateBannerText = () => {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      textRef.current,
+      { opacity: 0, y: 100 },
+      { opacity: 1, y: 0, duration: 0.4, ease: "ease.in" }
+    )
+      .fromTo(
+        ".stripe_txt",
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 1, ease: "ease.in" },
+        "-=0.3"
       )
-        .fromTo(
-          ".stripe_txt",
-          { opacity: 0, scale: 0.8 },
-          { opacity: 1, scale: 1, duration: 1, ease: "ease.in" },
-          "-=0.3"
-        )
-        .fromTo(
-          ".comment-button",
-          { opacity: 0 },
-          { opacity: 1, duration: 0.4, ease: "ease.in" },
-          "-=0.2"
-        );
-      return tl;
-    };
-  
-    useEffect(() => {
-      const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
-  
-      if (isMobile) {
-        setShowText(true);
-        animateBannerText();
-      } else {
-                 const video = videoRef.current;
-        const handleVideoEnd = () => {
+      .fromTo(
+        ".banner_btn",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.4, ease: "ease.in" },
+        "-=0.2"
+      );
+    return tl;
+  };
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+
+    if (isMobile) {
+      setShowText(true);
+      animateBannerText();
+    } else {
+      const video = videoRef.current;
+      if (!video) return;
+
+      const handleTimeUpdate = () => {
+        if (video.currentTime >= stopTime) {
+          video.pause();
+          video.currentTime = stopTime;
           setShowText(true);
           animateBannerText();
-        };
-  
-        if (video) {
-          video.addEventListener("ended", handleVideoEnd);
-          return () => video.removeEventListener("ended", handleVideoEnd);
+          video.removeEventListener("timeupdate", handleTimeUpdate); // remove to prevent duplicate calls
         }
-      }
-    }, [videoRef, textRef]);
-  
-  }
-  return { showText };
+      };
 
-  };
+      video.addEventListener("timeupdate", handleTimeUpdate);
+
+      return () => {
+        video.removeEventListener("timeupdate", handleTimeUpdate);
+      };
+    }
+  }, [videoRef, textRef]);
+
+  return { showText };
+};
 
 // About Us Animation Hook
 export const useAboutAnimation = (containerRef) => {

@@ -2,6 +2,7 @@
 import "./globals.css";
 import { Montserrat, Cinzel } from "next/font/google";
 import { useBodySmoothScroll } from "./utils/SharedTimeline";
+import Form from "./utils/Form";
 
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["400","300","500", "700","200","100"], variable: "--font-montserrat" });
@@ -12,12 +13,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${montserrat.variable} ${cinzel.variable} bg-[#000]`}>
-    <div id="sidemenu-portal"></div>  
+    <div id="sidemenu-portal"></div> 
+    <div id="modal-root" /> 
       <div id="smooth-wrapper">
       <div id="smooth-content">
      {children}
     </div>
     </div>
+ 
       </body>
     </html>
   );

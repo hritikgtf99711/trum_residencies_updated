@@ -21,7 +21,7 @@ export default function Interiors() {
   // Check screen size on mount and resize
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 767);
+      setIsMobile(window.innerWidth < 991);
     };
 
     checkScreenSize();
@@ -33,7 +33,7 @@ export default function Interiors() {
   return (
     <div className='relative'>  
       <Image src="/assets/images/left_building_blob.svg" alt="building blob" height={800} width={800} className='lg:block none absolute z-[-1] circle_blob bottom_blob left-[0] bottom-[-80px] w-[38%]' /> 
-      <section className="relative h-[100vh] lg:px-0 flex flex-col my-section justify-center" ref={interiorRef}>
+      <section className="relative lg:h-[100vh] lg:px-0 flex flex-col my-section justify-center" ref={interiorRef}>
         <Image src="/assets/images/circle_blob.png" alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1] circle_blob bottom_blob left-[-50%] w-[100%] top-[-60%] opacity-[0.3]' /> 
         <Image src="/assets/images/circle_blob.png" alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1] circle_blob bottom_blob right-[-48%] w-[90%] top-[-60%] opacity-[0.3]' />  
         <div className=''>
@@ -61,6 +61,17 @@ export default function Interiors() {
                   pagination={{ clickable: true }}
                   modules={[Pagination]}
                   className="mySwiper pl-[31px!important]"
+                  breakpoints={{
+                    0: {
+                      slidesPerView: 1.5, 
+                    },
+                    600: {
+                      slidesPerView:3, 
+                    },
+                    991: {
+                      slidesPerView: 3,
+                    },
+                  }}
                 >
                   <SwiperSlide>
                     <figure>

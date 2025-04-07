@@ -4,9 +4,6 @@
   import Heading from '@/app/utils/Heading';
   import Small_title from '@/app/utils/Small_title';
   import Image from 'next/image';
-  import gsap from 'gsap';
-  import { useGSAP } from '@gsap/react';
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useAboutProject } from '@/app/utils/SharedTimeline';
 
 
@@ -33,9 +30,6 @@ import { useAboutProject } from '@/app/utils/SharedTimeline';
                     Your browser does not support the video tag.
                     </video>    
                   <div className='bg-[#E8C183] absolute h-[800px] z-[-1] w-full  rounded-[50%] opacity-[.2] blur-[50px] top-[-84px]'></div>
-                  {/* <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolutez-[-1] w-full  lg:block  w-full circle_blob bottom_blob  lg:top-[-155px] top-[-220px] lg:opacity-[1] opacity-[.2]' /> */}
-                  {/* <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1] w-[300px]  lg:block  w-full circle_blob bottom_blob  lg:top-[-155px] top-[60px] lg:opacity-[1] opacity-[.2]' /> */}
-
                 </div>
           </div>
       </section>
