@@ -9,7 +9,7 @@ import { useInteriorAnimation } from '@/app/utils/SharedTimeline';
 export default function Interiors() {
   const interiorRef = useRef(null);
   const interiorContainerRef=useRef(null);
-  useInteriorAnimation(interiorRef,interiorContainerRef);  
+  useInteriorAnimation(interiorRef);  
 return (
   <div className='relative'>  
           <Image src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob left-[0] bottom-[-80px] w-[38%]' /> 
@@ -30,26 +30,26 @@ return (
                     </Bordered_button>
                 </div>
                     <div className='lg:col-span-8 col-span-12 text-center  relative' >
-                      <div className='flex  img_container overflow-x-scroll md:overflow-x-hidden gap-5 ps-10' ref={interiorContainerRef}>
-                        <figure   className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
+                      <div className='flex lg:overflow-hidden  img_container overflow-x-scroll gap-5 ps-10' ref={interiorContainerRef}>
+                        <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
                           <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_one.jpg" alt="Elevator entry" width={"487"} height={"460"} />
                           <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Elevator entry</figcaption>
                         </figure>
-                        <figure  style={{flex: window.innerHeight <= 630 && "0 0 30%"}} className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
+                        <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
                            <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_two.jpg" alt="Living Area" width={"487"} height={"460"}/>
                            <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>living area</figcaption>
                         </figure>
-                        <figure  style={{flex: window.innerHeight <= 630 && "0 0 30%"}} className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
+                        <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
                           <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_three.jpg" alt="Master Bedroom" width={"487"} height={"460"}/>
                           <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Master Bedroom</figcaption>
 
                         </figure>
-                        <figure  style={{flex: window.innerHeight <= 630 && "0 0 30%"}} className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
+                        <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
                            <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_four.jpg" alt="Hall" width={"487"} height={"460"}/>
                            <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Hall</figcaption>
 
                         </figure>
-                        <figure  style={{flex: window.innerHeight <= 630 && "0 0 30%"}} className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
+                        <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
                            <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_five.jpg" alt="Lobby" width={"487"} height={"460"}/>
                            <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Lobby</figcaption>
 
@@ -64,7 +64,7 @@ return (
               </div>
         </div>
     </section>
-    {/* <div className='md:pb-[100px]'></div> */}
+    <div className='md:pb-[100px]'></div>
     </div>
   );
 }

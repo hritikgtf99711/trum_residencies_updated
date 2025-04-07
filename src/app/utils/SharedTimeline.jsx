@@ -11,7 +11,9 @@ gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 const MOBILE_BREAKPOINT = 991;
 
 export const useBannerAnimation = (videoRef, textRef) => {
-    const [showText, setShowText] = useState(false);
+  const [showText, setShowText] = useState(false);
+
+  if (typeof window !== "undefined") {
   
     const animateBannerText = () => {
       const tl = gsap.timeline();
@@ -55,7 +57,9 @@ export const useBannerAnimation = (videoRef, textRef) => {
       }
     }, [videoRef, textRef]);
   
-    return { showText };
+  }
+  return { showText };
+
   };
 
 // About Us Animation Hook
@@ -82,7 +86,8 @@ export const useAboutAnimation = (containerRef) => {
     return () => tl.kill();
   }, { scope: containerRef });
 };
-export const useInteriorAnimation = (containerRef, interiorContainerRef) => {
+
+export const useInteriorAnimation = (containerRef) => {
   useGSAP(() => {
     let animation;
     const figures = containerRef.current?.querySelectorAll("figure");
@@ -90,48 +95,36 @@ export const useInteriorAnimation = (containerRef, interiorContainerRef) => {
 
     if (slides <= 0) return;
 
-    const smoother = ScrollSmoother.get(); // ✅ grab active instance
-
     const setupAnimation = () => {
       if (animation) animation.kill();
 
       const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
 
-    
- 
       if (!isMobile && containerRef.current) {
-        let offset;
-
-        if (window.innerHeight <= 650) {
-          offset =100;
-        } else if (window.innerHeight <= 760) {
-          offset = 80;
-        } else {
-          offset = 100;
-        }
-
         const totalWidth = containerRef.current.offsetWidth;
-        const startValue = `top+=${offset}px top`;
 
         animation = gsap.to(figures, {
-          xPercent: -80 * slides,
+          xPercent: -100 * slides,
           ease: "none",
           scrollTrigger: {
             trigger: containerRef.current,
             pin: true,
             scrub: 1,
-            start: startValue,
+            start:`top+=${window.innerHeight < 767? 80:145 } top`,
             end: `+=${(totalWidth * slides * 0.1)}`,
             snap: {
               snapTo: 1 / slides,
               duration: { min: 0.1, max: 0.3 },
               ease: "ease.in",
             },
-            // markers: true
+            // markers:true,
           },
         });
       }
     };
+
+
+    
 
     setupAnimation();
     window.addEventListener("resize", setupAnimation);
@@ -140,8 +133,11 @@ export const useInteriorAnimation = (containerRef, interiorContainerRef) => {
       window.removeEventListener("resize", setupAnimation);
       if (animation) animation.kill();
     };
+    
   }, { scope: containerRef });
+  
 };
+
 
 export const useAboutProject = (containerRef) => {
     useGSAP(() => {
