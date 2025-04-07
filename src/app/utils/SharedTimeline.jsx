@@ -102,6 +102,17 @@ export const useInteriorAnimation = (containerRef) => {
 
       if (!isMobile && containerRef.current) {
         const totalWidth = containerRef.current.offsetWidth;
+      //   let offset;
+      // const sectionHeight = containerRef.current?.offsetHeight || 0;
+      // offset = (window.innerHeight - sectionHeight) / 2;
+let offset;
+        if (window.innerHeight <= 650) {
+          offset = 50;
+        } else if (window.innerHeight <= 760) {
+          offset = 80;
+        } else  {
+          offset = 150;
+        }
 
         animation = gsap.to(figures, {
           xPercent: -100 * slides,
@@ -110,7 +121,7 @@ export const useInteriorAnimation = (containerRef) => {
             trigger: containerRef.current,
             pin: true,
             scrub: 1,
-            start:`top+=${window.innerHeight < 767? 80:145 } top`,
+            start:`bottom center+=${offset}`,
             end: `+=${(totalWidth * slides * 0.1)}`,
             snap: {
               snapTo: 1 / slides,
