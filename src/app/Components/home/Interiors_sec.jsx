@@ -31,7 +31,7 @@ return (
                 </div>
                     <div className='lg:col-span-8 col-span-12 text-center  relative' >
                       <div className='flex  img_container overflow-x-scroll md:overflow-x-hidden gap-5 ps-10' ref={interiorContainerRef}>
-                        <figure  style={{flex: window?.innerHeight <= 630 && "0 0 30%"}} className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
+                        <figure   className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
                           <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_one.jpg" alt="Elevator entry" width={"487"} height={"460"} />
                           <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Elevator entry</figcaption>
                         </figure>

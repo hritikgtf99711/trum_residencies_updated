@@ -22,5 +22,4 @@ input::placeholder,
 textarea::placeholder {letter-spacing: 2px;}
 @media (max-width: 767px) {.video_sec .before{ left: calc(48% - 30px);background-color: #000;transform: translateX(0%);}
 .video_sec .after{right:calc(48% - 30px);background-color: #000;transform: translateX(0%);}
-.image_container {scroll-snap-type: x proximity;}
-.image_container figure{scroll-snap-align:center;}}
+}

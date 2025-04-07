@@ -97,21 +97,19 @@ export const useInteriorAnimation = (containerRef, interiorContainerRef) => {
 
       const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
 
-      // Calculate offset to center section vertically
-      let offset;
-      // const sectionHeight = containerRef.current?.offsetHeight || 0;
-      // offset = (window.innerHeight - sectionHeight) / 2;
+    
+ 
+      if (!isMobile && containerRef.current) {
+        let offset;
 
-      // Fallback: use predefined offsets by screen height (optional)
         if (window.innerHeight <= 650) {
           offset =100;
         } else if (window.innerHeight <= 760) {
           offset = 80;
         } else {
-          offset = 145;
+          offset = 100;
         }
 
-      if (!isMobile && containerRef.current) {
         const totalWidth = containerRef.current.offsetWidth;
         const startValue = `top+=${offset}px top`;
 
