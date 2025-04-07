@@ -23,9 +23,12 @@ textarea::placeholder {letter-spacing: 2px;}
 @media (max-width: 767px) {.video_sec .before{ left: calc(48% - 30px);background-color: #000;transform: translateX(0%);}
 .video_sec .after{right:calc(48% - 30px);background-color: #000;transform: translateX(0%);}
 }
-
+.swiper-pagination{position: static!important;}
+.swiper-pagination-bullet{background-color: #e8c183a4!important;}
+.swiper-pagination-bullet-active{background-color: #e8c183!important;}
 
 /* Mobile or short screen styles (animation disabled) */
 @media  (max-height: 700) {
  .img_container figure{flex:0 0 25%}
 }
+.swiper{margin: 0;}
