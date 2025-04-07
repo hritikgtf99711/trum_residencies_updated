@@ -8,11 +8,12 @@ import { useInteriorAnimation } from '@/app/utils/SharedTimeline';
 
 export default function Interiors() {
   const interiorRef = useRef(null);
-  useInteriorAnimation(interiorRef);  
+  const interiorContainerRef=useRef(null);
+  useInteriorAnimation(interiorRef,interiorContainerRef);  
 return (
   <div className='relative'>  
           <Image src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob left-[0] bottom-[-80px] w-[38%]' /> 
-    <section className="relative lg:px-0 flex flex-col  my-section  justify-center"   ref={interiorRef}  >
+    <section className="relative    lg:px-0 flex flex-col  my-section  justify-center"   ref={interiorRef}  >
     <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1]  circle_blob bottom_blob left-[-50%]  w-[100%] top-[-60%] opacity-[0.3]' /> 
     <Image src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='lg:block none  absolute z-[-1]  circle_blob bottom_blob right-[-48%]  w-[90%] top-[-60%] opacity-[0.3]' />  
         <div className=''>
@@ -20,7 +21,7 @@ return (
             <Heading heading={'Stunning interiors'}/> 
             <h6 className='font-[cinzel] md:tracking-[2] tracking-[1px] lg:my-[30px]  mt-[30px] lg:px-0 px-5'>Stunning interiors that redefine elegance, luxury, comfort, <span className='lg:block none'></span> and timeless beauty</h6>
             </div>
-              <div className='lg:grid  lg:grid-cols-12   gap-10  lg:mt-[60px] mt-[30px] lg:w-[90%] lg:ml-auto  relative'>
+              <div className='lg:grid  lg:grid-cols-12   gap-10  lg:mt-[60px] mt-[30px] lg:w-[90%] lg:ml-auto  relative ' >
                 <div className='lg:col-span-4 col-span-12  lg:text-center m-auto  px-[30px]'>
                 <Image src="/assets/images/circle_blob.png"  alt="building blob" height={800} width={800} className='lg:hidden block absolute  left-[0] top-[-297px] opacity-[.4] w-full  w-[38%]' /> 
                   <p className='mb-10 '>Step into the world of Trump where every detail speaks of powerful design and timeless sophistication. At Trump Residences Gurgaon, the interiors are not just crafted—they are curated for the elite, blending legendary craftsmanship with priceless artistry.</p>
@@ -28,8 +29,8 @@ return (
                         View More
                     </Bordered_button>
                 </div>
-                    <div className='lg:col-span-8 col-span-12 text-center  relative'>
-                      <div className='flex lg:overflow-hidden img_container overflow-x-scroll gap-5 ps-10'>
+                    <div className='lg:col-span-8 col-span-12 text-center  relative' >
+                      <div className='flex  img_container overflow-x-scroll gap-5 ps-10' ref={interiorContainerRef}>
                         <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
                           <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_one.jpg" alt="Elevator entry" width={"487"} height={"460"} />
                           <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Elevator entry</figcaption>
@@ -63,7 +64,7 @@ return (
               </div>
         </div>
     </section>
-    <div className='md:pb-[100px]'></div>
+    {/* <div className='md:pb-[100px]'></div> */}
     </div>
   );
 }

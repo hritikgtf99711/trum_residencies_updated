@@ -83,13 +83,15 @@ export const useAboutAnimation = (containerRef) => {
   }, { scope: containerRef });
 };
 
-export const useInteriorAnimation = (containerRef) => {
+export const useInteriorAnimation = (containerRef,interiorContainerRef) => {
   useGSAP(() => {
     let animation;
     const figures = containerRef.current?.querySelectorAll("figure");
     const slides = figures?.length - 1;
 
     if (slides <= 0) return;
+
+    const smoother = ScrollSmoother.get(); // ✅ grab the active instance
 
     const setupAnimation = () => {
       if (animation) animation.kill();
@@ -98,29 +100,26 @@ export const useInteriorAnimation = (containerRef) => {
 
       if (!isMobile && containerRef.current) {
         const totalWidth = containerRef.current.offsetWidth;
-
+        const offset = window.innerHeight < 760 ? 80 : 145;
+        const startValue = `top+=${offset}px top`;
         animation = gsap.to(figures, {
-          xPercent: -50 * slides,
+          xPercent: -80 * slides,
           ease: "none",
           scrollTrigger: {
             trigger: containerRef.current,
             pin: true,
             scrub: 1,
+            start: startValue,
+            end: `+=${(totalWidth * slides * 0.1)}`,
             snap: {
               snapTo: 1 / slides,
               duration: { min: 0.1, max: 0.3 },
               ease: "ease.in",
             },
-            start:"bottom center",
-            end: `+=${(totalWidth * slides * 0.1)}`,
-            // markers:true,
           },
         });
       }
     };
-
-
-    
 
     setupAnimation();
     window.addEventListener("resize", setupAnimation);
@@ -129,11 +128,8 @@ export const useInteriorAnimation = (containerRef) => {
       window.removeEventListener("resize", setupAnimation);
       if (animation) animation.kill();
     };
-    
   }, { scope: containerRef });
-  
 };
-
 
 export const useAboutProject = (containerRef) => {
     useGSAP(() => {
