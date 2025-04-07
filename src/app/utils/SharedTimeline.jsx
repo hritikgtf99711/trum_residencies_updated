@@ -82,8 +82,7 @@ export const useAboutAnimation = (containerRef) => {
     return () => tl.kill();
   }, { scope: containerRef });
 };
-
-export const useInteriorAnimation = (containerRef,interiorContainerRef) => {
+export const useInteriorAnimation = (containerRef, interiorContainerRef) => {
   useGSAP(() => {
     let animation;
     const figures = containerRef.current?.querySelectorAll("figure");
@@ -91,25 +90,31 @@ export const useInteriorAnimation = (containerRef,interiorContainerRef) => {
 
     if (slides <= 0) return;
 
-    const smoother = ScrollSmoother.get(); // ✅ grab the active instance
+    const smoother = ScrollSmoother.get(); // ✅ grab active instance
 
     const setupAnimation = () => {
       if (animation) animation.kill();
 
       const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
-      let offset;
 
-      if (window.innerHeight <= 700) {
-        offset = -30;
-      } else if (window.innerHeight <= 760) {
-        offset = 80;
-      } else {
-        offset = 145;
-      }
+      // Calculate offset to center section vertically
+      let offset;
+      // const sectionHeight = containerRef.current?.offsetHeight || 0;
+      // offset = (window.innerHeight - sectionHeight) / 2;
+
+      // Fallback: use predefined offsets by screen height (optional)
+        if (window.innerHeight <= 650) {
+          offset =100;
+        } else if (window.innerHeight <= 760) {
+          offset = 80;
+        } else {
+          offset = 145;
+        }
+
       if (!isMobile && containerRef.current) {
         const totalWidth = containerRef.current.offsetWidth;
-        const offset = window.innerHeight <= 760 ?80:window.innerHeight <= 700? -30 : 145;
         const startValue = `top+=${offset}px top`;
+
         animation = gsap.to(figures, {
           xPercent: -80 * slides,
           ease: "none",
@@ -124,7 +129,7 @@ export const useInteriorAnimation = (containerRef,interiorContainerRef) => {
               duration: { min: 0.1, max: 0.3 },
               ease: "ease.in",
             },
-          // markers:true
+            // markers: true
           },
         });
       }
