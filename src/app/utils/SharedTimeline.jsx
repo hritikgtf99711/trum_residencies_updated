@@ -97,10 +97,18 @@ export const useInteriorAnimation = (containerRef,interiorContainerRef) => {
       if (animation) animation.kill();
 
       const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+      let offset;
 
+      if (window.innerHeight <= 700) {
+        offset = -30;
+      } else if (window.innerHeight <= 760) {
+        offset = 80;
+      } else {
+        offset = 145;
+      }
       if (!isMobile && containerRef.current) {
         const totalWidth = containerRef.current.offsetWidth;
-        const offset = window.innerHeight < 760 ? 80 : 145;
+        const offset = window.innerHeight <= 760 ?80:window.innerHeight <= 700? -30 : 145;
         const startValue = `top+=${offset}px top`;
         animation = gsap.to(figures, {
           xPercent: -80 * slides,
@@ -116,6 +124,7 @@ export const useInteriorAnimation = (containerRef,interiorContainerRef) => {
               duration: { min: 0.1, max: 0.3 },
               ease: "ease.in",
             },
+          // markers:true
           },
         });
       }

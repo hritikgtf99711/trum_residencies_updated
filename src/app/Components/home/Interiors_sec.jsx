@@ -30,7 +30,8 @@ return (
                     </Bordered_button>
                 </div>
                     <div className='lg:col-span-8 col-span-12 text-center  relative' >
-                      <div className='flex  img_container lg:overflow-x-hideen overflow-x-scroll gap-5 ps-10' ref={interiorContainerRef}>
+                      <div className='flex  img_container overflow-x-scroll md:overflow-x-hidden
+ gap-5 ps-10' ref={interiorContainerRef}>
                         <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
                           <Image className='w-[100%] rounded-[6px]' src="/assets/images/slider_one.jpg" alt="Elevator entry" width={"487"} height={"460"} />
                           <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Elevator entry</figcaption>
