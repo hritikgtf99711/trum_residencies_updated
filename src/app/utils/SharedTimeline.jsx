@@ -195,8 +195,7 @@ export const useAboutProject = (containerRef) => {
   export const useBodySmoothScroll = () => {
     if (typeof window === "undefined") return;
 
-    const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
-    if(!isMobile){
+    // const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
 
     useGSAP(() => {
       const smoother = ScrollSmoother.create({
@@ -228,5 +227,5 @@ export const useAboutProject = (containerRef) => {
         smoother.kill();
       };
     }, []);
-  }
+  
   };

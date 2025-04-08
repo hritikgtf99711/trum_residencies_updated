@@ -209,7 +209,6 @@ export default function Amenities() {
                 alt={amenity.alt}
                 width={752}
                 height={860}
-                priority={index < 10}
               />  
             </div>
           ))}
