@@ -31,9 +31,9 @@ export default function Form_sec() {
           <div className='border-b-2 border-dashed border-primary-color'></div>
             </div>
 
-        <div className='text-center pb-[20px] break-all  '>
-          <h6 className='text-[12px] lg:tracking-[1]'><span className='text-[14px]'>Rera no.</span>  <span className='tracking-[2]'>RC/REP/HARERA/GGM/925/657/2025/28</span></h6>
-            <h6 className='my-5 text-[14px] md:tracking-[2] tracking-[2px]'>Website of RERA Authority: <span className='lg:inline-block block text-[12px] md:tracking-[normal] tracking-[2px]'>https://haryanarera.gov.in</span></h6>
+        <div className='text-center pb-[20px]  '>
+          <h6 className='text-[12px] lg:tracking-[1]  break-all' ><span className='text-[14px]'>Rera no.</span>  <span className='tracking-[2]'>RC/REP/HARERA/GGM/925/657/2025/28</span></h6>
+            <h6 className='my-5 text-[14px] md:tracking-[2] tracking-[2px]  break-all'>Website of RERA Authority: <span className='lg:inline-block block text-[12px] md:tracking-[normal] tracking-[2px]'>https://haryanarera.gov.in</span></h6>
                <p className='text-[10px]'><span className='font-[400]'>Disclaimer:</span>This advertisement does not constitute an offer and/or acceptance and/or transaction and/or a disclosure under any statute of any nature whatsoever. All sales in this project shall be solely governed by terms of the agreement for sale entered into between the parties. Interested party are requested to inspect the project site and get all details and not to merely rely upon any architectural impression, plan or specification before taking decision in relation to the Project.</p>
                {readmore&& <p className='text-[10px]'>The plans, layouts, specifications, images and other details herein are indicative /artistic impression and subject to change. The developer/owner reserves the right to change any or all of the plans, layouts, specifications, images and other details herein in the interest of the development or as per approvals received or to be obtained.</p>}
                {!readmore ? 

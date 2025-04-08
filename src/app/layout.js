@@ -1,8 +1,7 @@
 "use client"; 
-import "./globals.css";
+import './styles/globals.css';
 import { Montserrat, Cinzel } from "next/font/google";
 import { useBodySmoothScroll } from "./utils/SharedTimeline";
-import Form from "./utils/Form";
 
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["400","300","500", "700","200","100"], variable: "--font-montserrat" });
