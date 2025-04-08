@@ -203,7 +203,7 @@ export default function Amenities() {
               className="relative wave-slide cursor-pointer flex-shrink-0 flex-grow-0 lg:basis-[calc(25%)]  md:basis-[calc(30%-15px)]  md:basis-[calc(30%-15px)] basis-[calc(60%-15px)]"
               onClick={() => handleSlideClick(index)}
             >
-              <Image
+              <img
                 className="object-cover md:h-[480px] h-[350px] rounded-[6px]  transition-all duration-700 ease-out"
                 src={amenity.src}
                 alt={amenity.alt}
@@ -222,7 +222,7 @@ export default function Amenities() {
           onClick={() => !isAtStart && setCurrentIndex(prev => prev - 1)}
           disabled={isAtStart}
         >
-          <Image src={"/assets/images/right-arrow.png"} className="rotate-180 opacity-[.4] w-[50px]" alt="left arrow" height={50} width={100}/>
+          <img src={"/assets/images/right-arrow.png"} className="rotate-180 opacity-[.4] w-[50px]" alt="left arrow" height={50} width={100}/>
         </button>
         <div className="text-center w-full   text-md relative">
           <div className="custom-text-gradient">{amenities[getSlideModuloIndex(currentIndex)].title}</div>
@@ -232,7 +232,7 @@ export default function Amenities() {
           onClick={() => !isAtEnd && setCurrentIndex(prev => prev + 1)}
           disabled={isAtEnd}
         >
-          <Image src={"/assets/images/right-arrow.png"} alt="right arrow" className="opacity-[.4] w-[50px]" height={50} width={100}/>
+          <img src={"/assets/images/right-arrow.png"} alt="right arrow" className="opacity-[.4] w-[50px]" height={50} width={100}/>
         </button>
       </div>
       <div className='text-center lg:hidden block mt-[40px]'>
@@ -240,7 +240,7 @@ export default function Amenities() {
           View More
         </Bordered_button>  
       </div>
-                <Image src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='  absolute md:hidden block  circle_blob bottom_blob right-[0] bottom-[0] w-[38%]' /> 
+                <img src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='  absolute md:hidden block  circle_blob bottom_blob right-[0] bottom-[0] w-[38%]' /> 
       
     </section>
   );

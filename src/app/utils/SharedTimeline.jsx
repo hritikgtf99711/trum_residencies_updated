@@ -131,7 +131,7 @@ let offset;
         } else if (window.innerHeight <= 760) {
           offset = 80;
         } else  {
-          offset = 150;
+          offset = 600;
         }
 
         animation = gsap.to(figures, {

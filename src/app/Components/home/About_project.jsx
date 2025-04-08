@@ -19,8 +19,8 @@ import { useAboutProject } from '@/app/utils/SharedTimeline';
                 <Heading heading={'The World of Trump'}/>
               </div>
                 <div className='video_sec lg:w-[70%] w-full m-auto mt-10'>
-                <Image src="/assets/images/bg-stick-left.png" alt="background blob" height={800} width={800} className='afterBeforeImage before' />
-                  <Image src="/assets/images/bg-stick-right.png" alt="background blob" height={800} width={800} className='afterBeforeImage after ' />
+                <img src="/assets/images/bg-stick-left.png" alt="background blob" height={800} width={800} className='afterBeforeImage before' />
+                  <img src="/assets/images/bg-stick-right.png" alt="background blob" height={800} width={800} className='afterBeforeImage after ' />
                     <video className="mt-[50px] lg:block hidden" autoPlay loop controls muted>
                     <source src="/assets/video/about_us_banner.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
