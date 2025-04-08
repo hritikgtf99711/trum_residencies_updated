@@ -125,13 +125,13 @@ export const useInteriorAnimation = (containerRef) => {
       //   let offset;
       // const sectionHeight = containerRef.current?.offsetHeight || 0;
       // offset = (window.innerHeight - sectionHeight) / 2;
-let offset;
+        let offset;
         if (window.innerHeight <= 650) {
           offset = 50;
         } else if (window.innerHeight <= 760) {
-          offset = 80;
+          offset = 380;
         } else  {
-          offset = 150;
+          offset = 400;
         }
 
         animation = gsap.to(figures, {
@@ -193,6 +193,11 @@ export const useAboutProject = (containerRef) => {
 
   
   export const useBodySmoothScroll = () => {
+    if (typeof window === "undefined") return;
+
+    const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+    if(!isMobile){
+
     useGSAP(() => {
       const smoother = ScrollSmoother.create({
         wrapper: '#smooth-wrapper',
@@ -223,4 +228,5 @@ export const useAboutProject = (containerRef) => {
         smoother.kill();
       };
     }, []);
+  }
   };
