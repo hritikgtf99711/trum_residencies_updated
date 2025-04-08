@@ -191,20 +191,19 @@ export const useAboutProject = (containerRef) => {
   
 
 
-  
   export const useBodySmoothScroll = () => {
     if (typeof window === "undefined") return;
-
-    // const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
-
+  
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  
     useGSAP(() => {
       const smoother = ScrollSmoother.create({
         wrapper: '#smooth-wrapper',
         content: '#smooth-content',
-        smooth: 1,
-        effects: true,
-        normalizeScroll: true,
-        smoothTouch: 0.1,
+        smooth: isSafari ? 0.5 : 1, // Reduce smoothing for Safari
+        effects: !isSafari, // Disable effects in Safari if problematic
+        normalizeScroll: !isSafari, // Disable normalizeScroll in Safari
+        smoothTouch: isSafari ? false : 0.1, // Disable smoothTouch in Safari
       });
   
       const handleResize = () => {
@@ -219,13 +218,12 @@ export const useAboutProject = (containerRef) => {
       };
   
       const links = document.querySelectorAll('a[href^="#"]');
-      links.forEach(link => link.addEventListener('click', handleAnchorClick));
+      links.forEach((link) => link.addEventListener('click', handleAnchorClick));
   
       return () => {
         window.removeEventListener('resize', handleResize);
-        links.forEach(link => link.removeEventListener('click', handleAnchorClick));
+        links.forEach((link) => link.removeEventListener('click', handleAnchorClick));
         smoother.kill();
       };
     }, []);
-  
   };
