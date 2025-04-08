@@ -127,7 +127,7 @@ export const useInteriorAnimation = (containerRef) => {
       // offset = (window.innerHeight - sectionHeight) / 2;
         let offset;
         if (window.innerHeight <= 650) {
-          offset = 50;
+          offset = 300;
         } else if (window.innerHeight <= 760) {
           offset = 380;
         } else  {

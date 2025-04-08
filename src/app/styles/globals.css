@@ -31,6 +31,10 @@ textarea::placeholder {letter-spacing: 2px;}
 @media  (max-height: 700) {
  .img_container figure{flex:0 0 25%}
 }
+@media  (max-height: 991px) {
+  #smooth-wrapper {position: static;}
+}
+
 .swiper{margin: 0;}
 .close_btn{
   background: #E8C183;
