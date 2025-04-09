@@ -23,8 +23,8 @@
               </div>
             </div>
             <div className='col-span-3 lg:text-start text-center'>
-                <img src={'/assets/images/right_map.png'} alt=""  className='w-full ' height={'900'} width={'1200'}/>
-                <img src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='absolute z-[-1] lg:hidden none  bottom-[-20px] left-[-40px] opacity-[0.2]' /> 
+                <img src={'/assets/images/right_map.webp'} alt=""  className='w-full ' height={'900'} width={'1200'}/>
+                <img src="/assets/images/circle_blob.webp"  alt="background blob" height={800} width={800} className='absolute z-[-1] lg:hidden none  bottom-[-20px] left-[-40px] opacity-[0.2]' /> 
                 <Bordered_button classNames={"md:hidden block lg:mt-0 mt-10"} > 
                 View Map
               </Bordered_button>

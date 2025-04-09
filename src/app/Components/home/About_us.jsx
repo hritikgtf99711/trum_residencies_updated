@@ -11,11 +11,11 @@ export default function AboutUs() {
     <>
     <section className="relative building_blob lg:bg-[transparent] lg:py-[0] py-section  bg-[#181615]"  ref={aboutRef}>
       <div className="custom_container relative">
-     <img src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='absolute z-[-1]   circle_blob bottom_blob left-[48%]  w-[90%] translate-x-[-50%] top-[-100%] opacity-[0.4]' /> 
+     <img src="/assets/images/circle_blob.webp"  alt="background blob" height={800} width={800} className='absolute z-[-1]   circle_blob bottom_blob left-[48%]  w-[90%] translate-x-[-50%] top-[-100%] opacity-[0.4]' /> 
 
         <div className="grid lg:grid-cols-9 gap-x-12 gap-y-6 items-center">
           <div className="col-span-3 left_content opacity-0 translate-x-[-100px]">
-          <img src="/assets/images/circle_blob.png"  alt="background blob" height={800} width={800} className='absolute z-[-1]  lg:hidden block  bottom-[40px] right-[-52px] opacity-[0.3]' /> 
+          <img src="/assets/images/circle_blob.webp"  alt="background blob" height={800} width={800} className='absolute z-[-1]  lg:hidden block  bottom-[40px] right-[-52px] opacity-[0.3]' /> 
 
             <div className="heading_container text-start">
               <Heading heading="ABOUT US" classNames="lg:text-start text-center" />
@@ -29,7 +29,7 @@ export default function AboutUs() {
           </div>
           <div className="col-span-3">
             <img
-              src="/assets/images/center_building.png"
+              src="/assets/images/center_building.webp"
               alt="Building"
               className="w-full h-full relative building_create opacity-100"
               height={1800}

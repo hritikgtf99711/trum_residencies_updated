@@ -28,14 +28,14 @@ export default function Amenities() {
   const [isAtEnd, setIsAtEnd] = useState(false);
 
   const amenities = [
-    { title: "Meeting Room", src: "/assets/images/meeting_room.jpg", alt: "Meeting Room" },
-    { title: "Gym", src: "/assets/images/gym.jpg", alt: "Gym" },
-    { title: "Cigar Room", src: "/assets/images/cigar_room.jpg", alt: "Cigar Room" },
-    { title: "Billiards Room", src: "/assets/images/billiard_room.jpg", alt: "Billiards Room" },
-    { title: "Theatre", src: "/assets/images/theatre.jpg", alt: "Theatre" },
-    { title: "Club", src: "/assets/images/club.jpg", alt: "Club" },
-    { title: "Vault Library", src: "/assets/images/vault_library.jpg", alt: "Vault Library" },
-    { title: "Business Lounge", src: "/assets/images/business_launge.jpg", alt: "Business Launge" },
+    { title: "Meeting Room", src: "/assets/images/meeting_room.webp", alt: "Meeting Room" },
+    { title: "Gym", src: "/assets/images/gym.webp", alt: "Gym" },
+    { title: "Cigar Room", src: "/assets/images/cigar_room.webp", alt: "Cigar Room" },
+    { title: "Billiards Room", src: "/assets/images/billiard_room.webp", alt: "Billiards Room" },
+    { title: "Theatre", src: "/assets/images/theatre.webp", alt: "Theatre" },
+    { title: "Club", src: "/assets/images/club.webp", alt: "Club" },
+    { title: "Vault Library", src: "/assets/images/vault_library.webp", alt: "Vault Library" },
+    { title: "Business Lounge", src: "/assets/images/business_launge.webp", alt: "Business Launge" },
   ];
 
   useEffect(() => {

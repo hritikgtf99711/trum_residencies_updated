@@ -14,7 +14,7 @@ export default function Header() {
     <header className="py-10 relative z-[10]">
         <div className='custom_container flex place-content-between items-center'>
         <figure>
-            <img src='/assets/images/logo.png' alt='logo' className='w-[120]' width={'120'} height={'200'} />
+            <img src='/assets/images/logo.webp' alt='logo' className='w-[120]' width={'120'} height={'200'} />
         </figure>
         <Bordered_button classNames="lg:flex hidden">
            <img src="/assets/images/icon_phone.svg" className='me-4' alt="phone" width={'18'} height={'18'}/>     Call Now

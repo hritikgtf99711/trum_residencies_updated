@@ -75,31 +75,31 @@ export default function Interiors() {
                 >
                   <SwiperSlide>
                     <figure>
-                      <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_one.jpg" alt="Elevator entry" width={487} height={460} />
+                      <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_one.webp" alt="Elevator entry" width={487} height={460} />
                       <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Elevator entry</figcaption>
                     </figure>
                   </SwiperSlide>
                   <SwiperSlide>
                     <figure>
-                      <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_two.jpg" alt="Living Area" width={487} height={460}/>
+                      <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_two.webp" alt="Living Area" width={487} height={460}/>
                       <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Living area</figcaption>
                     </figure>
                   </SwiperSlide>
                   <SwiperSlide>
                     <figure>
-                      <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_three.jpg" alt="Master Bedroom" width={487} height={460}/>
+                      <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_three.webp" alt="Master Bedroom" width={487} height={460}/>
                       <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Master Bedroom</figcaption>
                     </figure>
                   </SwiperSlide>
                   <SwiperSlide>
                     <figure>
-                      <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_four.jpg" alt="Hall" width={487} height={460}/>
+                      <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_four.webp" alt="Hall" width={487} height={460}/>
                       <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Hall</figcaption>
                     </figure>
                   </SwiperSlide>
                   <SwiperSlide>
                     <figure>
-                      <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_five.jpg" alt="Lobby" width={487} height={460}/>
+                      <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_five.webp" alt="Lobby" width={487} height={460}/>
                       <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Lobby</figcaption>
                     </figure>
                   </SwiperSlide>
@@ -107,23 +107,23 @@ export default function Interiors() {
               ) : (
                 <div className='flex lg:overflow-hidden img_container overflow-x-scroll gap-5 ps-10' ref={interiorContainerRef}>
                   <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
-                    <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_one.jpg" alt="Elevator entry" width={487} height={460} />
+                    <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_one.webp" alt="Elevator entry" width={487} height={460} />
                     <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Elevator entry</figcaption>
                   </figure>
                   <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
-                    <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_two.jpg" alt="Living Area" width={487} height={460}/>
+                    <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_two.webp" alt="Living Area" width={487} height={460}/>
                     <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Living area</figcaption>
                   </figure>
                   <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
-                    <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_three.jpg" alt="Master Bedroom" width={487} height={460}/>
+                    <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_three.webp" alt="Master Bedroom" width={487} height={460}/>
                     <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Master Bedroom</figcaption>
                   </figure>
                   <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
-                    <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_four.jpg" alt="Hall" width={487} height={460}/>
+                    <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_four.webp" alt="Hall" width={487} height={460}/>
                     <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Hall</figcaption>
                   </figure>
                   <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
-                    <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_five.jpg" alt="Lobby" width={487} height={460}/>
+                    <img className='w-[100%] rounded-[6px]' src="/assets/images/slider_five.webp" alt="Lobby" width={487} height={460}/>
                     <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Lobby</figcaption>
                   </figure>
                 </div>
