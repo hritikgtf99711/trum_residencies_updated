@@ -206,14 +206,14 @@ export const useBodySmoothScroll = () => {
     };
     window.addEventListener('resize', handleResize);
 
-    // const handleAnchorClick = (e) => {
-    //   e.preventDefault();
-    //   const target = e.currentTarget.getAttribute('href');
-    //   smoother.scrollTo(target, true, 'top top');
-    // };
+    const handleAnchorClick = (e) => {
+      e.preventDefault();
+      const target = e.currentTarget.getAttribute('href');
+      smoother.scrollTo(target, true, 'top top');
+    };
 
-    // const links = document.querySelectorAll('a[href^="#"]');
-    // links.forEach((link) => link.addEventListener('click', handleAnchorClick));
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach((link) => link.addEventListener('click', handleAnchorClick));
 
     return () => {
       window.removeEventListener('resize', handleResize);

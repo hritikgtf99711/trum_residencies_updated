@@ -8,18 +8,18 @@ export default function Form_sec() {
   return (
     <section className='form_sec_container pt-section relative'>
       <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1]  hidden lg:block
-      left-[20%] w-[100%]  circle_blob bottom_blob opacity-[.2]' />
+      left-[-40%] bottom-[-120px] w-[100%]  circle_blob bottom_blob opacity-[.2]' />
       <div className="w-full flex justify-center">
       <div className='custom_container'>
         <div className='grid lg:grid-cols-8 justify-items-center   gap-10  m-auto'>
             <div className='col-span-4 m-auto'>
-                <div className='lg:text-[60px] text-[30px] lg:tracking-[2px] tracking-[1px] '>
-                  Get In Touch
+                <div className='lg:text-[40px] text-[20px] lg:tracking-[2px] tracking-[1px] '>
+                  <span className='lg:text-[60px] text-[30px]'>G</span>et In  <span className='lg:text-[60px] text-[30px]'>T</span>ouch
                     <span className='flex place-items-center'>
                       <span className='lg:px-8 px-4' >
                       <svg width="150" height="2" viewBox="0 0 206 2" fill="none" >
                        <path d="M0 1L206 1.00002" stroke="#E8C183" strokeWidth={2}/>
-                    </svg></span>  With Us</span>
+                    </svg></span>  <span className='lg:text-[60px] text-[30px]'>W</span>ith Us</span>
                 </div>
 
             </div>
@@ -28,7 +28,7 @@ export default function Form_sec() {
             </div>
         </div>
         <div className="separator  py-[50px] text-center">
-          <div className='border-b-2 border-dashed border-primary-color'></div>
+          <div className='border-b-2 border-dashed border-primary-color w-[80%] mx-auto'></div>
             </div>
 
         <div className='text-center pb-[20px]  '>

@@ -17,8 +17,8 @@ export default function Smart_world() {
                 <div className='col-span-4  lg:order-[1] order-[-2]'>
                     <div className='flex flex-col justify-between h-full relative lg:place-items-end'>
                     <img src={basePath+"/circle_blob.webp"} alt="building blob" height={800} width={800} className='lg:hidden block absolute  left-[-80px] top-[-140px] opacity-[.4] w-full  w-[38%]' /> 
-                    <img src={basePath+'/logo_smart_world.webp'}  className='lg:w-[300px] w-[200px] lg:mx-[0] mx-auto'  alt='smart world' height={'589'} width={'300'}/> 
-                <div className='custom-text-gradient lg:text-right text-center lg:mt-o mt-[30px] tracking-[2] text-[18px] lg:text-[20px] font-[300] md:tracking-[2] tracking-[1px] changed-font'>
+                    <img src={basePath+'/logo_smart_world.webp'}  className='lg:w-[300px]  w-[200px] lg:mx-[0] mx-auto'  alt='smart world' height={'589'} width={'300'}/> 
+                <div className='custom-text-gradient uppercase lg:text-right text-center lg:mt-o mt-[30px] tracking-[2] text-[18px] lg:text-[20px] font-[300] md:tracking-[2] tracking-[1px] changed-font'>
                     One of the Fastest-<span className='lg:block'></span>Growing Real Estate<span className='lg:block'></span> Developers in the <span className='lg:block'></span>Country
                     </div>
                     </div>
