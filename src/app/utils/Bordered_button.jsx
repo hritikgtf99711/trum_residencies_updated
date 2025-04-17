@@ -4,7 +4,7 @@ import Modal from './Modal'
 import { useState } from 'react';
 
 export default function Bordered_button({link,children,classNames}) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <>

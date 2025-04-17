@@ -1,7 +1,5 @@
 "use client";
 import React, { useRef, useState,useEffect } from "react";
-import gsap from "gsap";
-import Image from "next/image";
 import { useBannerAnimation } from "@/app/utils/SharedTimeline";
 import Modal from "@/app/utils/Modal";
 import Form from "@/app/utils/Form";
@@ -12,10 +10,12 @@ export default function Banner() {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  let basePath=process.env.NEXT_PUBLIC_BASE_PATH
+  let videoPath=process.env.NEXT_PUBLIC_BASE_PATH_VIDEO
 
   return (
-    <section className="relative h-[calc(100vh-137px)] relative">
-              <Image src={"/assets/images/blob_cicle_banner.svg"} alt="building banner" className="absolute w-full  top-[-122px] left-[0] md:hidden"  height={"500"} width={"500"} />
+    <section className="relative h-[calc(100vh-137px)]  relative">
+              <img src={basePath+"/blob_cicle_banner.svg"} alt="building banner" className="absolute w-full  top-[-122px] left-[0] md:hidden"  height={"500"} width={"500"} />
 
       <div
         ref={textRef}
@@ -40,13 +40,13 @@ export default function Banner() {
           </a> 
         </div>
       </div>
-      <Image src={"/assets/images/building_banner.svg"} alt="buildding"  className="md:hidden  absolute bottom-[-56px] block  opacity-[.5]  lg:mb-0 mb-[40px] w-full" width={"800"} height={"800"}/>
+      <img src={basePath+"/building_banner.svg"} alt="buildding"  className="md:hidden  absolute bottom-[-56px] block  opacity-[.5]  lg:mb-0 mb-[40px] w-full" width={"800"} height={"800"}/>
       <video
         ref={videoRef}
         className="mt-[50px] lg:w-full md:block hidden w-[800px] absolute lg:h-full opacity-[.5] bottom-[0] left-[0] w-full"
         autoPlay
         muted>
-        <source src="/assets/video/building_video.mp4" type="video/mp4" />
+        <source src={videoPath+"/building_video.mp4"} type="video/mp4" />
         Your browser does not support the video tag.
     </video>
        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>

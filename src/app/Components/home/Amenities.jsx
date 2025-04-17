@@ -1,8 +1,6 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
-import Image from "next/image";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Small_title from "@/app/utils/Small_title";
 import Heading from "@/app/utils/Heading";
@@ -26,16 +24,16 @@ export default function Amenities() {
   const [infiniteAmenities, setInfiniteAmenities] = useState([]);
   const [isAtStart, setIsAtStart] = useState(false);
   const [isAtEnd, setIsAtEnd] = useState(false);
-
+let basePath=process.env.NEXT_PUBLIC_BASE_PATH
   const amenities = [
-    { title: "Meeting Room", src: "/assets/images/meeting_room.webp", alt: "Meeting Room" },
-    { title: "Gym", src: "/assets/images/gym.webp", alt: "Gym" },
-    { title: "Cigar Room", src: "/assets/images/cigar_room.webp", alt: "Cigar Room" },
-    { title: "Billiards Room", src: "/assets/images/billiard_room.webp", alt: "Billiards Room" },
-    { title: "Theatre", src: "/assets/images/theatre.webp", alt: "Theatre" },
-    { title: "Club", src: "/assets/images/club.webp", alt: "Club" },
-    { title: "Vault Library", src: "/assets/images/vault_library.webp", alt: "Vault Library" },
-    { title: "Business Lounge", src: "/assets/images/business_launge.webp", alt: "Business Launge" },
+    { title: "Meeting Room", src:basePath+"/meeting_room.webp", alt: "Meeting Room" },
+    { title: "Gym", src:basePath+"/gym.webp", alt: "Gym" },
+    { title: "Cigar Room", src:basePath+"/cigar_room.webp", alt: "Cigar Room" },
+    { title: "Billiards Room", src:basePath+"/billiard_room.webp", alt: "Billiards Room" },
+    { title: "Theatre", src:basePath+"/theatre.webp", alt: "Theatre" },
+    { title: "Club", src:basePath+"/club.webp", alt: "Club" },
+    { title: "Vault Library", src:basePath+"/vault_library.webp", alt: "Vault Library" },
+    { title: "Business Lounge", src:basePath+"/business_launge.webp", alt: "Business Launge" },
   ];
 
   useEffect(() => {
@@ -221,7 +219,7 @@ export default function Amenities() {
           onClick={() => !isAtStart && setCurrentIndex(prev => prev - 1)}
           disabled={isAtStart}
         >
-          <img src={"/assets/images/right-arrow.png"} className="rotate-180 opacity-[.4] w-[50px]" alt="left arrow" height={50} width={100}/>
+          <img src={basePath+"/right-arrow.png"} className="rotate-180 opacity-[.4] w-[50px]" alt="left arrow" height={50} width={100}/>
         </button>
         <div className="text-center w-full   text-md relative">
           <div className="custom-text-gradient">{amenities[getSlideModuloIndex(currentIndex)].title}</div>
@@ -231,7 +229,7 @@ export default function Amenities() {
           onClick={() => !isAtEnd && setCurrentIndex(prev => prev + 1)}
           disabled={isAtEnd}
         >
-          <img src={"/assets/images/right-arrow.png"} alt="right arrow" className="opacity-[.4] w-[50px]" height={50} width={100}/>
+          <img src={basePath+"/right-arrow.png"} alt="right arrow" className="opacity-[.4] w-[50px]" height={50} width={100}/>
         </button>
       </div>
       <div className='text-center lg:hidden block mt-[40px]'>
@@ -239,7 +237,7 @@ export default function Amenities() {
           View More
         </Bordered_button>  
       </div>
-                <img src="/assets/images/left_building_blob.svg"  alt="building blob" height={800} width={800} className='  absolute md:hidden block  circle_blob bottom_blob right-[0] bottom-[0] w-[38%]' /> 
+                <img src={basePath+"/left_building_blob.svg"}  alt="building blob" height={800} width={800} className='  absolute md:hidden block  circle_blob bottom_blob right-[0] bottom-[0] w-[38%]' /> 
       
     </section>
   );

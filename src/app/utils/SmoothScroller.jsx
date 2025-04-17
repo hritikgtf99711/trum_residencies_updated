@@ -10,7 +10,7 @@ const SmoothScroll = ({ children }) => {
       if (targetElement) {
         targetElement.scrollIntoView({
           behavior: 'smooth',
-          block: 'start', // Aligns the top of the target with the top of the viewport
+          block: 'start', 
         });
       }
     };

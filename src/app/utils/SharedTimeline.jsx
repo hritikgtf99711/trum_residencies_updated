@@ -4,8 +4,7 @@ import { useState, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ScrollSmoother from '@/ScrollSmoother';
-
+import ScrollSmoother from 'gsap/ScrollSmoother';
 gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
 const MOBILE_BREAKPOINT = 991;
@@ -122,18 +121,14 @@ export const useInteriorAnimation = (containerRef) => {
 
       if (!isMobile && containerRef.current) {
         const totalWidth = containerRef.current.offsetWidth;
-      //   let offset;
-      // const sectionHeight = containerRef.current?.offsetHeight || 0;
-      // offset = (window.innerHeight - sectionHeight) / 2;
         let offset;
         if (window.innerHeight <= 650) {
-          offset = 300;
+          offset = 380;
         } else if (window.innerHeight <= 760) {
           offset = 380;
         } else  {
-          offset = 400;
+          offset = 500;
         }
-
         animation = gsap.to(figures, {
           xPercent: -100 * slides,
           ease: "none",
@@ -142,7 +137,7 @@ export const useInteriorAnimation = (containerRef) => {
             pin: true,
             scrub: 1,
             start:`bottom center+=${offset}`,
-            end: `+=${(totalWidth * slides * 0.1)}`,
+            end: `+=${(totalWidth * slides * 1)}`,
             snap: {
               snapTo: 1 / slides,
               duration: { min: 0.1, max: 0.3 },

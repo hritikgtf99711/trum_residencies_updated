@@ -1,13 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    // Warning: This allows production builds to complete even if your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-  // basePath:"",
+  // basePath: process.env.NEXT_PUBLIC_BASE_PATH,
   // output: 'export',
-  // assetPrefix: '',
-
+  // assetPrefix: "https://www.tribecadevelopers.com/trumpresidenceslandingpage-gurgaon/",
 };
 
 export default nextConfig;

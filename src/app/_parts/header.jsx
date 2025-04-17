@@ -14,15 +14,15 @@ export default function Header() {
     <header className="py-10 relative z-[10]">
         <div className='custom_container flex place-content-between items-center'>
         <figure>
-            <img src='/assets/images/logo.webp' alt='logo' className='w-[120]' width={'120'} height={'200'} />
+            <img src={process.env.NEXT_PUBLIC_BASE_PATH+'/logo.webp'} alt='logo' className='w-[120]' width={'120'} height={'200'} />
         </figure>
         <Bordered_button classNames="lg:flex hidden">
-           <img src="/assets/images/icon_phone.svg" className='me-4' alt="phone" width={'18'} height={'18'}/>     Call Now
+           <img src={process.env.NEXT_PUBLIC_BASE_PATH+"/icon_phone.svg"} className='me-4' alt="phone" width={'18'} height={'18'}/>     Call Now
         </Bordered_button>
 
         <div className='header_content lg:hidden  flex gap-[10px]'>
-        <img src="/assets/images/mobile_img.svg"  onClick={() => setIsOpen(true)} className='me-4' alt="phone" width={'32'} height={'32'}/> 
-        <img src="/assets/images/hamburger_menu.svg" onClick={()=>{
+        <img src={process.env.NEXT_PUBLIC_BASE_PATH+"/mobile_img.svg"}  onClick={() => setIsOpen(true)} className='me-4' alt="phone" width={'32'} height={'32'}/> 
+        <img src={process.env.NEXT_PUBLIC_BASE_PATH+"/hamburger_menu.svg"} onClick={()=>{
           console.log("on")
           setOpenMenuVia(true)
         }} className='me-4' alt="phone" width={'32'} height={'32'}/> 

@@ -125,17 +125,17 @@ module.exports = {
           "-webkit-text-fill-color": "transparent",
         },
         ".black_texture_one": {
-          "background-image": "url('/assets/images/amenities_texture.jpg')",
+          "background-image": "url('https://www.tribecadevelopers.com/trumpresidenceslandingpage-gurgaon/assets/images/amenities_texture.jpg')",
           "background-size": "cover",
           "background-position": "center",
         },
         ".black_texture_two": {
-          "background-image": "url('/assets/images/tribeca_bg.jpg')",
+          "background-image": "url('https://www.tribecadevelopers.com/trumpresidenceslandingpage-gurgaon/assets/images/tribeca_bg.jpg')",
           "background-size": "cover",
           "background-position": "center",
         },
         ".black_texture_three": {
-          "background-image": "url('/assets/images/smart_world_bg.jpg')",
+          "background-image": "url('https://www.tribecadevelopers.com/trumpresidenceslandingpage-gurgaon/assets/images/smart_world_bg.jpg')",
           "background-size": "cover",
           "background-position": "center",
         },

@@ -24,7 +24,7 @@ export default function Form_sec() {
 
             </div>
             <div className='lg:col-span-3 col-span-4 ms-auto'>        
-                <Form/>
+                <Form via={1}/>
             </div>
         </div>
         <div className="separator  py-[50px] text-center">
