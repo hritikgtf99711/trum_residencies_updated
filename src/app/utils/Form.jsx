@@ -95,7 +95,7 @@ export default function Form({ formId = 'SubmitQuery' ,via}) {
         strategy="lazyOnload"
         onLoad={() => console.log('Query form script loaded')}
       />
-      <form
+      <form 
         onSubmit={handleSubmit}
         className="border-2 border-primary-color rounded-md px-[30px] py-8"
         noValidate
@@ -104,7 +104,7 @@ export default function Form({ formId = 'SubmitQuery' ,via}) {
               {via!=1 && <>
     <figure className='text-center'>
     <img src={process.env.NEXT_PUBLIC_BASE_PATH+'/logo.webp'} alt='logo' className='w-[110px] m-auto mb-[10px]' width={'80'} height={'120'} />
-    <figcaption className='leading-[normal] pb-[30px] text-[14px] tracking-[1px]'>Join the Elite – Experience the Trump Legacy</figcaption>
+      <figcaption className='leading-[normal] pb-[30px] text-[14px] tracking-[1px]'>Join the Elite – Experience the Trump Legacy</figcaption>
     </figure>
               </>}
 
