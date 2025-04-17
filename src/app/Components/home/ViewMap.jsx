@@ -27,7 +27,7 @@ export default function ViewMap() {
               >
                 View Map
               </button>
-            </div>
+            </div>    
           </div>
           <div className='col-span-3 lg:text-start text-center'>
             <img src={basePath + '/right_map.webp'} alt="" className='w-full' height={'900'} width={'1200'} />
