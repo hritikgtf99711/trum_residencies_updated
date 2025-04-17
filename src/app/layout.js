@@ -37,6 +37,18 @@ export default function RootLayout({ children }) {
           </div>
         </div>
         <a
+          className="sms-chat text-decoration-none"
+          href="#"
+          rel="nofollow"
+        >
+          <img
+            src="/assets/images/email.png"
+            alt="SMS"
+            width="24"
+            height="24"
+          />
+        </a>
+        <a
           className="whatsapp-chat text-decoration-none"
           href="https://wa.me/1111111111?text=Hi"
           target="_blank"
