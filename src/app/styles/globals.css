@@ -20,24 +20,29 @@ p{ font-family: var(--font-montserrat), sans-serif;letter-spacing: normal;line-h
 input::placeholder, 
 textarea::placeholder {letter-spacing: 2px;}
 .whatsapp-chat {
-  display: flex;
-  background-color: #e4e4e4;
-  color: rgba(0,0,0,.6);
-  padding: 8px 0 8px 15px;
-  border-radius: 50px;
-  position: fixed;
-  bottom: 30px;
-  right: 25px;
-  font-size: 15px;
-  transition: .2s;
-  z-index: 11
+  display: flex
+  ;
+      background-color: #e4e4e4;
+      color: #0009;
+      padding: 8px;
+      border-radius: 50px;
+      position: fixed;
+      bottom: 30px;
+      right: 25px;
+      font-size: 15px;
+      transition: all .2s;
+      z-index: 11;
+      height: 50px;
+      width: 50px;
 }
 .changemargin .pin-spacer {margin: 0!important;}
 .whatsapp-chat img {
   position: relative;
-  top: 0.5px;
+  top: .5px;
   height: 24px;
   width: 24px;
+  height: 100%;
+  width: 100%;
 
 }
 

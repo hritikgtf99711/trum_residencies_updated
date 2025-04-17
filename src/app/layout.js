@@ -26,10 +26,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${montserrat.variable} ${cinzel.variable}  bg-[#000]`}>
+      <div id="sidemenu-portal" />
+      <div id="modal-root" />
       <ModalProvider>
 
-        <div id="sidemenu-portal" />
-        <div id="modal-root" />
+     
         <div id="smooth-wrapper">
           <div id="smooth-content">
             {children}
