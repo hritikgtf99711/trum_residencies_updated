@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from 'react';
 const ModalContext = createContext();
 
 export const ModalProvider = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);

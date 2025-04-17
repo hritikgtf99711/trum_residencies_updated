@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
             width="24"
             height="24"
           />
-          <span className='text-[12px]'>WhatsApp us</span>
+          {/* <span className='text-[12px]'>WhatsApp us</span> */}
         </a>
         </ModalProvider>
 

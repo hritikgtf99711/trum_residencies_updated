@@ -1,6 +1,5 @@
 "use client"
 import React from 'react';
-import Image from 'next/image';
 import Bordered_button from '../utils/Bordered_button';
 import Sidemenu from '../utils/Sidemenu';
 import { useState } from 'react';

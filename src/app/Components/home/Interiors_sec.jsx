@@ -31,7 +31,6 @@ export default function Interiors() {
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  // Function to scroll the desktop image container
   const scrollImages = (direction) => {
     if (interiorContainerRef.current) {
       const scrollAmount = interiorContainerRef.current.offsetWidth * 0.5; // Adjust scroll distance
@@ -160,7 +159,6 @@ export default function Interiors() {
                       <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Lobby</figcaption>
                     </figure>
                   </div>
-                  {/* Desktop Navigation Arrows */}
                   <div className="absolute top-1/2 left-0 z-10 transform -translate-y-1/2 cursor-pointer" onClick={() => scrollImages('prev')}>
                     <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
