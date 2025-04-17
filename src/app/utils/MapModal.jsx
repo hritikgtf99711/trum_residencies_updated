@@ -37,4 +37,4 @@ export default function MapModal({ isOpen, onClose, children }) {
     </div>,
     modalRoot
   );
-}
+}   
