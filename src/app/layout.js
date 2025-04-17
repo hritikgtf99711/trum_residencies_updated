@@ -4,6 +4,7 @@ import './styles/globals.css';
 import { Montserrat, Cinzel } from "next/font/google";
 // import localFont from 'next/font/local';
 import { useBodySmoothScroll } from "./utils/SharedTimeline";
+import { ModalProvider } from './hooks/modaContext';
 
 // Google Fonts
 const montserrat = Montserrat({
@@ -25,6 +26,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${montserrat.variable} ${cinzel.variable}  bg-[#000]`}>
+      <ModalProvider>
+
         <div id="sidemenu-portal" />
         <div id="modal-root" />
         <div id="smooth-wrapper">
@@ -44,8 +47,10 @@ export default function RootLayout({ children }) {
             width="24"
             height="24"
           />
-          <span>WhatsApp us</span>
+          <span className='text-[12px]'>WhatsApp us</span>
         </a>
+        </ModalProvider>
+
       </body>
     </html>
   );

@@ -4,11 +4,11 @@ import Image from 'next/image';
 import Bordered_button from '../utils/Bordered_button';
 import Sidemenu from '../utils/Sidemenu';
 import { useState } from 'react';
-import Form from '../utils/Form';
-import Modal from '../utils/Modal';
+import { useModal } from '../hooks/modaContext';
+
 export default function Header() {
   const [openmenuVia,setOpenMenuVia]=useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, openModal, closeModal } = useModal();
   
   return (
     <header className="py-10 relative z-[10]">
@@ -21,17 +21,13 @@ export default function Header() {
         </Bordered_button>
 
         <div className='header_content lg:hidden  flex gap-[10px]'>
-        <img src={process.env.NEXT_PUBLIC_BASE_PATH+"/mobile_img.svg"}  onClick={() => setIsOpen(true)} className='me-4' alt="phone" width={'32'} height={'32'}/> 
+        <img src={process.env.NEXT_PUBLIC_BASE_PATH+"/mobile_img.svg"}  onClick={() => openModal()} className='me-4' alt="phone" width={'32'} height={'32'}/> 
         <img src={process.env.NEXT_PUBLIC_BASE_PATH+"/hamburger_menu.svg"} onClick={()=>{
-          console.log("on")
           setOpenMenuVia(true)
         }} className='me-4' alt="phone" width={'32'} height={'32'}/> 
         </div>
         </div>
         <Sidemenu openmenuVia={openmenuVia} setOpenMenuVia={setOpenMenuVia} />
-           <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                    <Form/>
-                </Modal>
     </header>
   )
 }

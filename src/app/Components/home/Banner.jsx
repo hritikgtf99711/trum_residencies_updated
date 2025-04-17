@@ -1,14 +1,13 @@
 "use client";
 import React, { useRef, useState,useEffect } from "react";
 import { useBannerAnimation } from "@/app/utils/SharedTimeline";
-import Modal from "@/app/utils/Modal";
-import Form from "@/app/utils/Form";
+import { useModal } from "@/app/hooks/modaContext";
 export default function Banner() {
   const videoRef = useRef(null);
   const textRef = useRef(null);
   const { showText } = useBannerAnimation(videoRef, textRef);
 
-  const [isOpen, setIsOpen] = useState(false);
+const { isOpen, openModal, closeModal } = useModal();
 
   let basePath=process.env.NEXT_PUBLIC_BASE_PATH
   let videoPath=process.env.NEXT_PUBLIC_BASE_PATH_VIDEO
@@ -35,7 +34,7 @@ export default function Banner() {
               Join the Elite – Experience the Trump Legacy
             </p>
           </div>
-          <a href="#" onClick={() => setIsOpen(true)} className="comment-button banner_btn lg:mt-10 inline-block lg:tracking-[2px] tracking-[normal] lg:font-[200] font-[500]">
+          <a href="#" onClick={() => openModal()} className="comment-button banner_btn lg:mt-10 inline-block lg:tracking-[2px] tracking-[normal] lg:font-[200] font-[500]">
             Reserve Your Trump Home
           </a> 
         </div>
@@ -49,9 +48,7 @@ export default function Banner() {
         <source src={videoPath+"/building_video.mp4"} type="video/mp4" />
         Your browser does not support the video tag.
     </video>
-       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-            <Form/>
-        </Modal>
+         
     </section>
   );
 }

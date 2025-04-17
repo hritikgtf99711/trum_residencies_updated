@@ -35,7 +35,10 @@ textarea::placeholder {letter-spacing: 2px;}
 .changemargin .pin-spacer {margin: 0!important;}
 .whatsapp-chat img {
   position: relative;
-  top: 2px
+  top: 0.5px;
+  height: 24px;
+  width: 24px;
+
 }
 
 .whatsapp-chat span {
@@ -54,12 +57,12 @@ textarea::placeholder {letter-spacing: 2px;}
 
 @font-face {
   font-family: 'SangBleu Sans';
-  src: url('/fonts/sangbleu-sans-medium.ttf') format('truetype');
+  src: url('/fonts/sangBleu-sunrise.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
-
+.changed-font{ font-family: 'SangBleu Sans';}
 @media (max-width: 767px) {.video_sec .before{ left: calc(48% - 30px);background-color: #000;transform: translateX(0%);}
 .video_sec .after{right:calc(48% - 30px);background-color: #000;transform: translateX(0%);}
 }

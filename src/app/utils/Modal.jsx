@@ -1,4 +1,4 @@
-// components/Modal.js
+"use client"
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
@@ -18,7 +18,7 @@ export default function Modal({ isOpen, onClose, children }) {
 
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-[black]/50 backdrop-blur-sm md:px-0  px-4">
-      <div className="bg-[#000] rounded-2xl shadow-xl max-w-md w-full p-6 relative animate-fadeIn">
+      <div className="bg-[#000] rounded-2xl shadow-xl max-w-[32rem] w-full p-6 relative animate-fadeIn">
         <button
           onClick={onClose}
           className="absolute  close_btn top-2 right-2 text-gray-600 hover:text-black text-xl"
