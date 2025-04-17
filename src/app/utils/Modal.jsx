@@ -1,8 +1,14 @@
-"use client"
-import { useEffect } from "react";
+"use client";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 export default function Modal({ isOpen, onClose, children }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -11,7 +17,7 @@ export default function Modal({ isOpen, onClose, children }) {
     }
   }, [isOpen]);
 
-  if (typeof window === "undefined" || !isOpen) return null;
+  if (!mounted || !isOpen) return null;
 
   const modalRoot = document.getElementById("modal-root");
   if (!modalRoot) return null;
