@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
           rel="nofollow"
         >
           <img
-            src="/assets/images/whats-app-icon.png"
+            src="https://www.tribecadevelopers.com/trumpresidenceslandingpage-gurgaon/assets/images/whats-app-icon.png"
             alt="WhatsApp"
             width="24"
             height="24"

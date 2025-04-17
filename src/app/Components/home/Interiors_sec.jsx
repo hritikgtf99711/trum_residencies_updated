@@ -6,13 +6,13 @@ import { useInteriorAnimation } from '@/app/utils/SharedTimeline';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation'; // Add navigation styles
+import 'swiper/css/navigation'; 
 import { Pagination, Navigation } from 'swiper/modules';
 
 export default function Interiors() {
   const interiorRef = useRef(null);
   const interiorContainerRef = useRef(null);
-  const swiperRef = useRef(null); // Ref for Swiper instance
+  const swiperRef = useRef(null); 
   const [isMobile, setIsMobile] = useState(false);
   useInteriorAnimation(interiorRef);
 
