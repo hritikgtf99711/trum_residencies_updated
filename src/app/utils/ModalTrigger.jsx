@@ -6,6 +6,7 @@ import Form from './Form';
 
 export default function ModalTrigger() {
   const { isOpen, openModal, closeModal } = useModal();
+  let basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 
   return (
     <>
@@ -19,7 +20,7 @@ export default function ModalTrigger() {
         rel="nofollow"
       >
         <img
-          src="/assets/images/email.png"
+          src={basePath+"/email.png"}
           alt="SMS"
           width="24"
           height="24"

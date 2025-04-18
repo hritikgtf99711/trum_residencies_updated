@@ -98,9 +98,9 @@ export default function Interiors() {
 
 
   return (
-    <div className='relative changemargin'>
+    <div className='relative py-section'>
       <img src={basePath + "/left_building_blob.svg"} alt="building blob" height={800} width={800} className='lg:block none absolute z-[-1] circle_blob bottom_blob left-[0] bottom-[-80px] w-[38%]' />
-      <section className="relative lg:h-[100vh] lg:px-0 flex flex-col my-section justify-center md:place-items-center" ref={interiorRef}>
+      <section className="relative  lg:px-0 flex flex-col  justify-center md:place-items-center" ref={interiorRef}>
         <img src={basePath + "/circle_blob.png"} alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1] circle_blob bottom_blob left-[-50%] w-[100%] top-[-60%] opacity-[0.3]' />
         <img src={basePath + "/circle_blob.png"} alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1] circle_blob bottom_blob right-[-48%] w-[90%] top-[-60%] opacity-[0.3]' />
         <div className=''>
@@ -124,13 +124,14 @@ export default function Interiors() {
                   loop={true}
                   centeredSlides={false}
                   slidesPerView={1.4}
-                  spaceBetween={10}
+                  spaceBetween={20}
                   onSwiper={(swiper) => (swiperRef.current = swiper)}
-                  className="mySwiper pl-[31px!important] w-[90%]"
+                  className="mySwiper pl-[31px!important]"
                   breakpoints={{
                     0: { slidesPerView: 1.3 },
                     600: { slidesPerView: 2.2 },
                     991: { slidesPerView: 2.2 },
+                    1366: { slidesPerView: 2.5}, // Desktop breakpoint
                   }}
                 >
                   {sliderData.map(({ image, caption }, i) => (

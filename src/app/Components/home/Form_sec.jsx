@@ -9,7 +9,7 @@ export default function Form_sec() {
 
   return (
     <section className='form_sec_container pt-section relative'>
-      <Image src={basePath + "/circle_blob.png"} alt="background blob" height={600} width={600} className='absolute z-[-1]  hidden lg:block
+      <img src={basePath + "/circle_blob.png"} alt="background blob" height={600} width={600} className='absolute z-[-1]  hidden lg:block
       left-[-40%] bottom-[-120px] w-[100%]  circle_blob bottom_blob opacity-[.2]' />
       <div className="w-full flex justify-center">
       <div className='custom_container'>

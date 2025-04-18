@@ -17,6 +17,7 @@ const cinzel = Cinzel({
   weight: ["400", "500", "700"],
   variable: "--font-cinzel",
 });
+let basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 
 export default function RootLayout({ children }) {
   useBodySmoothScroll();
@@ -36,12 +37,12 @@ export default function RootLayout({ children }) {
 
           <a
             className="whatsapp-chat text-decoration-none"
-            href="https://wa.me/1111111111?text=Hi"
+            href="https://wa.me/9861922925?text=Hi"
             target="_blank"
             rel="nofollow"
           >
             <img
-              src="/assets/images/whats-app-icon.png"
+              src={basePath + "/whats-app-icon.png"}
               alt="WhatsApp"
               width="24"
               height="24"
