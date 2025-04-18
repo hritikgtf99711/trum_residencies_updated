@@ -170,11 +170,14 @@ textarea::placeholder {
 
 @font-face {
   font-family: 'SangBleu Sans';
-  src: url('/fonts/SangBleu-Sunrise.ttf') format('truetype');
+  src: url('/fonts/SangBleu-Sunrise.woff2') format('woff2'),
+       url('/fonts/SangBleu-Sunrise.woff') format('woff'),
+       url('/fonts/SangBleu-Sunrise.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
+
 
 .changed-font {
   font-family: 'SangBleu Sans';
