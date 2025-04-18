@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
 const MOBILE_BREAKPOINT = 991;
 
-
 // const handleTimeUpdate = () => {
 //       if (video.currentTime >= stopTime) {
 //         video.pause();
@@ -106,7 +105,7 @@ export const useAboutAnimation = (containerRef) => {
   }, { scope: containerRef });
 };
 
-export const useInteriorAnimation = (containerRef) => {
+export const useInteriorAnimation = (containerRef, disableAnimation) => {
   useGSAP(() => {
     let animation;
     const figures = containerRef.current?.querySelectorAll("figure");
@@ -119,7 +118,7 @@ export const useInteriorAnimation = (containerRef) => {
 
       const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
 
-      if (!isMobile && containerRef.current) {
+      if (!isMobile && containerRef.current && !disableAnimation) {
         const totalWidth = containerRef.current.offsetWidth;
         let offset;
         if (window.innerHeight <= 650) {
@@ -130,7 +129,7 @@ export const useInteriorAnimation = (containerRef) => {
           offset = 500;
         }
         animation = gsap.to(figures, {
-          xPercent: -100 * slides,
+          xPercent: -40 * slides,
           ease: "none",
           scrollTrigger: {
             trigger: containerRef.current,
@@ -149,9 +148,6 @@ export const useInteriorAnimation = (containerRef) => {
       }
     };
 
-
-    
-
     setupAnimation();
     window.addEventListener("resize", setupAnimation);
 
@@ -159,11 +155,9 @@ export const useInteriorAnimation = (containerRef) => {
       window.removeEventListener("resize", setupAnimation);
       if (animation) animation.kill();
     };
-    
-  }, { scope: containerRef });
-  
-};
 
+  }, { scope: containerRef });
+};
 
 export const useAboutProject = (containerRef) => {
     useGSAP(() => {
@@ -183,8 +177,6 @@ export const useAboutProject = (containerRef) => {
       return () => tl.kill();
     }, { scope: containerRef });
   };
-  
-
 
 export const useBodySmoothScroll = () => {
   if (typeof window === "undefined") return;

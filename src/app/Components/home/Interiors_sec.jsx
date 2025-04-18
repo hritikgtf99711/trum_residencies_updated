@@ -8,56 +8,94 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation'; 
 import { Pagination, Navigation } from 'swiper/modules';
+import gsap from 'gsap'; // Import GSAP for smooth animations
 
 export default function Interiors() {
   const interiorRef = useRef(null);
   const interiorContainerRef = useRef(null);
   const swiperRef = useRef(null); 
   const [isMobile, setIsMobile] = useState(false);
-  useInteriorAnimation(interiorRef);
+  const [disableAnimation, setDisableAnimation] = useState(false);
+  // useInteriorAnimation(interiorRef);
 
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 991);
-    };
+  // useEffect(() => {
+  //   const checkScreenSize = () => {
+  //     setIsMobile(window.innerWidth < 991);
+  //   };
 
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
+  //   checkScreenSize();
+  //   window.addEventListener('resize', checkScreenSize);
 
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
+  //   return () => window.removeEventListener('resize', checkScreenSize);
+  // }, []);
 
   // const scrollImages = (direction) => {
-  //   if (interiorContainerRef.current) {
-  //     const scrollAmount = interiorContainerRef.current.offsetWidth * 0.5; // Adjust scroll distance
-  //     interiorContainerRef.current.scrollBy({
-  //       left: direction === 'next' ? scrollAmount : -scrollAmount,
-  //       behavior: 'smooth',
+  //   const container = interiorContainerRef.current;
+  //   const scrollAmount = container.offsetWidth * 0.5; // Adjust this value to control scroll speed
+
+  //   if (!container) return;
+
+  //   const maxScroll = container.scrollWidth - container.clientWidth;
+
+  //   setDisableAnimation(true); 
+
+  //   if (direction === 'next') {
+  //     // Scroll to the right
+  //     gsap.to(container, {
+  //       scrollLeft: container.scrollLeft + scrollAmount,
+  //       duration: 1,
+  //       ease: 'power2.inOut',
+  //       onComplete: () => {
+  //         // Check if we've reached the end, and reset to the start
+  //         if (container.scrollLeft >= maxScroll - 5) {
+  //           gsap.to(container, {
+  //             scrollLeft: 0,
+  //             duration: 0.5,
+  //             ease: 'power2.inOut',
+  //             onComplete: () => {
+  //               setDisableAnimation(false); // Re-enable GSAP animation after scroll
+  //             },
+  //           });
+  //         } else {
+  //           setDisableAnimation(false); // Re-enable GSAP animation after scroll
+  //         }
+  //       },
+  //     });
+  //   } else {
+  //     // Scroll to the left
+  //     gsap.to(container, {
+  //       scrollLeft: container.scrollLeft - scrollAmount,
+  //       duration: 1,
+  //       ease: 'power2.inOut',
+  //       onComplete: () => {
+  //         // Check if we're at the start, and reset to the end
+  //         if (container.scrollLeft <= 0) {
+  //           gsap.to(container, {
+  //             scrollLeft: maxScroll,
+  //             duration: 0.5,
+  //             ease: 'power2.inOut',
+  //             onComplete: () => {
+  //               setDisableAnimation(false); // Re-enable GSAP animation after scroll
+  //             },
+  //           });
+  //         } else {
+  //           setDisableAnimation(false); // Re-enable GSAP animation after scroll
+  //         }
+  //       },
   //     });
   //   }
   // };
-  const scrollImages = (direction) => {
-    const container = interiorContainerRef.current;
-    const scrollAmount = container.offsetWidth * 0.5;
-
-    if (direction === 'next') {
-      if (container.scrollLeft + container.offsetWidth >= container.scrollWidth - 5) {
-        container.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }
-    } else {
-      if (container.scrollLeft <= 0) {
-        container.scrollTo({ left: container.scrollWidth, behavior: 'smooth' });
-      } else {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      }
-    }
-  };
-
-
 
   let basePath = process.env.NEXT_PUBLIC_BASE_PATH;
+
+  const sliderData = [
+    { image: 'slider_one', caption: 'Elevator entry' },
+    { image: 'slider_two', caption: 'Living Area' },
+    { image: 'slider_three', caption: 'Master Bedroom' },
+    { image: 'slider_four', caption: 'Hall' },
+    { image: 'slider_five', caption: 'Lobby' }
+  ];
+
 
   return (
     <div className='relative changemargin'>
@@ -78,137 +116,110 @@ export default function Interiors() {
               <p className='mb-10'>
                 Step into the world of Trump where every detail speaks of powerful design and timeless sophistication. At Trump Residences Gurgaon, the interiors are not just crafted—they are curated for the elite, blending legendary craftsmanship with priceless artistry.
               </p>
-              <Bordered_button classNames={"lg:inline-block hidden"}>
-                View More
-              </Bordered_button>
+              <Bordered_button classNames={"lg:inline-block hidden"}>View More</Bordered_button>
             </div>
             <div className='lg:col-span-8 col-span-12 text-center relative overflow-hidden'>
-              {isMobile ? (
-                <div className="relative">
-                  <Swiper
-                    slidesPerView={1.4}
-                    spaceBetween={20}
-                    pagination={{ clickable: true }}
-                    navigation={{
-                      nextEl: '.swiper-button-next',
-                      prevEl: '.swiper-button-prev',
-                    }}
-                    modules={[Pagination, Navigation]}
-                    className="mySwiper pl-[31px!important]"
-                    breakpoints={{
-                      0: {
-                        slidesPerView: 1.5,
-                      },
-                      600: {
-                        slidesPerView: 3,
-                      },
-                      991: {
-                        slidesPerView: 3,
-                      },
-                    }}
-                    onSwiper={(swiper) => (swiperRef.current = swiper)}
+              <div className="relative">
+                <Swiper
+                  loop={true}
+                  centeredSlides={false}
+                  slidesPerView={1.4}
+                  spaceBetween={10}
+                  onSwiper={(swiper) => (swiperRef.current = swiper)}
+                  className="mySwiper pl-[31px!important] w-[90%]"
+                  breakpoints={{
+                    0: { slidesPerView: 1.3 },
+                    600: { slidesPerView: 2.2 },
+                    991: { slidesPerView: 2.2 },
+                  }}
+                >
+                  {sliderData.map(({ image, caption }, i) => (
+                    <SwiperSlide key={i}>
+                      <figure className="w-full mx-0 ml-0 mx-auto rounded-[6px] mb-[50px] overflow-hidden">
+                        <div className="w-full">
+                          <img
+                            className="w-full h-[350px] rounded-[6px] object-cover"
+                            src={`${basePath}/${image}.webp`}
+                            alt={`Slide ${i}`}
+                            width={600}
+                            height={460}
+                          />
+                        </div>
+                        <figcaption className="mt-5 tracking-[1px] custom-text-gradient text-center capitalize">
+                          {caption}
+                        </figcaption>
+                      </figure>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+
+                {/* Custom Arrows */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center gap-4 z-10">
+                  <button
+                    onClick={() => swiperRef.current?.slidePrev()}
+                    className="p-2 rounded-full bg-white shadow-lg hover:bg-gray-100 transition"
                   >
-                    <SwiperSlide>
-                      <figure>
-                        <img className='w-[100%] rounded-[6px]' src={basePath + "/slider_one.webp"} alt="Elevator entry" width={487} height={460} />
-                        <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Elevator entry</figcaption>
-                      </figure>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <figure>
-                        <img className='w-[100%] rounded-[6px]' src={basePath + "/slider_two.webp"} alt="Living Area" width={487} height={460} />
-                        <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Living area</figcaption>
-                      </figure>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <figure>
-                        <img className='w-[100%] rounded-[6px]' src={basePath + "/slider_three.webp"} alt="Master Bedroom" width={487} height={460} />
-                        <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Master Bedroom</figcaption>
-                      </figure>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <figure>
-                        <img className='w-[100%] rounded-[6px]' src={basePath + "/slider_four.webp"} alt="Hall" width={487} height={460} />
-                        <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Hall</figcaption>
-                      </figure>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <figure>
-                        <img className='w-[100%] rounded-[6px]' src={basePath + "/slider_five.webp"} alt="Lobby" width={487} height={460} />
-                        <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Lobby</figcaption>
-                      </figure>
-                    </SwiperSlide>
-                  </Swiper>
-                  {/* Navigation Arrows */}
-                  <div className="swiper-button-prev absolute top-1/2 left-0 z-10 transform -translate-y-1/2 cursor-pointer">
-                    <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+                    <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
                     </svg>
-                  </div>
-                  <div className="swiper-button-next absolute top-1/2 right-0 z-10 transform -translate-y-1/2 cursor-pointer">
-                    <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                  </button>
+                  <button
+                    onClick={() => swiperRef.current?.slideNext()}
+                    className="p-2 rounded-full bg-white shadow-lg hover:bg-gray-100 transition"
+                  >
+                    <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                     </svg>
-                  </div>
+                  </button>
                 </div>
-              ) : (
-                <div className="relative">
-                  {/* LEFT ARROW */}
+
+              </div>
+              {/* {isMobile ? (
+
+              ): (
+                  <div className = "relative">
                   <div
-                    onClick={() => scrollImages("prev")}
-                    className="absolute z-10 top-1/2 left-0 -translate-y-1/2 cursor-pointer p-2 bg-transparent rounded-full shadow-md"
+                    onClick = { () => scrollImages("prev") }
+                    className = "absolute z-10 top-1/2 left-0 -translate-y-1/2 cursor-pointer p-2 bg-transparent rounded-full shadow-md"
                   >
-                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </div>
+                    <svg className = "w-6 h-6 text-gray-600" fill = "none" stroke = "currentColor" strokeWidth = "2" viewBox = "0 0 24 24">
+                      <path strokeLinecap = "round" strokeLinejoin = "round" d = "M15 19l-7-7 7-7" />
+            </svg>
+          </div>
 
-                  {/* RIGHT ARROW */}
-                  <div
-                    onClick={() => scrollImages("next")}
-                    className="absolute z-10 top-1/2 right-0 -translate-y-1/2 cursor-pointer p-2 bg-transparent rounded-full shadow-md"
-                  >
-                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
+          <div
+            onClick={() => scrollImages("next")}
+            className="absolute z-10 top-1/2 right-0 -translate-y-1/2 cursor-pointer p-2 bg-transparent rounded-full shadow-md"
+          >
+            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
 
-                  <div className='flex lg:overflow-hidden img_container overflow-x-scroll gap-5 ps-10' ref={interiorContainerRef}>
-                    <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
-                      <img className='w-[100%] rounded-[6px]' src={basePath + "/slider_one.webp"} alt="Elevator entry" width={487} height={460} />
-                      <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Elevator entry</figcaption>
-                    </figure>
-                    <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
-                      <img className='w-[100%] rounded-[6px]' src={basePath + "/slider_two.webp"} alt="Living Area" width={487} height={460} />
-                      <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Living area</figcaption>
-                    </figure>
-                    <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
-                      <img className='w-[100%] rounded-[6px]' src={basePath + "/slider_three.webp"} alt="Master Bedroom" width={487} height={460} />
-                      <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Master Bedroom</figcaption>
-                    </figure>
-                    <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
-                      <img className='w-[100%] rounded-[6px]' src={basePath + "/slider_four.webp"} alt="Hall" width={487} height={460} />
-                      <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Hall</figcaption>
-                    </figure>
-                    <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%] lg:basis-[40%]'>
-                      <img className='w-[100%] rounded-[6px]' src={basePath + "/slider_five.webp"} alt="Lobby" width={487} height={460} />
-                      <figcaption className='mt-5 tracking-[1px] custom-text-gradient'>Lobby</figcaption>
-                    </figure>
-                  </div>
-
-                </div>
-              )}
-            </div>
-            <div className='text-center lg:hidden block mt-[40px]'>
-              <Bordered_button>
-                View More
-              </Bordered_button>
-            </div>
+          <div className='flex lg:overflow-hidden img_container overflow-x-scroll gap-5 ps-10' ref={interiorContainerRef}>
+            <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%]'>
+              <img src={basePath + "/slider_one.webp"} alt="Elevator entry" width={487} height={460} />
+            </figure>
+            <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%]'>
+              <img src={basePath + "/slider_two.webp"} alt="Living Area" width={487} height={460} />
+            </figure>
+            <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%]'>
+              <img src={basePath + "/slider_three.webp"} alt="Master Bedroom" width={487} height={460} />
+            </figure>
+            <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%]'>
+              <img src={basePath + "/slider_four.webp"} alt="Hall" width={487} height={460} />
+            </figure>
+            <figure className='grow-0 shrink-0 basis-[90%] sm:basis-[50%] md:basis-[30%]'>
+              <img src={basePath + "/slider_five.webp"} alt="Lobby" width={487} height={460} />
+            </figure>
           </div>
         </div>
-      </section>
-
-
-    </div>
+              )} */}
+            </div>
+          </div >
+        </div >
+      </section >
+    </div >
   );
 }
