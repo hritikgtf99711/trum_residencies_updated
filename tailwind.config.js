@@ -120,9 +120,10 @@ module.exports = {
         },
         ".custom-text-gradient": {
           "background-image":
-            "linear-gradient(269.21deg, #FFFFFF -4.57%, #8D8D8D -4.56%, #FFFFFF 100.56%, #999999 100.57%)",
+            "linear-gradient(269.21deg, #fff -4.57%, #ffffff -4.56%, #fff 100.56%, #f9f9f9 100.57%)",
           "-webkit-background-clip": "text",
           "-webkit-text-fill-color": "transparent",
+          "letter-spacing" : "2px"
         },
         ".black_texture_one": {
           "background-image": "url('https://www.tribecadevelopers.com/trumpresidenceslandingpage-gurgaon/assets/images/amenities_texture.jpg')",
