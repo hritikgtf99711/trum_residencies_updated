@@ -93,6 +93,30 @@ input::placeholder,
 textarea::placeholder {
   letter-spacing: 2px;
 }
+.sms-chat{
+  display: flex
+  ;
+      background-color: #e4e4e4;
+      color: #0009;
+      padding: 8px;
+      border-radius: 50px;
+      position: fixed;
+      bottom: 90px;
+      right: 25px;
+      font-size: 15px;
+      transition: all .2s;
+      z-index: 11;
+      height: 50px;
+      width: 50px;
+}
+.sms-chat img{
+  position: relative;
+  top: .5px;
+  height: 24px;
+  width: 24px;
+  height: 100%;
+  width: 100%;
+}
 
 .whatsapp-chat {
   display: flex
