@@ -31,7 +31,7 @@ let videoPath=process.env.NEXT_PUBLIC_BASE_PATH_VIDEO
                     <source src={videoPath+"/mobie_version_video.mp4"} type="video/mp4" />
                     Your browser does not support the video tag.
                     </video>    
-                  <div className='bg-[#E8C183] absolute h-[800px] z-[-1] w-full  rounded-[50%] opacity-[.2] blur-[50px] top-[-84px]'></div>
+                  <div className='bg-[#E8C183] absolute h-[800px] z-[-1] w-full  rounded-[50%] opacity-[.2] blur-[50px] lg:top-[-84px] top-[135px]'></div>
                 </div>
           </div>
       </section>

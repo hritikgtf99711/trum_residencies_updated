@@ -29,7 +29,7 @@ const { isOpen, openModal, closeModal } = useModal();
           </span>
         </h1>
         <div className="mb-10">
-          <div className="stripe_txt  lg:bg-[#000] uppercase lg:px-10 py-2">
+          <div className="stripe_txt lg:bg-[#000] uppercase lg:px-10 py-2">
             <p className="text-[#D6D6D6] text-bold lg:tracking-[2px] lg:text-[18px] text-[16px] font-[cinzel] font-[500] lg:mb-0 mb-[10px]">
               Join the Elite – Experience the Trump Legacy
             </p>
