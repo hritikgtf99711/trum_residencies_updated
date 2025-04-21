@@ -9,8 +9,8 @@ export default function Form_sec() {
 
   return (
     <section className='form_sec_container pt-section relative'>
-      <img src={basePath + "/circle_blob.png"} alt="background blob" height={600} width={600} className='absolute z-[-1]  hidden lg:block
-      left-[-40%] bottom-[-120px] w-[100%]  circle_blob bottom_blob opacity-[.2]' />
+      <Image src="/assets/images/circle_blob.png" alt="background blob" height={600} width={600} className='absolute z-[-1]  block
+      lg:left-[-40%] left-0 top-[-10%] lg:bottom-[-120px] w-[100%]  circle_blob bottom_blob opacity-[.5] lg:opacity-[.2]' />
       <div className="w-full flex justify-center">
       <div className='custom_container'>
         <div className='grid lg:grid-cols-8 justify-items-center   gap-10  m-auto'>

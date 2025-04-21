@@ -13,7 +13,7 @@ export default function AboutUs() {
     <>
     <section className="relative building_blob lg:bg-[transparent] lg:py-[0] py-section  bg-[#181615]"  ref={aboutRef}>
       <div className="custom_container relative">
-     <img src={basePath+"/circle_blob.webp"}  alt="background blob" height={800} width={800} className='absolute z-[-1]   circle_blob bottom_blob left-[48%]  w-[90%] translate-x-[-50%] top-[-100%] opacity-[0.4]' /> 
+     <img src={basePath+"/circle_blob.webp"}  alt="background blob" height={800} width={800} className='absolute z-[-1]   circle_blob bottom_blob lg:left-[48%]  lg:w-[90%] translate-x-[-50%] lg:top-[-100%] oplg:acity-[0.4]' /> 
 
         <div className="grid lg:grid-cols-9 gap-x-12 gap-y-6 items-center">
           <div className="col-span-3 left_content opacity-0 translate-x-[-100px]">
