@@ -21,8 +21,8 @@ export default function Tribeca_sec() {
                     <img src={basePath+'/tribeca_banner.webp'} className='rounded-lg' alt='tribeca banner' height={'589'} width={'682'}/>   
                 </div>
                 <div className='col-span-4 m-auto'>
-                     <p className='mb-3'> Founded in 2012, Tribeca is a premier design-driven real estate developer in India, dedicated to creating iconic landmarks that transform city skylines.</p>
-                     <p>With every project, our mission is clear: to craft the most prestigious property in its market — a true “Trophy Property.” We set our standards against the world’s finest developments and proudly hold the distinction of being the largest developer of Trump-branded residences globally.</p>
+                     <p className='mb-3'> Founded in 2012, Tribeca is India's leading design-focused real estate developer, committed to crafting iconic landmarks that redefine cityscapes.</p>
+                     <p>With each project our simple goal is to make it the most prestigious property in its market – a “Trophy Property”. We benchmark our projects against the world’s best and are the largest developer of Trump branded residences in the world. Our portfolio boasts of the largest collection of luxury branded residences in India.</p>
                 </div>
             </div>
 

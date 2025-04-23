@@ -9,7 +9,7 @@ export default function Smart_world() {
         <div className='custom_container'>
             <div className='grid lg:grid-cols-12 gap-[50px]'>
                 <div className='col-span-4 m-auto lg:order-[0] order-[1]'>
-                     <p>India's fastest growing real estate conglomerate with a reputation for identifying emerging real estate markets, recognizing aspirations in lifestyle evolution, perfecting the modulations of luxury and responding with projects that capture the unique spirit of changing India.</p>
+                     <p>Smartworld Developers has been smartly reshaping the real estate landscape with its vision of creating world-class realty assets in India. The company’s commitment to innovation, exceptional design, and on-time delivery has set new benchmarks in real estate development, shaping the future of the industry in India. Over the past four years, Smartworld Developers has created new benchmarks in Gurugram’s luxury real estate market, with developments such as Smartworld Sky Arc in Sector 69, Smartworld The Edition in Sector 66, and Smartworld One DXP, located on the Dwarka Expressway in Sector 113.</p>
                 </div>
                 <div className='col-span-4'>
                     <img src={basePath+'/smart_world_banner.webp'} className='rounded-md  w-full' alt='smart world' height={'86'} width={'400'}/>

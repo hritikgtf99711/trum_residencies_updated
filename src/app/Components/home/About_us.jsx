@@ -23,10 +23,7 @@ export default function AboutUs() {
               <Heading heading="ABOUT US" classNames="lg:text-start text-center" />
             </div>
             <p className="lg:my-10 mb-0 mt-5">
-              For over three decades, the Trump Organization has reshaped the landscape of luxury, 
-              creating timeless masterpieces at the world’s most coveted addresses. Each project is 
-              a sublime fusion of visionary design and impeccable craftsmanship. With an unwavering 
-              dedication to perfection, Trump properties offer a rarefied experience.
+            The Trump Organization and the Trump brand represent the most respected developments throughout the world, and at the most prestigious of addresses. The Trump signature is synonymous with the gold standard, with superior quality, detail and perfection being delivered in every project. From residential to resort, from hotel to golf, from commercial office to retail, the experience of owning a Trump property and living the Trump lifestyle is unparalleled.
             </p>
           </div>
           <div className="col-span-3">
@@ -48,8 +45,7 @@ export default function AboutUs() {
           
           <div className="col-span-3 right_content lg:pr-[30px] opacity-0 translate-x-[100px] mt-auto lg:pb-[80px]">
             <p className="lg:my-10">
-              An exclusive sanctuary where elegance, innovation, and meticulous attention to detail 
-              converge for those who demand nothing less than the extraordinary.
+            The touch of the Trump brand can be seen in every aspect of the properties that bear the Trump name, from the design driven, cutting edge facades created in collaboration with the world’s finest architects, to the flawless interiors designed specifically for each market, to the acclaimed world-class service. Virtually no detail is overlooked. With each of its properties, Trump consistently continues to raise the bar of super luxury living.
             </p>
           </div>
         </div>

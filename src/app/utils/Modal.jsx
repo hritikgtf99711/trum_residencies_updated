@@ -2,13 +2,13 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
-export default function Modal({ isOpen, onClose, children }) {
+export default function  Modal({ isOpen, onClose, children }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
