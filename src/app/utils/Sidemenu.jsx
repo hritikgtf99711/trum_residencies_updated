@@ -11,6 +11,7 @@ export default function Sidemenu({ openmenuVia, setOpenMenuVia }) {
     setPortalElement(document.getElementById('sidemenu-portal'));
   }, []);
 
+  let basePath = process.env.NEXT_PUBLIC_BASE_PATH
   if (!portalElement) return null;
 
   return createPortal(
@@ -21,17 +22,16 @@ export default function Sidemenu({ openmenuVia, setOpenMenuVia }) {
     >
       <div className="relative z-[1] flex place-content-between items-center px-5 py-10">
         <figure>
-          <Image
-            src="/assets/images/logo.png"
-            alt="logo"
+          <img
+            src={basePath+"/logo.png"}        alt="logo"
             className="lg:w-[auto] w-[100px]"
             width={120}
             height={200}
           />
         </figure>
         <div>
-          <Image
-            src="/assets/images/cross_img.svg"
+          <img
+            src={basePath+"/cross_img.svg"}
             onClick={() => setOpenMenuVia(false)}
             alt="cross"
             width={20}
@@ -40,9 +40,9 @@ export default function Sidemenu({ openmenuVia, setOpenMenuVia }) {
         </div>
       </div>
 
-      <Image
+      <img
         className="absolute left-0 top-0"
-        src="/assets/images/menu_blob.svg"
+        src={basePath+"/menu_blob.svg"}
         alt="menu blob"
         height={2}
         width={400}
@@ -68,9 +68,9 @@ export default function Sidemenu({ openmenuVia, setOpenMenuVia }) {
                 {item}
               </a>
             </li>
-            <Image
+            <img
               className="py-2 mb-4"
-              src="/assets/images/separator_line.svg"
+              src={basePath+"/separator_line.svg"}
               alt="separator"
               height={2}
               width={400}
@@ -79,9 +79,9 @@ export default function Sidemenu({ openmenuVia, setOpenMenuVia }) {
         ))}
       </ul>
 
-      <Image
+      <img
         className="absolute right-0 rotate-180 bottom-[-138px]"
-        src="/assets/images/menu_blob.svg"
+        src={basePath+"/menu_blob.svg"}
         alt="menu blob"
         height={2}
         width={400}
