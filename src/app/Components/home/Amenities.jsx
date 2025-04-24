@@ -34,6 +34,12 @@ let basePath=process.env.NEXT_PUBLIC_BASE_PATH
     { title: "Club", src:basePath+"/club.webp", alt: "Club" },
     { title: "Vault Library", src:basePath+"/vault_library.webp", alt: "Vault Library" },
     { title: "Business Lounge", src:basePath+"/business_launge.webp", alt: "Business Launge" },
+    { title: "Trump Doral", src:basePath+"/trump_doral.webp", alt: "Trump Doral" },
+    { title: "Trump Tower Kolkata", src:basePath+"/trump_tower_kolkata.webp", alt: "Trump Tower Kolkata" },
+    { title: "40 Wall Street", src:basePath+"/40_wall_street.webp", alt: "40 Wall Street" },
+    { title: "Trump International Hotel", src:basePath+"/trump_international_hotel.webp", alt: "Trump International Hotel" },
+    { title: "Trump International Hotel and Tower", src:basePath+"/trump_international_hotel_tower.webp", alt: "Trump International Hotel and Tower" },
+    { title: "Trump International Hotel and Tower , Chicago", src:basePath+"/trump_international_hotel_tower_chicago.webp", alt: "Trump International Hotel and Tower , Chicago" },
   ];
 
   useEffect(() => {
