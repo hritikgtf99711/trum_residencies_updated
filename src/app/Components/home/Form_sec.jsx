@@ -1,23 +1,22 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Form from '@/app/utils/Form';
-import Image from 'next/image';
 import Disclaimer from './Disclamer';
 import { smoother } from '@/app/utils/SharedTimeline';
 
 export default function Form_sec() {
   const [readmore,setReadMore]=useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  
+  const basePath=process.env.NEXT_PUBLIC_BASE_PATH;
 
   useEffect(() => {
     if (smoother) {
       if (isOpen) {
-        smoother.paused(true); // Pause smoother scrolling
-        document.body.style.overflow = 'hidden'; // Optional: block background scroll
+        smoother.paused(true); 
+        document.body.style.overflow = 'hidden';
       } else {
-        smoother.paused(false); // Resume it
-        document.body.style.overflow = ''; // Restore normal scroll
+        smoother.paused(false); 
+        document.body.style.overflow = '';
       }
     }
   }, [isOpen]);

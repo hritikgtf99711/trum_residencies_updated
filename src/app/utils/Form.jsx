@@ -1,8 +1,9 @@
 'use client'
-import React, { useState, useCallback, useEffect } from 'react'
-import Script from 'next/script'
+import React, { useState, useCallback } from 'react'
+import { useRouter } from 'next/navigation'
 
-export default function Form({ formId = 'SubmitQuery' ,via}) {
+export default function Form({ formId = 'SubmitQuery', via }) {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +13,7 @@ export default function Form({ formId = 'SubmitQuery' ,via}) {
   })
   const [errors, setErrors] = useState({})
   const [submitting, setSubmitting] = useState(false)
+  const [response, setResponse] = useState(null)
 
   const AgentInfo = {
     vAgentID: '4883',
@@ -56,57 +58,65 @@ export default function Form({ formId = 'SubmitQuery' ,via}) {
       e.preventDefault()
       if (!validate() || submitting) return
       setSubmitting(true)
+      setResponse(null)
+      
       try {
-        document.getElementById(FormInfo.SenderControlID).value = formData.name
-        document.getElementById(FormInfo.SenderControlMobileID).value = formData.contact
-        document.getElementById(FormInfo.SenderControlEmailID).value = formData.email
-        document.getElementById(FormInfo.SenderControlMsgID).value = formData.message
+        const apiUrl = `https://api2.gtftech.com/AjaxHelper/AgentInstantQuerySetter.aspx?qAgentID=4887&qSenderName=${encodeURIComponent(
+          formData.name
+        )}&qMobileNo=${encodeURIComponent(formData.contact)}&qEmailID=${encodeURIComponent(
+          formData.email
+        )}&qQueryMessage=${encodeURIComponent(formData.message)}&qProjectName=${encodeURIComponent(AgentInfo.vProject)}`;
 
-        if (typeof window.SubmitQueryData === 'function') {
-          await window.SubmitQueryData(AgentInfo, FormInfo)
-          window.location.assign(AgentInfo.thankspageurl)
-        } else {
-          throw new Error('SubmitQueryData is not defined.')
-        }
+        const res = await fetch(apiUrl, { method: "GET" });
+        
+        if (!res.ok) throw new Error('Failed to submit form');
+        
+        setResponse({ success: true, message: 'Form submitted successfully!' });
+        window.location.href='https://www.tribecadevelopers.com/trumpresidenceslandingpage-gurgaon/thanks.htm';
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          contact: '',
+          message: '',
+          agreed: false,
+        })
       } catch (error) {
         console.error('Form submission failed:', error)
+        setResponse({ 
+          success: false, 
+          message: error.message || 'Something went wrong' 
+        })
         setErrors((prev) => ({ ...prev, submit: 'Submission failed. Please try again.' }))
       } finally {
         setSubmitting(false)
       }
     },
-    [formData, validate, submitting, AgentInfo, FormInfo]
+    [formData, validate, submitting, AgentInfo, router]
   )
-
-  useEffect(() => {
-    const preferedTime = document.getElementById('preferedtime')
-    if (preferedTime) preferedTime.style.display = 'none'
-  }, [])
 
   return (
     <>
-      <Script
-        src="https://code.jquery.com/jquery-3.7.1.min.js"
-        strategy="beforeInteractive"
-        onLoad={() => console.log('jQuery loaded')}
-      />
-      <Script
-        src="https://api2.gtftech.com/scripts/queryform.min.ssl.js"
-        strategy="lazyOnload"
-        onLoad={() => console.log('Query form script loaded')}
-      />
       <form 
         onSubmit={handleSubmit}
         className="border-2 border-primary-color rounded-md px-[30px] py-8"
         noValidate
       >
-          
-              {via!=1 && <>
-    <figure className='text-center'>
-    <img src={process.env.NEXT_PUBLIC_BASE_PATH+'/logo.webp'} alt='logo' className='w-[110px] m-auto mb-[10px]' width={'80'} height={'120'} />
-      <figcaption className='leading-[normal] pb-[30px] text-[14px] tracking-[1px]'>Join the Elite – Experience the Trump Legacy</figcaption>
-    </figure>
-              </>}
+        {via !== 1 && (
+          <figure className='text-center'>
+            <img 
+              src={process.env.NEXT_PUBLIC_BASE_PATH + '/logo.webp'} 
+              alt='logo' 
+              className='w-[110px] m-auto mb-[10px]' 
+              width={'80'} 
+              height={'120'} 
+            />
+            <figcaption className='leading-[normal] pb-[30px] text-[14px] tracking-[1px]'>
+              Join the Elite – Experience the Trump Legacy
+            </figcaption>
+          </figure>
+        )}
 
         <div className="mb-5">
           <input
@@ -188,6 +198,9 @@ export default function Form({ formId = 'SubmitQuery' ,via}) {
         </div>
         {errors.agreed && <p className="mt-1 text-[10px] text-red-500">{errors.agreed}</p>}
         {errors.submit && <p className="mt-1 text-[10px] text-red-500">{errors.submit}</p>}
+        {response && !response.success && (
+          <p className="mt-1 text-[10px] text-red-500">{response.message}</p>
+        )}
 
         <div className="text-center">
           <button
