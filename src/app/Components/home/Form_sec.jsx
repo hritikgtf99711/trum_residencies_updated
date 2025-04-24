@@ -1,13 +1,28 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Form from '@/app/utils/Form';
 import Image from 'next/image';
+import Disclaimer from './Disclamer';
+import { smoother } from '@/app/utils/SharedTimeline';
 
 export default function Form_sec() {
   const [readmore,setReadMore]=useState(false);
-  let basePath=process.env.NEXT_PUBLIC_BASE_PATH
+  const [isOpen, setIsOpen] = useState(false);
+  
 
+  useEffect(() => {
+    if (smoother) {
+      if (isOpen) {
+        smoother.paused(true); // Pause smoother scrolling
+        document.body.style.overflow = 'hidden'; // Optional: block background scroll
+      } else {
+        smoother.paused(false); // Resume it
+        document.body.style.overflow = ''; // Restore normal scroll
+      }
+    }
+  }, [isOpen]);
   return (
+    <>
     <section className='form_sec_container pt-section relative'>
       <img src={basePath + "/circle_blob.png"} alt="background blob" height={600} width={600} className='absolute z-[-1]  block
       lg:left-[-40%] left-0 top-[-10%] lg:bottom-[-120px] w-[100%]  circle_blob bottom_blob opacity-[.5] lg:opacity-[.2]' />
@@ -36,27 +51,24 @@ export default function Form_sec() {
         <div className='text-center pb-[20px]  '>
           <h6 className='text-[12px] lg:tracking-[1]  break-all' ><span className='text-[14px]'>Rera no.</span>  <span className='tracking-[2]'>RC/REP/HARERA/GGM/925/657/2025/28</span></h6>
             <h6 className='my-5 text-[14px] md:tracking-[2] tracking-[2px]  break-all'>Website of RERA Authority: <span className='lg:inline-block block text-[12px] md:tracking-[normal] tracking-[2px]'>https://haryanarera.gov.in</span></h6>
-               <p className='text-[10px]'><span className='font-[400]'>Disclaimer:</span>This advertisement does not constitute an offer and/or acceptance and/or transaction and/or a disclosure under any statute of any nature whatsoever. All sales in this project shall be solely governed by terms of the agreement for sale entered into between the parties. Interested party are requested to inspect the project site and get all details and not to merely rely upon any architectural impression, plan or specification before taking decision in relation to the Project.</p>
-               {readmore&& <p className='text-[10px]'>The plans, layouts, specifications, images and other details herein are indicative /artistic impression and subject to change. The developer/owner reserves the right to change any or all of the plans, layouts, specifications, images and other details herein in the interest of the development or as per approvals received or to be obtained.</p>}
-               {!readmore ? 
-                <button 
-                  onClick={() => setReadMore(true)} 
-                  className="tracking-[2px] font-[montserrat] text-[12px] rounded-sm bg-[#181615] py-3 px-4 inline-block my-4"
-                >
-                  Read More
-                </button>
-                :
-                <button 
-                  onClick={() => setReadMore(false)} 
-                  className="tracking-[2px] font-[montserrat] text-[12px] rounded-sm bg-[#181615] py-3 px-4 inline-block my-4"
-                >
-                  Read Less
-                </button>
-              }
+            <p className='text-[10px]'>
+                <span className='font-[400]'>Disclaimer:</span> Smartworld Developers Private limited makes available information and materials on this website (“Site”), subject to the following terms and conditions. By accessing this Site, you unconditionally without limitation agree to the terms and conditions as outlined in this Disclaimer. The Company reserves right to change or amend these terms and conditions from time to time at its sole discretion and without any intimation to you or without notifying the same to you and that you shall be bound by any such change(s) so effected.
+              </p>
+
+              {/* Read More opens modal */}
+              <button
+                onClick={() => setIsOpen(true)}
+                className="tracking-[2px] font-[montserrat] text-[12px] rounded-sm bg-[#181615] py-3 px-4 inline-block my-4"
+              >
+                Read More
+              </button>
         <p className='text-center font-[400] tracking-[0] text-[12px]'>© Copyright 2025 - Trump Tower Gurgaon | Design by GTF Technologies</p>
         </div>
       </div>
       </div>
     </section>
+
+    <Disclaimer isOpen={isOpen} onClose={() => setIsOpen(false)}/>
+    </>
   )
 }

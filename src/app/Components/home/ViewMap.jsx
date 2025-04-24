@@ -20,7 +20,7 @@ export default function ViewMap() {
               <div className='heading_container lg:w-[60%]  text-start'>
                 <Heading heading={'THE CENTER OF THE WORLD'} classNames="md:text-start text-center" />
               </div>
-              <p className='md:my-10  my-5 lg:pe-[100px]'>Trump Residences Gurgaon is a striking testament to contemporary grandeur. An icon sculpted in glass and steel. With soaring double-height ceilings and uninterrupted glass façades, the skyline becomes an extension of your home. Step into a world of tailored perfection, where private elevators lead to impeccably crafted sanctuaries adorned with the finest materials. Beyond these doors lies an exclusive realm, dedicated concierge services, unparalleled privacy and the promise of an extraordinary life reserved for a rare few.</p>
+              <p className='md:my-10  my-5 lg:pe-[100px]'>Soaring above the skyline of Gurugram, the new Trump Tower is more than a striking silhouette – it is a bold architectural statement. Precision-sculpted in glass and steel, its façade reflects the poise of a global brand and the power of a landmark address. Every angle exudes confidence. Every line, intent. Inspired by the iconic energy of Manhattan high-rises, it brings global design pedigree to India’s most dynamic city. This is architecture with presence. Distinctive, yet timeless. Assertive, yet elegant. Because when the name on the door is Trump, nothing less than the best will do.</p>
               <button
                 onClick={() => setIsMapOpen(true)}
                 className="lg:inline-flex hidden border-y-2 border-primary-color px-8 z-[1] py-3 call_now_btn tracking-[2px] inline-flex text-[#C7C7C7]"
