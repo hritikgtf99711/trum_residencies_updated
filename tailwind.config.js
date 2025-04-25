@@ -53,11 +53,11 @@ module.exports = {
       },
       screens: {
         sm: "540px",
-        lg: "991px",
+        md: "991px",
         lg: "1200px",
         xl: "1140px",
         "2xl": "1320px",
-        "4xl": "1800",
+        "4xl": "1920px",
 
       },
     },

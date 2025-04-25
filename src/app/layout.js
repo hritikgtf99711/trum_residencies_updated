@@ -34,7 +34,6 @@ export default function RootLayout({ children }) {
             </div>
           </div>
           <ModalTrigger />
-
           <a
             className="whatsapp-chat text-decoration-none"
             href="https://wa.me/9861922925?text=Hi"

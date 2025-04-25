@@ -212,12 +212,11 @@ let basePath=process.env.NEXT_PUBLIC_BASE_PATH
                 src={amenity.src}
                 alt={amenity.alt}
                 width={752}
-                height={860}
+                height={860}  
               />  
             </div>
           ))}
-        </div>
-        
+        </div> 
       </div>       
       <div className="flex items-center justify-center mt-8 lg:px-0 px-[10px]">
         <button 
