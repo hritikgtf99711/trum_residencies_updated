@@ -204,11 +204,11 @@ let basePath=process.env.NEXT_PUBLIC_BASE_PATH
             <div
               key={`slide-${index}`}
               ref={(el) => (slidesRef.current[index] = el)}
-              className="relative wave-slide cursor-pointer flex-shrink-0 flex-grow-0 lg:basis-[calc(25%)]  md:basis-[calc(30%-15px)]  md:basis-[calc(30%-15px)] basis-[calc(60%-15px)]"
-              onClick={() => handleSlideClick(index)}
+              className="relative wave-slide cursor-pointer flex-shrink-0 flex-grow-0 lg:basis-[calc(25%)]  md:basis-[calc(30%-15px)]  md:basis-[calc(50%-15px)] basis-[calc(30%-15px)]"
+              onClick={() => handleSlideClick(index)} 
             >
               <img
-                className="object-cover md:h-[480px] h-[350px] rounded-[6px]  transition-all duration-700 ease-out"
+                className="object-cover w-full md:h-[480px] h-[350px] rounded-[6px]  transition-all duration-700 ease-out"
                 src={amenity.src}
                 alt={amenity.alt}
                 width={752}
@@ -219,7 +219,7 @@ let basePath=process.env.NEXT_PUBLIC_BASE_PATH
         </div>
         
       </div>       
-      <div className="flex items-center justify-center mt-8">
+      <div className="flex items-center justify-center mt-8 lg:px-0 px-[10px]">
         <button 
           className={`${isAtStart ? 'cursor-not-allowed' : ''} text-white rounded-lg transition-colors`}
           onClick={() => !isAtStart && setCurrentIndex(prev => prev - 1)}
