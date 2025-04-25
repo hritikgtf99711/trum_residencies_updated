@@ -243,8 +243,7 @@ let basePath=process.env.NEXT_PUBLIC_BASE_PATH
           View More
         </Bordered_button>  
       </div>
-                <img src={basePath+"/left_building_blob.svg"}  alt="building blob" height={800} width={800} className='  absolute md:hidden block  circle_blob bottom_blob right-[0] bottom-[0] w-[38%]' /> 
-      
+    <img src={basePath+"/left_building_blob.svg"}  alt="building blob" height={800} width={800} className='  absolute md:hidden block  circle_blob bottom_blob right-[0] bottom-[0] w-[38%]' />       
     </section>
   );
 } 
