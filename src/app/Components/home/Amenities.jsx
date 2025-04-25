@@ -56,7 +56,7 @@ let basePath=process.env.NEXT_PUBLIC_BASE_PATH
     if (!slidesRef.current[0] || !sliderRef.current || infiniteAmenities.length === 0) return;
 
     const slideWidth = slidesRef.current[0].offsetWidth;
-    const slideGap = 20;
+    const slideGap = window.innerWidth<991?0:20;
     const centerOffset = window.innerWidth / 2 - slideWidth / 2;
     
     setIsAtStart(index <= 0);
@@ -197,14 +197,14 @@ let basePath=process.env.NEXT_PUBLIC_BASE_PATH
       <div className="w-full lg:mt-[50px] mt-[30px] relative overflow-hidden">
         <div 
           ref={sliderRef} 
-          className="flex"
-          style={{ gap: '20px' }}
+          className="flex  md:gap-[20px]"
+         
         >
           {infiniteAmenities.map((amenity, index) => (
             <div
               key={`slide-${index}`}
               ref={(el) => (slidesRef.current[index] = el)}
-              className="relative wave-slide cursor-pointer flex-shrink-0 flex-grow-0 lg:basis-[calc(25%)]  md:basis-[calc(30%-15px)]  md:basis-[calc(50%-15px)] basis-[calc(30%-15px)]"
+              className="relative wave-slide cursor-pointer flex-shrink-0 flex-grow-0 lg:basis-[calc(25%)]  md:basis-[calc(30%-15px)]  md:basis-[calc(50%-15px)] 4xl:basis-[calc(20%-15px)] basis-[calc(65%-15px)]"
               onClick={() => handleSlideClick(index)} 
             >
               <img

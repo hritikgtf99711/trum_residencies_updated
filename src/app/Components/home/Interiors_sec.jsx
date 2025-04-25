@@ -129,7 +129,9 @@ export default function Interiors() {
                     600: { slidesPerView: 2.2 },
                     991: { slidesPerView: 2.2 },
                     1366: { slidesPerView: 2.5}, 
-                    1600: { slidesPerView: 3}, 
+                    1800: { slidesPerView: 3.5}, 
+                    1900: { slidesPerView: 3.6}, 
+
 
                   }}
                 >
