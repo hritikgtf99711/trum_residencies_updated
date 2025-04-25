@@ -12,10 +12,7 @@ import gsap from 'gsap'; // Import GSAP for smooth animations
 
 export default function Interiors() {
   const interiorRef = useRef(null);
-  const interiorContainerRef = useRef(null);
   const swiperRef = useRef(null); 
-  const [isMobile, setIsMobile] = useState(false);
-  const [disableAnimation, setDisableAnimation] = useState(false);
   // useInteriorAnimation(interiorRef);
 
   // useEffect(() => {
@@ -131,7 +128,9 @@ export default function Interiors() {
                     0: { slidesPerView: 1.3 },
                     600: { slidesPerView: 2.2 },
                     991: { slidesPerView: 2.2 },
-                    1366: { slidesPerView: 2.5}, // Desktop breakpoint
+                    1366: { slidesPerView: 2.5}, 
+                    1600: { slidesPerView: 3}, 
+
                   }}
                 >
                   {sliderData.map(({ image, caption }, i) => (

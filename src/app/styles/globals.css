@@ -170,9 +170,9 @@ textarea::placeholder {
 
 @font-face {
   font-family: 'SangBleu Sans';
-  src: url('/trumpresidenceslandingpage-gurgaon/fonts/sangbleusunrise.woff2') format('woff2'),
-       url('/trumpresidenceslandingpage-gurgaon/fonts/sangbleusunrise.woff') format('woff'),
-       url('/trumpresidenceslandingpage-gurgaon/fonts/sangbleusunrise.ttf') format('truetype');
+  src: url('/fonts/sangbleusunrise.woff2') format('woff2'),
+       url('/fonts/sangbleusunrise.woff') format('woff'),
+       url('/fonts/sangbleusunrise.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;

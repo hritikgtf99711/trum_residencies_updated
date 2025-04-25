@@ -17,7 +17,7 @@ export default function ViewMap() {
         <div className='grid md:grid-cols-6 grid-cols-1  gap-x-[50px] gap-y-4'>
           <div className='col-span-3  m-auto'>
             <div className='content_container'>
-              <div className='heading_container lg:w-[60%]  text-start'>
+              <div className='heading_container base:w-[60%] lg:w-[70%]  text-start'>
                 <Heading heading={'THE CENTER OF THE WORLD'} classNames="md:text-start text-center" />
               </div>
               <p className='md:my-10  my-5 lg:pe-[100px]'>Soaring above the skyline of Gurugram, the new Trump Tower is more than a striking silhouette – it is a bold architectural statement. Precision-sculpted in glass and steel, its façade reflects the poise of a global brand and the power of a landmark address. Every angle exudes confidence. Every line, intent. Inspired by the iconic energy of Manhattan high-rises, it brings global design pedigree to India’s most dynamic city. This is architecture with presence. Distinctive, yet timeless. Assertive, yet elegant. Because when the name on the door is Trump, nothing less than the best will do.</p>

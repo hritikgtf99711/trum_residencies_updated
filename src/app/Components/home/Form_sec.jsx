@@ -53,14 +53,12 @@ export default function Form_sec() {
             <p className='text-[10px]'>
                 <span className='font-[400]'>Disclaimer:</span> Smartworld Developers Private limited makes available information and materials on this website (“Site”), subject to the following terms and conditions. By accessing this Site, you unconditionally without limitation agree to the terms and conditions as outlined in this Disclaimer. The Company reserves right to change or amend these terms and conditions from time to time at its sole discretion and without any intimation to you or without notifying the same to you and that you shall be bound by any such change(s) so effected.
               </p>
-
-              {/* Read More opens modal */}
-              <button
-                onClick={() => setIsOpen(true)}
-                className="tracking-[2px] font-[montserrat] text-[12px] rounded-sm bg-[#181615] py-3 px-4 inline-block my-4"
-              >
-                Read More
-              </button>
+        <button
+          onClick={() => setIsOpen(true)}
+          className="tracking-[2px] font-[montserrat] text-[12px] rounded-sm bg-[#181615] py-3 px-4 inline-block my-4"
+        >
+          Read More
+        </button>
         <p className='text-center font-[400] tracking-[0] text-[12px]'>© Copyright 2025 - Trump Tower Gurgaon | Design by GTF Technologies</p>
         </div>
       </div>

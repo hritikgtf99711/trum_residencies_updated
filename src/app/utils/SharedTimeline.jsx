@@ -9,41 +9,44 @@ gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
 const MOBILE_BREAKPOINT = 991;
 
-// const handleTimeUpdate = () => {
-//       if (video.currentTime >= stopTime) {
-//         video.pause();
-//         video.currentTime = stopTime; // ensure it doesn't go past
-//       }
-//     };
 
-//     video.addEventListener("timeupdate", handleTimeUpdate);
-
-//     return () => {
-//       video.removeEventListener("timeupdate", handleTimeUpdate);
-//     };
 export const useBannerAnimation = (videoRef, textRef) => {
   const [showText, setShowText] = useState(false);
-  const stopTime = 3; // <-- Custom stop time in seconds
 
   const animateBannerText = () => {
     const tl = gsap.timeline();
+
+    if (!textRef.current) {
+      console.warn("textRef is not assigned");
+      return tl;
+    }
+
     tl.fromTo(
       textRef.current,
       { opacity: 0, y: 100 },
       { opacity: 1, y: 0, duration: 0.4, ease: "ease.in" }
-    )
-      .fromTo(
-        ".stripe_txt",
+    );
+
+    const stripeTxt = gsap.utils.toArray(".stripe_txt");
+    if (stripeTxt.length > 0) {
+      tl.fromTo(
+        stripeTxt,
         { opacity: 0, scale: 0.8 },
         { opacity: 1, scale: 1, duration: 1, ease: "ease.in" },
         "-=0.3"
-      )
-      .fromTo(
-        ".banner_btn",
+      );
+    }
+
+    const bannerBtn = gsap.utils.toArray(".banner_btn");
+    if (bannerBtn.length > 0) {
+      tl.fromTo(
+        bannerBtn,
         { opacity: 0 },
-        { opacity: 1, duration: 0.4, ease: "ease.in" },
+        { opacity: 1, duration: 0.4, ease: "power2.in" },
         "-=0.2"
       );
+    }
+
     return tl;
   };
 
@@ -57,30 +60,36 @@ export const useBannerAnimation = (videoRef, textRef) => {
       animateBannerText();
     } else {
       const video = videoRef.current;
-      if (!video) return;
+      if (!video) {
+        console.warn("videoRef is not assigned");
+        return;
+      }
 
-      const handleTimeUpdate = () => {
-        if (video.currentTime >= stopTime) {
-          video.pause();
-          video.currentTime = stopTime;
-          setShowText(true);
-          animateBannerText();
-          video.removeEventListener("timeupdate", handleTimeUpdate); // remove to prevent duplicate calls
-        }
+      video.muted = true;
+
+      const handleVideoEnd = () => {
+        video.pause(); 
+        setShowText(true);
+        animateBannerText();
+        video.removeEventListener("ended", handleVideoEnd);
       };
 
-      video.addEventListener("timeupdate", handleTimeUpdate);
+      video.addEventListener("ended", handleVideoEnd);
+
+      video.play().catch((error) => {
+        console.error("Video autoplay failed:", error);
+        setShowText(true);
+        animateBannerText();
+      });
 
       return () => {
-        video.removeEventListener("timeupdate", handleTimeUpdate);
+        video.removeEventListener("ended", handleVideoEnd);
       };
     }
   }, [videoRef, textRef]);
 
   return { showText };
 };
-
-// About Us Animation Hook
 export const useAboutAnimation = (containerRef) => {
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -178,8 +187,7 @@ export const useAboutProject = (containerRef) => {
     }, { scope: containerRef });
   };
 
-// Declare this at the top of the file
-export let smoother; // 👈 this is now exportable
+export let smoother; 
 
 export const useBodySmoothScroll = () => {
   if (typeof window === "undefined") return;

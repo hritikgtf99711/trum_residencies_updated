@@ -42,7 +42,7 @@ const { isOpen, openModal, closeModal } = useModal();
       <img src={basePath+"/building_banner.svg"} alt="buildding"  className="md:hidden  absolute bottom-[-56px] block  opacity-[.5]  lg:mb-0 mb-[40px] w-full" width={"800"} height={"800"}/>
       <video
         ref={videoRef}
-        className="mt-[50px] lg:w-full md:block hidden w-[800px] absolute lg:h-full opacity-[.5] bottom-[0] left-[0] w-full"
+        className="mt-[50px] lg:w-full md:block hidden w-[800px] absolute lg:h-full opacity-[.7] bottom-[0] left-[0] w-full"
         autoPlay
         muted>
         <source src={videoPath+"/building_video.mp4"} type="video/mp4" />

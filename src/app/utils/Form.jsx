@@ -185,7 +185,7 @@ export default function Form({ formId = 'SubmitQuery', via }) {
               name="agreed"
               checked={formData.agreed}
               onChange={handleChange}
-              className="peer cursor-pointer border border-primary-color shadow transition-all accent-primary-color hover:shadow-md"
+              className="peer  mt-[3px] cursor-pointer border border-primary-color shadow transition-all accent-primary-color hover:shadow-md"
               id="check"
               aria-invalid={!!errors.agreed}
               disabled={submitting}
@@ -210,7 +210,7 @@ export default function Form({ formId = 'SubmitQuery', via }) {
             disabled={submitting}
           >
             {submitting ? (
-              <span className="flex items-center gap-2">
+              <span className="flex items-center  gap-2">
                 <svg
                   className="animate-spin h-5 w-5 text-white"
                   xmlns="http://www.w3.org/2000/svg"
