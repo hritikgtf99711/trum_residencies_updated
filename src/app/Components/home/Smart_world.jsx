@@ -23,9 +23,7 @@ export default function Smart_world() {
                     </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
   )

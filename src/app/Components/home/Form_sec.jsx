@@ -5,7 +5,6 @@ import Disclaimer from './Disclamer';
 import { smoother } from '@/app/utils/SharedTimeline';
 
 export default function Form_sec() {
-  const [readmore,setReadMore]=useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const basePath=process.env.NEXT_PUBLIC_BASE_PATH;
 
