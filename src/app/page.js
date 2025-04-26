@@ -12,10 +12,8 @@ import Amenities from "./Components/home/Amenities";
 import Modal from "./utils/Modal";
 import FormMain from "./utils/Form";
 import { useModal } from "./hooks/modaContext";
-import MapModal from "./utils/MapModal";
 export default function Home() {
-  const { isOpen, openModal, closeModal } = useModal();
-
+  const { isOpen, closeModal } = useModal();
   return (
     <>
       <div className="overflow-hidden">
