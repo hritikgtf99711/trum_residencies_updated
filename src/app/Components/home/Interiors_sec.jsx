@@ -86,11 +86,12 @@ export default function Interiors() {
   let basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 
   const sliderData = [
-    { image: 'slider_one', caption: 'Elevator entry' },
-    { image: 'slider_two', caption: 'Living Area' },
-    { image: 'slider_three', caption: 'Master Bedroom' },
-    { image: 'slider_four', caption: 'Hall' },
-    { image: 'slider_five', caption: 'Lobby' }
+    { image: 'slider_one', caption: 'Trump World Tower, New York' },
+    { image: 'slider_two', caption: 'Trump World Tower, New York' },
+    { image: 'slider_three', caption: 'Trump Park Avenue, New York ' },
+    { image: 'slider_four', caption: 'Trump Park Avenue, New York ' },
+    { image: 'slider_five', caption: 'Trump Tower, Jeddah' },
+    { image: 'slider_six', caption: 'Trump Tower, New York' }
   ];
 
 
@@ -125,10 +126,10 @@ export default function Interiors() {
                   onSwiper={(swiper) => (swiperRef.current = swiper)}
                   className="mySwiper pl-[31px!important]"
                   breakpoints={{
-                    0: { slidesPerView: 1.3 },
-                    600: { slidesPerView: 2.2 },
-                    991: { slidesPerView: 2.2 },
-                    1366: { slidesPerView: 2.5}, 
+                    0: { slidesPerView: 1.1 },
+                    600: { slidesPerView: 1.1 },
+                    991: { slidesPerView: 1.1 },
+                    1366: { slidesPerView: 1.5}, 
                     1800: { slidesPerView: 3.5}, 
                     1900: { slidesPerView: 3.6}, 
 
@@ -140,14 +141,14 @@ export default function Interiors() {
                       <figure className="w-full mx-0 ml-0 mx-auto rounded-[6px] mb-[50px] overflow-hidden">
                         <div className="w-full">
                           <img
-                            className="w-full h-[350px] rounded-[6px] object-cover"
+                            className="w-full md:h-[350px] h-[250px] rounded-[6px] object-cover"
                             src={`${basePath}/${image}.webp`}
                             alt={`Slide ${i}`}
-                            width={600}
-                            height={460}
+                            width={1000}
+                            height={667}
                           />
                         </div>
-                        <figcaption className="mt-5 tracking-[1px] custom-text-gradient text-center capitalize">
+                        <figcaption className="mt-5 tracking-[1px] text-[14px] md:text-[16px] custom-text-gradient text-center capitalize">
                           {caption}
                         </figcaption>
                       </figure>
