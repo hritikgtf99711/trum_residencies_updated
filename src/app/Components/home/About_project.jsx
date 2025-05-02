@@ -17,8 +17,8 @@ let videoPath=process.env.NEXT_PUBLIC_BASE_PATH_VIDEO
       <section className="relative frame_sec   py-section">
           <div className='custom_container relative'  ref={aboutProjectRef} >
               <div className='heading_container text-center'>
-                <Small_title small_title="About Project"/>
-                <Heading heading={'The World of Trump'}/>
+                {/* <Small_title small_title="About Project"/> */}
+                <Heading heading={'The World of Trump®'}/>
               </div>
                 <div className='video_sec lg:w-[70%] w-full m-auto mt-10'>
                 <img src={basePath+"/bg-stick-left.webp"} alt="background blob" height={800} width={800} className='afterBeforeImage before' />

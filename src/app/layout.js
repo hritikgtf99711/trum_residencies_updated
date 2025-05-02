@@ -24,6 +24,19 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <title>Trump Tower Gurgaon | Luxury Apartments in Sector 65</title>
+      <meta name="description" content="Explore ultra-luxurious 3 & 4 BHK residences at Trump Tower Gurgaon, Sector 65. World-class amenities, skyline views, and premium lifestyle in the heart of Gurugram."/>
+      <head>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16952448064"></script>  
+      <script>
+      {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-16952448064');
+      `}
+      </script>  
+      </head>
       <body className={`${montserrat.variable} ${cinzel.variable} bg-[#000]`}>
         <div id="sidemenu-portal" />
         <div id="modal-root" />
@@ -34,9 +47,9 @@ export default function RootLayout({ children }) {
             </div>
           </div>
           <ModalTrigger />
-          <a
+          {/* <a
             className="whatsapp-chat text-decoration-none"
-            href="https://wa.me/9861922925?text=Hi"
+            href="https://wa.me/9999999999?text=Hi"
             target="_blank"
             rel="nofollow"
           >
@@ -46,7 +59,7 @@ export default function RootLayout({ children }) {
               width="24"
               height="24"
             />
-          </a>
+          </a> */}
         </ModalProvider>
       </body>
     </html>

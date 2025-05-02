@@ -86,12 +86,12 @@ export default function Interiors() {
   let basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 
   const sliderData = [
-    { image: 'slider_one', caption: 'Trump World Tower, New York' },
-    { image: 'slider_two', caption: 'Trump World Tower, New York' },
-    { image: 'slider_three', caption: 'Trump Park Avenue, New York ' },
-    { image: 'slider_four', caption: 'Trump Park Avenue, New York ' },
-    { image: 'slider_five', caption: 'Trump Tower, Jeddah' },
-    { image: 'slider_six', caption: 'Trump Tower, New York' }
+    { image: 'slider_one', caption: 'Trump® World Tower, New York' },
+    { image: 'slider_two', caption: 'Trump® World Tower, New York' },
+    { image: 'slider_three', caption: 'Trump® Park Avenue, New York ' },
+    // { image: 'slider_four', caption: 'Trump Park Avenue, New York ' },
+    { image: 'slider_five', caption: 'Trump® Tower, Jeddah' },
+    { image: 'slider_six', caption: 'Trump® Tower, New York' }
   ];
 
 
@@ -105,14 +105,14 @@ export default function Interiors() {
           <div className='heading_container col-span-2 text-center'>
             <Heading heading={'Stunning interiors'} />
             <h6 className='font-[cinzel] md:tracking-[2] tracking-[1px] lg:my-[30px] mt-[30px] lg:px-0 px-5'>
-              Stunning interiors that redefine elegance, luxury, comfort, <span className='lg:block none'></span> and timeless beauty
+            Stunning interiors that redefine elegance, luxury, comfort, and timeless beauty 
             </h6>
           </div>
           <div className='lg:grid lg:grid-cols-12 gap-10 lg:mt-[60px] mt-[30px] lg:w-[90%] lg:ml-auto relative'>
             <div className='lg:col-span-4 col-span-12 lg:text-center m-auto px-[30px]'>
               <img src={basePath + "/circle_blob.png"} alt="building blob" height={800} width={800} className='lg:hidden block absolute left-[0] top-[-297px] opacity-[.4] w-full w-[38%]' />
               <p className='mb-10'>
-              Step into the world of Trump where every detail speaks of powerful design and timeless sophistication. At Trump Residences Gurgaon, the interiors are not just crafted—they are curated for the elite, blending legendary craftsmanship with priceless artistry.
+              Step into the world of Trump®, where every detail speaks of powerful design and timeless sophistication. At Trump Residences Gurgaon, the interiors are not just crafted—they are curated for the elite, blending legendary craftsmanship with priceless artistry.
               </p>
               <Bordered_button classNames={"lg:inline-block hidden"}>View More</Bordered_button>
             </div>

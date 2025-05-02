@@ -12,12 +12,12 @@ import Amenities from "./Components/home/Amenities";
 import Modal from "./utils/Modal";
 import FormMain from "./utils/Form";
 import { useModal } from "./hooks/modaContext";
-export default function Home() {
+export default function Home({formVia,logoRedirectVia}) {
   const { isOpen, closeModal } = useModal();
   return (
     <>
       <div className="overflow-hidden">
-      <Header />
+      <Header  logoRedirectVia={logoRedirectVia}/>
       <Banner />
       <About/>
       <ViewMap/>
@@ -26,7 +26,7 @@ export default function Home() {
       <Amenities/>
       <Tribeca_sec/>
       <Smart_world/>
-      <Form/>
+      <Form  formVia={formVia}/>
       <Modal isOpen={isOpen} onClose={closeModal}>
         <FormMain/>
       </Modal>

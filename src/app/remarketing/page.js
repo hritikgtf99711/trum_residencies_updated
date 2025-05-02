@@ -5,7 +5,7 @@ import Home from "../page";
 export default function Discovery() {
   return (
     <>
-      <Home/>
+    <Home formVia={"remarketing"} logoRedirectVia={"remarketing"}/>
     </>
   );
 }

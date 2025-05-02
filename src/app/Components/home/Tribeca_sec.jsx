@@ -22,7 +22,7 @@ export default function Tribeca_sec() {
                 </div>
                 <div className='col-span-4 m-auto'>
                      <p className='mb-3'> Founded in 2012, Tribeca is India's leading design-focused real estate developer, committed to crafting iconic landmarks that redefine cityscapes.</p>
-                     <p>With each project our simple goal is to make it the most prestigious property in its market – a “Trophy Property”. We benchmark our projects against the world’s best and are the largest developer of Trump branded residences in the world. Our portfolio boasts of the largest collection of luxury branded residences in India.</p>
+                     <p>With each project our simple goal is to make it the most prestigious property in its market – a “Trophy Property”. We benchmark our projects against the world’s best and are the largest developer of Trump® branded residences in the world. Our portfolio boasts of the largest collection of luxury branded residences in India.</p>
                 </div>
             </div>
 

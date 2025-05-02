@@ -1,8 +1,10 @@
 'use client'
 import React, { useState, useCallback } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
-export default function Form({ formId = 'SubmitQuery', via }) {
+
+export default function Form({ formId = 'SubmitQuery', via ,formVia}) {
   const router = useRouter()
   const [formData, setFormData] = useState({
     name: '',
@@ -13,13 +15,20 @@ export default function Form({ formId = 'SubmitQuery', via }) {
   })
   const [errors, setErrors] = useState({})
   const [submitting, setSubmitting] = useState(false)
-  const [response, setResponse] = useState(null)
+  const [response, setResponse] = useState(null);
+  const pathName = usePathname();
+  const projectMap = {
+    discovery: 'Trump Residence Gurgaon Discovery',
+    remarketing: 'Trump Residence Gurgaon Remarketing'
+  };
+  const vProject = projectMap[formVia] ?? 'Trump Residence Gurgaon';
+  // console.log(pathName.split('/').pop())
 
   const AgentInfo = {
     vAgentID: '4883',
-    vProject: 'Trump Residence Gurgaon',
+    vProject:vProject,
     vURL: 'https://www.tribecadevelopers.com/trumpresidenceslandingpage-gurgaon/',
-    thankspageurl: 'https://www.tribecadevelopers.com/trumpresidenceslandingpage-gurgaon/thanks.htm',
+    thankspageurl:formVia?`${formVia}/thanks.htm`:`thanks.html`,
   }
 
   const FormInfo = {
@@ -61,7 +70,7 @@ export default function Form({ formId = 'SubmitQuery', via }) {
       setResponse(null)
       
       try {
-        const apiUrl = `https://api2.gtftech.com/AjaxHelper/AgentInstantQuerySetter.aspx?qAgentID=4887&qSenderName=${encodeURIComponent(
+        const apiUrl = `https://api2.gtftech.com/AjaxHelper/AgentInstantQuerySetter.aspx?qAgentID=4883&qSenderName=${encodeURIComponent(
           formData.name
         )}&qMobileNo=${encodeURIComponent(formData.contact)}&qEmailID=${encodeURIComponent(
           formData.email
@@ -72,7 +81,7 @@ export default function Form({ formId = 'SubmitQuery', via }) {
         if (!res.ok) throw new Error('Failed to submit form');
         
         setResponse({ success: true, message: 'Form submitted successfully!' });
-        window.location.href='https://www.tribecadevelopers.com/trumpresidenceslandingpage-gurgaon/thanks.htm';
+        window.location.href='thanks.htm';
         
         // Reset form
         setFormData({
@@ -113,7 +122,7 @@ export default function Form({ formId = 'SubmitQuery', via }) {
               height={'120'} 
             />
             <figcaption className='leading-[normal] pb-[30px] text-[14px] tracking-[1px]'>
-              Join the Elite – Experience the Trump Legacy
+              Join the Elite – Experience the Trump® Legacy
             </figcaption>
           </figure>
         )}
@@ -191,8 +200,7 @@ export default function Form({ formId = 'SubmitQuery', via }) {
               disabled={submitting}
             />
             <p className="montserrat text-[8px] font-[300] leading-[14px] lg:text-[10px]">
-              I authorize company representatives to Call, SMS, Email or WhatsApp me about its
-              products and offers. This consent overrides any registration for DNC/NDNC.
+            I authorize company representatives to Call, SMS, Email, or WhatsApp me about its products and offers. This consent overrides any registration for DNC/NDNC.
             </p>
           </label>
         </div>

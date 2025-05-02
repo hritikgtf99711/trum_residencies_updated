@@ -64,13 +64,13 @@ export const useBannerAnimation = (videoRef, textRef) => {
         console.warn("videoRef is not assigned");
         return;
       }
+      animateBannerText();
 
       video.muted = true;
 
       const handleVideoEnd = () => {
         video.pause(); 
         setShowText(true);
-        animateBannerText();
         video.removeEventListener("ended", handleVideoEnd);
       };
 
@@ -79,7 +79,7 @@ export const useBannerAnimation = (videoRef, textRef) => {
       video.play().catch((error) => {
         console.error("Video autoplay failed:", error);
         setShowText(true);
-        animateBannerText();
+        // animateBannerText();
       });
 
       return () => {

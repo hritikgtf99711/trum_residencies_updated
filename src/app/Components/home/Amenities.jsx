@@ -26,20 +26,20 @@ export default function Amenities() {
   const [isAtEnd, setIsAtEnd] = useState(false);
 let basePath=process.env.NEXT_PUBLIC_BASE_PATH
   const amenities = [
-    { title: "Trump Tower, Jeddah", src:basePath+"/meeting_room.webp", alt: "Meeting Room" },
+    { title: "Trump® Tower, Jeddah", src:basePath+"/meeting_room.webp", alt: "Meeting Room" },
     // { title: "Gym", src:basePath+"/gym.webp", alt: "Gym" },
     // { title: "Cigar Room", src:basePath+"/cigar_room.webp", alt: "Cigar Room" },
-    { title: "Albemarle Estate at Trump Winery, Charlottesville", src:basePath+"/billiard_room.webp", alt: "Billiards Room" },
+    { title: "Albemarle Estate at Trump® Winery, Charlottesville", src:basePath+"/billiard_room.webp", alt: "Billiards Room" },
     // { title: "Theatre", src:basePath+"/theatre.webp", alt: "Theatre" },
     // { title: "Club", src:basePath+"/club.webp", alt: "Club" },
     // { title: "Vault Library", src:basePath+"/vault_library.webp", alt: "Vault Library" },
     // { title: "Business Lounge", src:basePath+"/business_launge.webp", alt: "Business Launge" },
-    { title: "Trump National Doral, Miami", src:basePath+"/trump_doral.webp", alt: "Trump Doral" },
-    { title: "Trump Tower, Kolkata", src:basePath+"/trump_tower_kolkata.webp", alt: "Trump Tower Kolkata" },
-    { title: "40 Wall Street -  The Trump Building, New York", src:basePath+"/40_wall_street.webp", alt: "40 Wall Street" },
-    { title: "Trump International Hotel, Las Vegas", src:basePath+"/trump_international_hotel.webp", alt: "Trump International Hotel" },
-    { title: "Trump International Hotel and Tower, New York", src:basePath+"/trump_international_hotel_tower.webp", alt: "Trump International Hotel and Tower" },
-    { title: "Trump International Hotel and Tower , Chicago", src:basePath+"/trump_international_hotel_tower_chicago.webp", alt: "Trump International Hotel and Tower , Chicago" },
+    { title: "Trump® National Doral, Miami", src:basePath+"/trump_doral.webp", alt: "Trump Doral" },
+    { title: "Trump® Tower, Kolkata", src:basePath+"/trump_tower_kolkata.webp", alt: "Trump Tower Kolkata" },
+    { title: "40 Wall Street -  The Trump® Building, New York", src:basePath+"/40_wall_street.webp", alt: "40 Wall Street" },
+    { title: "Trump® International Hotel, Las Vegas", src:basePath+"/trump_international_hotel.webp", alt: "Trump® International Hotel" },
+    { title: "Trump® International Hotel and Tower, New York", src:basePath+"/trump_international_hotel_tower.webp", alt: "Trump® International Hotel and Tower" },
+    { title: "Trump® International Hotel and Tower , Chicago", src:basePath+"/trump_international_hotel_tower_chicago.webp", alt: "Trump International Hotel and Tower , Chicago" },
   ];
 
   useEffect(() => {
@@ -191,7 +191,7 @@ let basePath=process.env.NEXT_PUBLIC_BASE_PATH
       className="relative black_texture_one  py-section relative flex flex-col items-center justify-center"
     >
       <div className="heading_container text-center">
-        <Small_title small_title="world class" />
+        <Small_title small_title="world-class" />
         <Heading heading="Amenities" />
       </div>
       <div className="w-full lg:mt-[50px] mt-[30px] relative overflow-hidden">

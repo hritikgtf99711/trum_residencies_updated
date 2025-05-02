@@ -101,7 +101,7 @@ textarea::placeholder {
       padding: 8px;
       border-radius: 50px;
       position: fixed;
-      bottom: 100px;
+      bottom: 40px;
       right: 25px;
       font-size: 15px;
       transition: all .2s;
