@@ -72,7 +72,7 @@ const { isOpen, openModal, closeModal } = useModal();
     </div>
         <div className="mb-10">
           
-          <a href="#" onClick={() => openModal()} className="comment-button banner_btn mt-10 inline-block lg:tracking-[2px] tracking-[normal] lg:font-[200] font-[500]">
+          <a href="#" onClick={() => openModal()} className="comment-button banner_btn mt-10 inline-block lg:tracking-[2px] tracking-[normal]  font-[500]">
             Book Your Trump® Experience
           </a> 
           <div className="stripe_txt invisible lg:bg-[#000] uppercase lg:px-10  py-2">
