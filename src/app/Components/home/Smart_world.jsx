@@ -5,7 +5,7 @@ export default function Smart_world() {
     let basePath=process.env.NEXT_PUBLIC_BASE_PATH;
 
   return (
-    <section className='py-section relative lg:black_texture_three bg-[#181615]'>
+    <section className='py-section relative lg:black_texture_three bg-[#181615]' id="about-developer">
         <div className='custom_container'>
             <div className='grid lg:grid-cols-12 gap-[50px]'>
                 <div className='col-span-4 m-auto lg:order-[0] order-[1]'>

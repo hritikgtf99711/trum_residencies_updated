@@ -96,7 +96,7 @@ export default function Interiors() {
 
 
   return (
-    <div className='relative py-section'>
+    <div className='relative py-section' id="stunning-interiors">
       <img src={basePath + "/left_building_blob.svg"} alt="building blob" height={800} width={800} className='lg:block none absolute z-[-1] circle_blob bottom_blob left-[0] bottom-[-80px] w-[38%]' />
       <section className="relative  lg:px-0 flex flex-col  justify-center md:place-items-center" ref={interiorRef}>
         <img src={basePath + "/circle_blob.png"} alt="background blob" height={800} width={800} className='lg:block none absolute z-[-1] circle_blob bottom_blob left-[-50%] w-[100%] top-[-60%] opacity-[0.3]' />

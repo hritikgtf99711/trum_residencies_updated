@@ -189,6 +189,7 @@ let basePath=process.env.NEXT_PUBLIC_BASE_PATH
     <section 
       ref={sectionRef}
       className="relative black_texture_one  py-section relative flex flex-col items-center justify-center"
+      id="amenities"
     >
       <div className="heading_container text-center">
         <Small_title small_title="world-class" />

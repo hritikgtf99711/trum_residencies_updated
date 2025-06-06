@@ -11,7 +11,7 @@ export default function AboutUs() {
 
   return (
     <>
-    <section className="relative building_blob lg:bg-[transparent] lg:py-[0] py-section  bg-[#181615]"  ref={aboutRef}>
+    <section className="relative building_blob lg:bg-[transparent] lg:py-[0] py-section  bg-[#181615]"  id="about-us" ref={aboutRef}>
       <div className="custom_container relative">
      <img src={basePath+"/circle_blob.webp"}  alt="background blob" height={800} width={800} className='absolute z-[-1]   circle_blob bottom_blob lg:left-[48%]  lg:w-[90%] translate-x-[-50%] lg:top-[-100%] lg:opacity-[0.3]' /> 
 

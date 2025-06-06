@@ -1,17 +1,40 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+// Register the ScrollToPlugin
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollToPlugin);
+}
 
 export default function Sidemenu({ openmenuVia, setOpenMenuVia }) {
   const [portalElement, setPortalElement] = useState(null);
 
   useEffect(() => {
-    // Wait until the component has mounted and DOM is available
     setPortalElement(document.getElementById('sidemenu-portal'));
   }, []);
 
-  let basePath = process.env.NEXT_PUBLIC_BASE_PATH
+  // Function to handle smooth scrolling with GSAP and close menu
+  const handleMenuClick = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      setOpenMenuVia(false);
+      
+      // Use GSAP to scroll smoothly
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: {
+          y: `#${sectionId}`,
+          offsetY: 50 // Offset to account for any fixed headers
+        },
+        ease: "power3.inOut" // You can change the easing function as needed
+      });
+    }
+  };
+
+  let basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   if (!portalElement) return null;
 
   return createPortal(
@@ -23,7 +46,8 @@ export default function Sidemenu({ openmenuVia, setOpenMenuVia }) {
       <div className="relative z-[1] flex place-content-between items-center px-5 py-10">
         <figure>
           <img
-            src={basePath+"/logo.png"}        alt="logo"
+            src={basePath + "/logo.png"}
+            alt="logo"
             className="lg:w-[auto] w-[100px]"
             width={120}
             height={200}
@@ -31,7 +55,7 @@ export default function Sidemenu({ openmenuVia, setOpenMenuVia }) {
         </figure>
         <div>
           <img
-            src={basePath+"/cross_img.svg"}
+            src={basePath + "/cross_img.svg"}
             onClick={() => setOpenMenuVia(false)}
             alt="cross"
             width={20}
@@ -42,7 +66,7 @@ export default function Sidemenu({ openmenuVia, setOpenMenuVia }) {
 
       <img
         className="absolute left-0 top-0"
-        src={basePath+"/menu_blob.svg"}
+        src={basePath + "/menu_blob.svg"}
         alt="menu blob"
         height={2}
         width={400}
@@ -50,27 +74,31 @@ export default function Sidemenu({ openmenuVia, setOpenMenuVia }) {
 
       <ul className="w-[60%] m-auto relative z-[1]">
         {[
-          'home',
-          'about project',
-          'location map',
-          'about us',
-          'stunning interiors',
-          'amenities',
-          'about developer',
-          'contact us',
+          { name: 'home', id: 'home' },
+          { name: 'about project', id: 'about-project' },
+          { name: 'location map', id: 'location-map' },
+          { name: 'about us', id: 'about-us' },
+          { name: 'stunning interiors', id: 'stunning-interiors' },
+          { name: 'amenities', id: 'amenities' },
+          { name: 'about developer', id: 'about-developer' },
+          { name: 'contact us', id: 'contact-us' },
         ].map((item, index) => (
           <React.Fragment key={index}>
             <li className="text-center">
               <a
-                href="#"
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleMenuClick(item.id);
+                }}
                 className="text-primary-color tracking-[normal] text-[20px] font-[500]"
               >
-                {item}
+                {item.name}
               </a>
             </li>
             <img
-              className="py-2 mb-4"
-              src={basePath+"/separator_line.svg"}
+              className="py-2 mb-4 mx-auto"
+              src={basePath + "/separator_line.svg"}
               alt="separator"
               height={2}
               width={400}
@@ -81,7 +109,7 @@ export default function Sidemenu({ openmenuVia, setOpenMenuVia }) {
 
       <img
         className="absolute right-0 rotate-180 bottom-[-138px]"
-        src={basePath+"/menu_blob.svg"}
+        src={basePath + "/menu_blob.svg"}
         alt="menu blob"
         height={2}
         width={400}

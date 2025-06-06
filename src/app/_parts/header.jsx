@@ -13,9 +13,9 @@ export default function Header({logoRedirectVia}) {
   ? `/trumpresidenceslandingpage-gurgaon/${logoRedirectVia}`
   : "/trumpresidenceslandingpage-gurgaon/";
   return (
-    <header className="py-10 relative z-[10]">
-        <div className='custom_container flex place-content-between items-center'>
-        <Link href={redirectUrl}>
+    <header className="lg:py-10 absolute top-[0] w-[100%] top-[0]  z-[10]">
+        <div className='custom_container  flex place-content-between items-center'>
+        <Link href={redirectUrl} className='opacity-[0]'>
         <figure>
             <img src={process.env.NEXT_PUBLIC_BASE_PATH+'/logo.webp'} alt='logo' className='w-[120]' width={'120'} height={'200'} />
         </figure>

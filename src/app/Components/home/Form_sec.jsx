@@ -8,7 +8,7 @@ export default function Form_sec({formVia}) {
   const basePath=process.env.NEXT_PUBLIC_BASE_PATH;
 
   useEffect(() => {
-    if (smoother) {
+  if (smoother) {
       if (isOpen) {
         smoother.paused(true); 
         document.body.style.overflow = 'hidden';
@@ -20,7 +20,7 @@ export default function Form_sec({formVia}) {
   }, [isOpen]);
   return (
     <>
-    <section className='form_sec_container pt-section relative'>
+    <section className='form_sec_container pt-section relative' id="contact-us">
       <img src={basePath + "/circle_blob.png"} alt="background blob" height={600} width={600} className='absolute z-[-1]  block
       lg:left-[-40%] left-0 top-[-10%] lg:bottom-[-120px] w-[100%]  circle_blob bottom_blob opacity-[.5] lg:opacity-[.2]' />
       <div className="w-full flex justify-center">

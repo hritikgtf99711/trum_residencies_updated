@@ -14,7 +14,7 @@ let videoPath=process.env.NEXT_PUBLIC_BASE_PATH_VIDEO
 
   useAboutProject(aboutProjectRef);
     return (
-      <section className="relative frame_sec   py-section">
+      <section className="relative frame_sec   py-section" id="about-project">
           <div className='custom_container relative'  ref={aboutProjectRef} >
               <div className='heading_container text-center'>
                 {/* <Small_title small_title="About Project"/> */}

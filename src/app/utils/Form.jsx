@@ -18,10 +18,12 @@ export default function Form({ formId = 'SubmitQuery', via ,formVia}) {
   const [response, setResponse] = useState(null);
   const pathName = usePathname();
   const projectMap = {
-    discovery: 'Trump Residence Gurgaon Discovery',
-    remarketing: 'Trump Residence Gurgaon Remarketing'
+    discovery: 'Trump Residence Gurgaon-Discovery',
+    remarketing: 'Trump Residence Gurgaon-Remarketing',
+    placement: 'Trump Residence Gurgaon-Placement'
   };
   const vProject = projectMap[formVia] ?? 'Trump Residence Gurgaon';
+  console.log(formVia)
   // console.log(pathName.split('/').pop())
 
   const AgentInfo = {
